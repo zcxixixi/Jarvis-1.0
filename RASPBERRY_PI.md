@@ -41,45 +41,40 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-### 3. 安装Python依赖
+### 3. 安装系统依赖（关键）
+
+树莓派上安装 `pyaudio` 需要一些底层的开发库：
 
 ```bash
-# 确认Python版本
-python3 --version  # 应该是 3.9+
-
-# 安装pip（如果没有）
-sudo apt install python3-pip -y
+sudo apt update
+sudo apt install python3-pip libportaudio2 libportaudio-dev portaudio19-dev python3-pyaudio -y
 ```
 
-### 4. 从Mac传输代码到树莓派
-
-**方案A: 使用scp（推荐）**
-
-在你的Mac上执行：
-
-```bash
-cd ~/ai-agents-for-beginners
-scp -r jarvis-assistant pi@raspberrypi.local:~/
-```
-
-**方案B: 使用Git（如果你用了Git）**
+### 4. 从 Git 同步代码
 
 在树莓派上：
 
 ```bash
 cd ~
-git clone <你的仓库地址>
-cd jarvis-assistant
+git clone https://github.com/zcxixixi/Jarvis-1.0.git
+cd Jarvis-1.0
 ```
 
-### 5. 在树莓派上安装依赖
+### 5. 安装 Python 依赖
 
 ```bash
-cd ~/jarvis-assistant
 pip3 install -r requirements.txt
 ```
 
-### 6. 配置API密钥
+### 6. 测试运行！
+
+```bash
+python3 hybrid_jarvis.py
+```
+
+如果您看到“Jarvis is alive”，说明基础运行环境已就绪。
+
+### 7. 配置API密钥
 
 ```bash
 # 编辑 .env 文件
@@ -88,10 +83,10 @@ nano .env
 
 添加你的Grok API Key，然后保存（Ctrl+O, Enter, Ctrl+X）
 
-### 7. 测试运行！
+### 8. 再次测试运行！
 
 ```bash
-python3 jarvis_cli.py
+python3 hybrid_jarvis.py
 ```
 
 如果看到贾维斯的界面，恭喜你成功了！🎉
