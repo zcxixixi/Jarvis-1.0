@@ -1,0 +1,41 @@
+# Jarvis 1.0 - AI Voice Assistant
+
+## Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# Virtual Environment
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Audio files (large)
+*.wav
+*.mp3
+*.mp4
+*.pcm
+output.pcm
+temp_input.wav
+
+# Cache
+*.cache
+*.log
+
+# Music cache (can be very large)
+/Users/*/Music/JarvisCache/
+
+# Sensitive files - DO NOT COMMIT
+# jarvis_doubao_config.py contains API keys - consider using environment variables
+
+# OS
+.DS_Store
+Thumbs.db
