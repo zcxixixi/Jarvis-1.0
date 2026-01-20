@@ -7,6 +7,7 @@ SpeechRecognition>=3.10.0
 edge-tts>=6.1.9
 pyaudio>=0.2.14
 pygame>=2.5.2
+pvporcupine>=3.0.0
 
 # Utilities
 requests>=2.31.0
@@ -20,3 +21,10 @@ python-miio>=0.5.12  # Xiaomi Smart Home
 
 # Development
 pytest>=7.4.0
+
+# AEC & Audio
+websockets
+
+# Information Services
+yfinance
+feedparser

@@ -1,40 +1,28 @@
-# Jarvis 1.0 - AI Voice Assistant
+# Jarvis Assistant
 
-A real-time voice assistant powered by ByteDance Doubao API, featuring continuous conversation, music playback, and smart home control.
+A hyper-optimized, hybrid AI assistant for Raspberry Pi (and Mac).
+Combines **Doubao Realtime API** (for natural conversation) with **Local Tools** (for fast home control).
 
-## Features
-
-- 🎙️ **Real-time Voice Interaction** - Full-duplex conversation with <1s latency
-- 🗣️ **Continuous Dialogue** - 15-second conversation window, no need to repeat wake word
-- 🎵 **Music Playback** - Netease Cloud Music (VIP bypass) with automatic fallback
-- 🏠 **Smart Home** - Xiaomi/Mi Home device control
-- 🎤 **Wake Word** - Offline "Jarvis" detection via Porcupine
-- 🔇 **Echo Suppression** - Auto-mute during playback to prevent feedback
-
-## Quick Start
-
+## 🚀 Quick Start
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run Jarvis
-python3 hybrid_jarvis.py
+./start.sh
 ```
 
-## Voice Commands
+## 🛠️ Debugging & Verification Tools (New!)
+We have added a suite of professional tools to verify every aspect of the system.
 
-- **Wake**: Say "Jarvis" to activate
-- **Music**: "播放周杰伦的歌" / "停止播放" / "暂停"
-- **Weather**: "今天天气怎么样"
-- **Sleep**: "退下" / "休息吧"
+### 1. Audio & AEC
+- **Test Echo Cancellation**: `./test_aec.sh` (Select Music/Speech/Sweep modes)
+- **Test Noise Suppression**: `./test_noise.sh`
+- **Calibrate Latency**: `./calibrate.sh` (Crucial for perfect AEC)
 
-## Configuration
+### 2. Logic & Connectivity
+- **Test Cloud Connection**: `./test_api.sh`
+- **Test Intent Logic**: `python3 tests/test_intents.py`
+- **Test Flow Logic**: `python3 tests/test_flow_simulation.py`
 
-Edit `jarvis_doubao_config.py` to configure:
-- Doubao API credentials
-- TTS voice selection
-- Jarvis persona
-
-## License
-
-MIT
+## 📁 System Structure
+- **`hybrid_jarvis.py`**: Main application entry point.
+- **`aec_processor.py`**: Software Acoustic Echo Cancellation.
+- **`tests/`**: All verification scripts.
+- **`tools/`**: Local capabilities (Music, Weather, etc).

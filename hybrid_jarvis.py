@@ -6,11 +6,14 @@ import asyncio
 import json
 import gzip
 import time
+import re
 from typing import Optional
 from jarvis_doubao_realtime import DoubaoRealtimeJarvis, DoubaoProtocol
 from tools import get_all_tools
 from jarvis_doubao_config import APP_ID, ACCESS_TOKEN, ws_connect_config, start_session_req, input_audio_config, output_audio_config
 from audio_utils import play_boot_sound
+from aec_processor import get_aec
+# import audioop # No longer needed (TTS aligned to 16k)
 
 class HybridJarvis(DoubaoRealtimeJarvis):
     def __init__(self):
@@ -23,22 +26,32 @@ class HybridJarvis(DoubaoRealtimeJarvis):
             "计算": "calculate",
             "开灯": "control_xiaomi_light",
             "关灯": "control_xiaomi_light",
-            "打开": "control_xiaomi_light", # Added generic open
-            "关闭": "control_xiaomi_light", # Added generic close
+            "打开": "control_xiaomi_light", 
+            "关闭": "control_xiaomi_light", 
+            "电灯": "control_xiaomi_light",
             "扫描设备": "scan_xiaomi_devices",
             "播放": "play_music",
-            "放": "play_music", # Added generic play
-            "播": "play_music", # Broad match for "播一首", "随便播"
+            "放个": "play_music",
+            "放首": "play_music",
+            "放点": "play_music",
+            "播一": "play_music",
             "点歌": "play_music",
-            "唱": "play_music", # "唱首..."
-            "来首": "play_music", # Added casual play
+            "听歌": "play_music",
+            "听点": "play_music",
+            "想听": "play_music",
+            "我要听": "play_music",
             "音乐": "play_music",
+            "广播": "play_music",
             "停止": "play_music", 
-            "暂停": "play_music", # Added pause
+            "别播": "play_music",
+            "别放": "play_music",
+            "关闭音乐": "play_music",
+            "暂停": "play_music",
         }
         
         self.music_playing = False  # Track music playback state
         self.processing_tool = False
+        self.skip_cloud_response = False  # NEW: Skip Doubao's TTS while local tool is executing
         
         # State machine: STANDBY (default) vs ACTIVE (after wake word)
         self.ACTIVE_TIMEOUT = 15  # 用户要求 15 秒自由沟通
@@ -52,6 +65,10 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         from wake_word import get_wake_word_detector
         self.wake_detector = get_wake_word_detector()
         self.wake_detector.initialize()
+        
+        # Initialize AEC
+        self.aec = get_aec(sample_rate=16000)
+        self.resample_state = None  # For 24k -> 16k conversion
 
     def setup_audio(self):
         """Override base setup to use config-driven parameters"""
@@ -90,6 +107,7 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         """
         import time
         import protocol
+        import websockets
         
         CHUNK = 3200
         print(f"🎙️ Jarvis initialized in {'ACTIVE' if self.is_active else 'STANDBY'} mode.")
@@ -100,11 +118,26 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         while True:
             try:
                 # 1. Read Mic Data
-                data = self.input_stream.read(CHUNK, exception_on_overflow=False)
+                raw_data = self.input_stream.read(CHUNK, exception_on_overflow=False)
+                
+                # --- AEC Processing ---
+                data = self.aec.cancel_echo(raw_data)
+                # ----------------------
+                
                 now = time.time()
 
                 # 2. Local Wake Word Detection (Always running)
+                # BUT: Don't interrupt if we're in the middle of executing a tool OR speaking
                 if self.wake_detector.process_audio(data):
+                    # Skip wake word if:
+                    # - Tool is being executed (processing_tool)
+                    # - Jarvis is speaking TTS (self_speaking_mute)
+                    # Skip wake word if:
+                    # - Tool is being executed (processing_tool)
+                    # - We trust AEC to filter out self-speech, so we ALLOW wake word during speech!
+                    if self.processing_tool:
+                        continue
+                    
                     # IMMEDIATE DUCK to maximize listening for the follow-up
                     from audio_utils import lower_music_volume
                     lower_music_volume()
@@ -132,8 +165,8 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                     continue # Skip sending this frame
 
                 # CRITICAL FIX: Auto-unmute mic after Jarvis stops speaking (1 second silence)
-                # Only do this in ACTIVE mode - in STANDBY we don't need mic
-                if self.is_active and self.self_speaking_mute and self.last_audio_time > 0:
+                # This must work in both ACTIVE and STANDBY to ensure wake word can hear clearly
+                if self.self_speaking_mute and self.last_audio_time > 0:
                     if now - self.last_audio_time > 1.0:
                         print("\n[已恢复收音] Mic auto-resumed after speech pause")
                         self.self_speaking_mute = False
@@ -164,18 +197,22 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                         # ECHO PREVENTED: Send silence instead of mic data
                         await self._send_raw_audio(SILENT_SAMPLE[:320])
                 else:
-                    # STANDBY: Only send keepalive every 5s to prevent timeout
+                    # STANDBY: Keepalive
                     if now - last_keepalive > 5.0:
-                        # Send a very short silent packet
-                        await self._send_raw_audio(SILENT_SAMPLE[:320]) # 20ms silence
+                        await self._send_raw_audio(SILENT_SAMPLE[:320])
                         last_keepalive = now
-                        print(".", end="", flush=True) # Heartbeat indicator
+                        print(".", end="", flush=True)
                 
                 await asyncio.sleep(0.01)
+
+            except websockets.exceptions.ConnectionClosed:
+                print("\n⚠️ Send loop detected connection close.")
+                raise # Reraise to exit connect() and trigger reconnect
                 
             except Exception as e:
                 print(f"Audio loop error: {e}")
-                await asyncio.sleep(0.5)
+                # Don't sleep too long or we lag
+                await asyncio.sleep(0.1)
 
     async def _send_raw_audio(self, data):
         """Helper to package and send audio according to Doubao protocol"""
@@ -411,6 +448,9 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 
                 # --- Case A: Audio (Binary) ---
                 if serialization_type == protocol.NO_SERIALIZATION:
+                    # Skip cloud audio if we're handling a local tool
+                    if self.skip_cloud_response:
+                        continue
                     if not self.processing_tool and isinstance(payload, bytes):
                         # ECHO FIX: Mute mic while we are pushing audio out
                         self.self_speaking_mute = True
@@ -418,6 +458,12 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                         
                         try:
                             self.output_stream.write(payload, exception_on_underflow=False)
+                            
+                            # --- AEC Reference Feeding ---
+                            # No resampling needed (Both are 16k now)
+                            self.aec.feed_reference(payload)
+                            # -----------------------------
+                            
                         except Exception as e:
                             if "35" in str(e):
                                 pass
@@ -442,6 +488,9 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                     event = payload
                     if not isinstance(event, dict):
                         continue
+                    
+                    # DEBUG: Disabled to prevent terminal I/O blocking
+                    # print(f"\n[DEBUG] Event: {json.dumps(event, ensure_ascii=False)[:300]}")
                         
                     # Filter voice activity noise
                     if event.get('type') not in ['audio', 'speech_segments']:
@@ -483,10 +532,18 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                         await self.check_and_run_tool(user_text)
                     
                     if bot_text:
-                        if not self.bot_turn_active:
-                            print(f"\n🗣️ Jarvis: ", end="", flush=True)
-                            self.bot_turn_active = True
-                        print(bot_text, end="", flush=True)
+                        # Process protocols
+                        await self.process_protocol_event(bot_text)
+
+                        # CLEAN: Strip protocols and brackets from terminal display/TTS (if possible)
+                        clean_text = re.sub(r'\[PROTOCOL:.*?\]', '', bot_text).strip()
+                        
+                        if clean_text:
+                            if not self.bot_turn_active:
+                                print(f"\n🗣️ Jarvis: ", end="", flush=True)
+                                self.bot_turn_active = True
+                            print(clean_text, end="", flush=True)
+                        
                         # CRITICAL: Also reset timeout during speech to prevent mid-speech dropout
                         self.active_until = time.time() + self.ACTIVE_TIMEOUT
                     
@@ -541,6 +598,67 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         
         await self.ws.send(req)
 
+
+    async def process_protocol_event(self, bot_text: str):
+        """Detect and execute Natural Language Triggers from bot text"""
+        import re
+        import random
+        from audio_utils import restore_music_volume
+        
+        # Natural Language Triggers (Must match System Prompt exactly)
+        TRIGGERS = {
+            "光照系统已激活": "LIGHT_ON",
+            "光照系统已关闭": "LIGHT_OFF",
+            "正在接入音频流": "PLAY_MUSIC",
+            "音频输出已切断": "MUSIC_STOP",
+            "今日资讯简报如下": "GET_NEWS"
+        }
+        
+        command = None
+        for phrase, cmd in TRIGGERS.items():
+            if phrase in bot_text:
+                command = cmd
+                print(f"\n🧠 Natural Intent Triggered: {phrase} -> {cmd}")
+                break
+        
+        if not command:
+            return
+
+        try:
+            if command == "LIGHT_ON":
+                tool = self.tools.get("control_xiaomi_light")
+                if tool: await tool.execute(action="on")
+                
+            elif command == "LIGHT_OFF":
+                tool = self.tools.get("control_xiaomi_light")
+                if tool: await tool.execute(action="off")
+                
+            elif command == "PLAY_MUSIC":
+                tool = self.tools.get("play_music")
+                all_music = tool._scan_music()
+                if all_music:
+                    import os
+                    target = os.path.basename(random.choice(all_music))
+                    print(f"🎲 Random play via Trigger: {target}")
+                    await tool.execute(action="play", query=target)
+                    self.music_playing = True
+                    self.is_active = False
+                    restore_music_volume()
+            
+            elif command == "MUSIC_STOP":
+                await self.stop_music_and_resume()
+                
+            elif command == "GET_NEWS":
+                from tools import info_tools
+                print("📰 Fetching news summary via Trigger...")
+                result = await info_tools.get_news_briefing()
+                # Feed result back to LLM to speak naturally
+                prompt = f"System: 已获取今日头条。执行结果是：{result}。请用新闻主播语气播报。"
+                await self.send_text_query(prompt)
+
+        except Exception as e:
+            print(f"⚠️ Trigger execution failed: {e}")
+
     async def check_and_run_tool(self, text: str):
         """Check text for keywords and run tools"""
         import re
@@ -585,11 +703,56 @@ class HybridJarvis(DoubaoRealtimeJarvis):
             from audio_utils import restore_music_volume
             restore_music_volume()
             return
+        # NEW: Information Services (Regex based)
+        # 1. Stock/Crypto
+        stock_match = re.search(r'(.*?)(股价|币价|行情|走势)', text)
+        if stock_match:
+            query = stock_match.group(1).strip()
+            # If query is empty, try to infer or ask? 
+            # E.g. "今日股价" -> fail? 
+            if len(query) > 0:
+                print(f"⚡ Detected Intent: get_stock_price ({query})")
+                self.processing_tool = True
+                self.skip_cloud_response = True
+                
+                from tools import info_tools
+                result = await info_tools.get_stock_price(query)
+                
+                # Send result
+                prompt = f"System: 用户查询了股价。行情数据是：{result}。请用自然语言播报。"
+                await self.send_text_query(prompt)
+                
+                self.processing_tool = False
+                self.skip_cloud_response = False
+                return
+
+        # 2. News
+        if re.search(r'(新闻|头条|热点|发生了什么)', text):
+            print(f"⚡ Detected Intent: get_news")
+            self.processing_tool = True
+            self.skip_cloud_response = True
+            
+            from tools import info_tools
+            result = await info_tools.get_news_briefing()
+            
+            # Send result (News summary is already formatted for reading)
+            # We can send it directly as "User says: Read this", or "System: Here is news"
+            # Doubao might summarize it again. Let's just have Doubao read it.
+            prompt = f"System: 用户想听新闻。这是抓取到的今日头条：\n{result}\n请用新闻主播的语气播报。"
+            await self.send_text_query(prompt)
+            
+            self.processing_tool = False
+            self.skip_cloud_response = False
+            return
 
         for keyword, tool_name in self.intent_keywords.items():
             if keyword in text:
                 print(f"\n⚡ Detected Intent: {tool_name}")
                 self.processing_tool = True
+                self.skip_cloud_response = True  # Mute Doubao's response
+                
+                # Clear any pending audio from Doubao
+                # (The ASR may have already triggered a response)
                 
                 # Execute Tool
                 tool = self.tools.get(tool_name)
@@ -597,16 +760,36 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 try:
                     # --- Intelligent Parameter Extraction ---
                     if tool_name == "get_weather":
-                        # Cleaning: remove common stopwords to isolate city
-                        stopwords = ["天气", "查询", "的", "今天", "怎么样", "现在", "目前", "帮我", "看看", "查一下"]
+                        # Improved city extraction with comprehensive stopwords
+                        stopwords = [
+                            "天气", "查询", "的", "今天", "怎么样", "现在", "目前", 
+                            "帮我", "看看", "查一下", "情况", "怎样", "如何", "查查",
+                            "明天", "后天", "昨天", "预报", "告诉我", "问一下", "问问",
+                            "啊", "呢", "吧", "吗", "呀", "哦", "嗯", "那个"
+                        ]
+                        
+                        # Step 1: Remove all stopwords
                         city = text
                         for w in stopwords:
                             city = city.replace(w, "")
                         city = city.strip()
                         
-                        if not city: city = "Beijing" # Fallback
+                        # Step 2: If still too long or empty, try known city patterns
+                        if len(city) > 10 or not city:
+                            city_match = re.search(r'(北京|上海|广州|深圳|青岛|杭州|成都|重庆|武汉|西安|南京|苏州|天津|长沙|郑州|厦门|合肥|济南|福州|昆明|大连|宁波|无锡|东莞|佛山|沈阳|哈尔滨)', text)
+                            if city_match:
+                                city = city_match.group(1)
+                            else:
+                                city = "Beijing"  # Ultimate fallback
+                        
+                        # Step 3: Clean up any remaining noise
+                        city = re.sub(r'[^\u4e00-\u9fa5a-zA-Z]', '', city)
+                        if not city:
+                            city = "Beijing"
+                            
                         print(f"📍 Extracted City: {city}")
-                        result = await tool.execute(city=city) 
+                        result = await tool.execute(city=city)
+ 
                         
                     elif tool_name == "control_xiaomi_light":
                          # Extract action
@@ -695,6 +878,7 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 await self.send_text_query(prompt)
                 
                 self.processing_tool = False
+                self.skip_cloud_response = False  # Resume listening to Doubao
                 return
 
 if __name__ == "__main__":

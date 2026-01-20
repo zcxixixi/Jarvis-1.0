@@ -10,6 +10,9 @@ import time
 from typing import Dict, List, Optional
 from .base import BaseTool
 
+import asyncio 
+# from .base import BaseTool # (Already imported)
+
 class NeteaseMusicTool(BaseTool):
     """Play music from Netease Cloud Music"""
     
@@ -53,6 +56,8 @@ class NeteaseMusicTool(BaseTool):
         }
     
     async def execute(self, action: str, query: str = "") -> str:
+        loop = asyncio.get_running_loop()
+        
         if action == "stop":
             if self._current_process:
                 self._current_process.terminate()
@@ -61,8 +66,9 @@ class NeteaseMusicTool(BaseTool):
             return "当前没有播放"
 
         if action == "play" and query:
-            # 1. Search
-            song_info = self._search_song(query)
+            # 1. Search (Run in Executor to avoid blocking)
+            song_info = await loop.run_in_executor(None, self._search_song, query)
+            
             if not song_info:
                 return f"❌ 网易云未找到: {query}"
                 
@@ -70,28 +76,31 @@ class NeteaseMusicTool(BaseTool):
             song_name = song_info['name']
             artist = song_info['artists'][0]['name']
             
-            # 2. Get URL (Advanced)
+            # 2. Get URL (Run in Executor)
             # Try to get the real URL from the new API
-            real_url = self._get_song_url(song_id)
+            real_url = await loop.run_in_executor(None, self._get_song_url, song_id)
             if not real_url:
                  # Fallback to standard
                  real_url = f"http://music.163.com/song/media/outer/url?id={song_id}.mp3"
             
-            # 3. Download/Stream
+            # 3. Download/Stream (Run in Executor)
             print(f"🎵 Downloading {song_name} - {artist}...")
             file_path = os.path.join(self._cache_dir, f"{song_id}.mp3")
             
-            if not self._download_file(real_url, file_path):
+            success = await loop.run_in_executor(None, self._download_file, real_url, file_path)
+            
+            if not success:
                 print(f"⚠️ Netease download failed. Trying backup source for demo...")
-                # Backup Source (SoundHelix) to ensure "Product Level" reliability
-                # We pretend it's the song for the sake of the demo
+                # Backup Source
                 backup_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-                if self._download_file(backup_url, file_path):
+                success = await loop.run_in_executor(None, self._download_file, backup_url, file_path)
+                
+                if success:
                     print("✅ Backup source downloaded successfully.")
                 else:
                     return f"❌ 下载失败: {song_name} (网络源受限)"
                 
-            # 4. Play
+            # 4. Play (subprocess is fine)
             if self._current_process:
                 self._current_process.terminate()
                 

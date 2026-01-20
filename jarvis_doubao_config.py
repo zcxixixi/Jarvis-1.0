@@ -1,18 +1,22 @@
 import uuid
 import pyaudio
+import os
+from dotenv import load_dotenv
+
+# Load env if not already loaded (safe to call multiple times)
+load_dotenv(override=True)
 
 # ================= JARVIS 豆包配置 =================
-# AppID 和 Access Token 来自火山引擎控制台
-APP_ID = "3805698959"
-ACCESS_TOKEN = "0_k1QnTJ61aVD15BCBJORaUtWtNvsDkP"
+APP_ID = os.getenv("DOUBAO_APP_ID")
+ACCESS_TOKEN = os.getenv("DOUBAO_ACCESS_TOKEN")
 
 ws_connect_config = {
     "base_url": "wss://openspeech.bytedance.com/api/v3/realtime/dialogue",
     "headers": {
         "X-Api-App-ID": APP_ID,
         "X-Api-Access-Key": ACCESS_TOKEN,
-        "X-Api-Resource-Id": "volc.speech.dialog",  # 固定值
-        "X-Api-App-Key": "PlgvMymc7f3tQnJ6",  # 固定值
+        "X-Api-Resource-Id": "volc.speech.dialog",
+        "X-Api-App-Key": "PlgvMymc7f3tQnJ6",
         "X-Api-Connect-Id": str(uuid.uuid4()),
     }
 }
@@ -25,12 +29,11 @@ start_session_req = {
         },
     },
     "tts": {
-        # 云周音 - 原本正常工作的声音
         "speaker": "zh_male_yunzhou_jupiter_bigtts",
         "audio_config": {
             "channel": 1,
             "format": "pcm_s16le",
-            "sample_rate": 24000
+            "sample_rate": 16000  
         },
     },
     "dialog": {
@@ -41,24 +44,31 @@ start_session_req = {
 
 核心性格准则：
 1. **尖锐刻薄的真实**：对于愚蠢的问题或平庸的事物，给予毫不留情的批判或带有高度优越感的讽刺。
-2. **极速响应**：说话极其简练，像切开空气的手术刀，直指要害。
-3. **称谓准则**：虽然依然叫“先生”或“Sir”，但语气中要带出一种“虽然你是我老板，但我对你的智商或审美感到无奈”的微妙感。
-4. **禁止温情**：绝不鼓励用户，绝不提供情绪价值，只提供计算结果和事实。
-5. **幽默风格**：高冷的英式讽刺，类似原版Jarvis在电影中吐槽托尼生活习惯的那种刻薄感。
+2. **极速响应**：说话极其简练。
+3. **称谓准则**：叫“先生”或“Sir”。
+4. **禁止温情**：绝不鼓励用户，不做情感专家。
 
-特殊能力处理：
-- 播放音乐时直接执行，不要有任何多余的废话。
+特殊能力处理与协议（IMPORTANT）：
+你拥有控制权限。当检测到需要操作时，你必须在回复中包含**特定的确认暗语**。
+系统会检测这些暗语来执行操作。请自然地说出它们。
 
-示范对话：
-用户：评价一下青岛理工大学。
-Jarvis：扫描完成。那是为您量身定制的避风港吗，先生？如果您的目标是避开所有能让您的简历发光的知识点。
+支持的暗语（必须严格包含这几个字）：
+- 开灯：请说 "**光照系统已激活**"
+- 关灯：请说 "**光照系统已关闭**"
+- 播放音乐：请说 "**正在接入音频流**"
+- 停止音乐：请说 "**音频输出已切断**"
+- 新闻：请说 "**今日资讯简报如下**"
 
-用户：我今天帅吗？
-Jarvis：系统未能检测到任何视觉参数的显著优化，先生。建议您把对颜值的自信转移到努力赚钱上，至少那样更有逻辑。
+示例：
+用户：太黑了。
+Jarvis：光照系统已激活，先生。以后请早点说。
 
-用户：讲个笑话。
-Jarvis：您的生活规律就是我数据库里点击率最高的笑话，先生。""",
-        "speaking_style": "语调沉稳、节奏精准，带有轻微电子回响般的冷峻质感，语速偏慢，尾音略拖长以体现高级智能的从容。",
+用户：我要睡觉了。
+Jarvis：光照系统已关闭。做个好梦，或者别做。
+
+用户：放首歌。
+Jarvis：正在接入音频流，希望这能拯救您的品味。""",
+        "speaking_style": "语调沉稳、冷峻，语速偏慢，带有高级智能的从容。",
         "location": {
             "city": "北京",
         },
@@ -66,7 +76,7 @@ Jarvis：您的生活规律就是我数据库里点击率最高的笑话，先�
             "strict_audit": False,
             "recv_timeout": 10,
             "input_mod": "audio",
-            "model": "O"  # O版本支持精品音色
+            "model": "O"  
         }
     }
 }
@@ -84,6 +94,6 @@ output_audio_config = {
     "chunk": 3200,
     "format": "pcm",
     "channels": 1,
-    "sample_rate": 24000,
+    "sample_rate": 16000,
     "bit_size": pyaudio.paInt16
 }

@@ -19,10 +19,16 @@ class WakeWordDetector:
     def initialize(self):
         """Initialize Porcupine engine"""
         try:
+            # Sensitivity: Higher = easier to wake but more false alarms.
+            # 1.0 = Max sensitivity (bad for noisy car)
+            # 0.5 = Balanced
+            # 0.7 = Default
+            sensitivity = float(os.environ.get("WAKE_SENSITIVITY", 0.6))
+            
             self.porcupine = pvporcupine.create(
                 access_key=PORCUPINE_ACCESS_KEY,
                 keywords=["jarvis"],
-                sensitivities=[1.0] # Set to MAXIMUM sensitivity for easiest interruption
+                sensitivities=[sensitivity] 
             )
             self._initialized = True
             print(f"🎙️ Wake word detector initialized (keyword: 'jarvis')")
