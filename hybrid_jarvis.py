@@ -2,22 +2,28 @@
 Hybrid Jarvis
 Combines Doubao Realtime API (for speed) with Local Tools (for capability)
 """
+print("🚀 [TOP-LEVEL] Hybrid Jarvis script starting...", flush=True)
 import asyncio
 import json
 import gzip
 import time
 import re
+import numpy as np
 from typing import Optional
+print("🚀 [TOP-LEVEL] Imports complete", flush=True)
 from jarvis_doubao_realtime import DoubaoRealtimeJarvis, DoubaoProtocol
 from tools import get_all_tools
-from jarvis_doubao_config import APP_ID, ACCESS_TOKEN, ws_connect_config, start_session_req, input_audio_config, output_audio_config
+from jarvis_doubao_config import APP_ID, ACCESS_TOKEN, ws_connect_config, start_session_req, input_audio_config, output_audio_config, MICROPHONE_DEVICE_INDEX, INPUT_HARDWARE_SAMPLE_RATE
 from audio_utils import play_boot_sound
 from aec_processor import get_aec
-# import audioop # No longer needed (TTS aligned to 16k)
+from aec_processor import get_aec
+import audioop # For high-quality resampling ratecv
 
 class HybridJarvis(DoubaoRealtimeJarvis):
     def __init__(self):
+        print("🔧 HybridJarvis: Initializing...", flush=True)
         super().__init__()
+        print("🔧 HybridJarvis: Base class initialized", flush=True)
         self.tools = {t.name: t for t in get_all_tools()}
         # Simplified intent mapping (in real app, use local LLM or fuzzy match)
         self.intent_keywords = {
@@ -60,6 +66,7 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         self.bot_turn_active = False # Track if bot is currently speaking for clean logs
         self.self_speaking_mute = False # ECHO FIX: Mute mic while Jarvis is speaking
         self.last_audio_time = 0  # Track when the last audio chunk was received
+        self.discard_incoming_audio = False # INTERRUPT FIX: Ignore trailing audio after wake
         
         # Initialize wake word detector
         from wake_word import get_wake_word_detector
@@ -67,151 +74,312 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         self.wake_detector.initialize()
         
         # Initialize AEC
+        print("🔧 HybridJarvis: Loading AEC...")
         self.aec = get_aec(sample_rate=16000)
-        self.resample_state = None  # For 24k -> 16k conversion
+        print("🔧 HybridJarvis: AEC Loaded")
+        print("🔧 HybridJarvis: AEC Loaded")
+        
+        # [NEW] 添加重采样状态变量
+        self.mic_resample_state = None  # 用于麦克风 48k -> 16k
+        self.ref_resample_state = None  # 用于参考信号 24k -> 16k
+
+    def find_mic_index(self):
+        """Dynamically find the USB microphone index by name"""
+        import pyaudio
+        target_name = "(LCS) USB Audio Device"
+        for i in range(self.p.get_device_count()):
+            try:
+                info = self.p.get_device_info_by_index(i)
+                name = info.get("name", "")
+                if target_name in name:
+                    print(f"🎯 Jarvis: Found USB Mic at Index {i}")
+                    return i
+            except:
+                continue
+        print(f"⚠️  Jarvis: Target mic '{target_name}' not found. Using config fallback: {MICROPHONE_DEVICE_INDEX}")
+        return MICROPHONE_DEVICE_INDEX
 
     def setup_audio(self):
-        """Override base setup to use config-driven parameters"""
+        """Override base setup to use config-driven parameters with dynamic discovery"""
         import pyaudio
-        self.input_stream = self.p.open(
-            format=input_audio_config["bit_size"],
-            channels=input_audio_config["channels"],
-            rate=input_audio_config["sample_rate"],
-            input=True,
-            frames_per_buffer=input_audio_config["chunk"]
-        )
-        # The user's instruction seems to redefine output_audio_config inline.
-        # To make it syntactically correct and reflect the intent of using "pcm_s16le",
-        # we will update the output_audio_config dictionary directly here before use.
-        # This assumes the intent was to modify the configuration for this instance.
-        global output_audio_config
-        output_audio_config = {
-            "chunk": 3200,
-            "format": "pcm_s16le", # This format string is not directly used by pyaudio.open's 'format' parameter
-            "channels": 1,
-            "sample_rate": 24000,
-            "bit_size": pyaudio.paInt16 # This is what pyaudio.open's 'format' parameter expects
-        }
+        
+        mic_index = self.find_mic_index()
+        print(f"🎙️ Jarvis: Opening Mic (Index {mic_index}) at {INPUT_HARDWARE_SAMPLE_RATE}Hz...")
+        
+        try:
+            self.input_stream = self.p.open(
+                format=input_audio_config["bit_size"],
+                channels=input_audio_config["channels"],
+                rate=INPUT_HARDWARE_SAMPLE_RATE,
+                input=True,
+                input_device_index=mic_index,
+                frames_per_buffer=input_audio_config["chunk"] * 3
+            )
+        except Exception as e:
+            print(f"❌ Jarvis: Failed to open mic at Index {mic_index}: {e}")
+            # Try index 1 as a common fallback for USB mics on Pi
+            for fallback in [1, 0, 2]:
+                if fallback == mic_index: continue
+                try:
+                    print(f"🔄 Jarvis: Trying fallback Index {fallback}...")
+                    self.input_stream = self.p.open(
+                        format=input_audio_config["bit_size"],
+                        channels=input_audio_config["channels"],
+                        rate=INPUT_HARDWARE_SAMPLE_RATE,
+                        input=True,
+                        input_device_index=fallback,
+                        frames_per_buffer=input_audio_config["chunk"] * 3
+                    )
+                    print(f"✅ Jarvis: Success with Index {fallback}!")
+                    break
+                except: continue
+            else:
+                raise e
+
+        # Standard output setup - FORCE 'pulse' device to reach Bluetooth
+        # Device index 2 is 'pulse' which routes to PipeWire -> Bluetooth
         self.output_stream = self.p.open(
-            format=output_audio_config["bit_size"], # Use pyaudio.paInt16 from the updated config
+            format=output_audio_config["bit_size"],
             channels=output_audio_config["channels"],
             rate=output_audio_config["sample_rate"],
-            output=True
+            output=True,
+            output_device_index=2  # 'pulse' device
         )
-        print(f"🎙️ Audio setup complete (In: {input_audio_config['sample_rate']}Hz, Out: {output_audio_config['sample_rate']}Hz)")
+        print(f"🎙️ Jarvis: Audio setup complete (In: {input_audio_config['sample_rate']}Hz, Out: {output_audio_config['sample_rate']}Hz)", flush=True)
+        
+        # [NEW] Speaker Thread (Jitter Buffer)
+        import queue
+        import threading
+        self.speaker_queue = queue.Queue()
+        self.speaker_thread = threading.Thread(target=self._speaker_worker, daemon=True)
+        self.speaker_thread.start()
+        print("✅ Speaker Thread Started (Jitter Buffer Enabled)")
+
+    def _mic_reader_thread(self, loop, audio_queue, chunk_size):
+        """
+        [专用线程] 持续从麦克风读取数据，绝不通过 await 暂停，确保无丢帧。
+        """
+        import time
+        print("🧵 [THREAD] Mic Reader Thread starting...", flush=True)
+        while self.is_running:
+            try:
+                # 这是一个阻塞调用，但因为它在独立线程里，所以没关系！
+                # 它可以完美地按硬件时钟节奏运行
+                data = self.input_stream.read(chunk_size, exception_on_overflow=False)
+                
+                # 线程安全地将数据放入 asyncio 主循环的队列中
+                loop.call_soon_threadsafe(audio_queue.put_nowait, data)
+            except OSError as e:
+                # 忽略一些良性的溢出错误，或者是设备临时忙
+                if "Input overflowed" in str(e):
+                    pass
+                elif "Stream closed" in str(e) or "Input/output error" in str(e):
+                    print(f"❌ Mic Critical Error: {e} - Stream lost, restart required.")
+                    time.sleep(1.0)
+                else:
+                    print(f"⚠️ Mic Read Warning: {e}")
+                    time.sleep(0.01)
+            except Exception as e:
+                print(f"❌ Mic Thread Critical: {e}")
+                time.sleep(0.1)
+
+
+    def _speaker_worker(self):
+        """
+        [专用播放线程] 充当 Jitter Buffer，平滑网络波动，防止阻塞主循环
+        消费者：负责从队列获取 -> 写入声卡 -> 喂给 AEC
+        """
+        import audioop
+        
+        while self.is_running:
+            try:
+                # 阻塞等待音频数据 (timeout allows checking is_running)
+                data = self.speaker_queue.get(timeout=1.0)
+                if data is None: continue 
+                
+                # 在独立线程中写入声卡，卡住也不影响主程序
+                self.output_stream.write(data, exception_on_underflow=False)
+                
+                # --- AEC Reference Feeding (Moved here for accurate timing) ---
+                # Resample 24k (Doubao) -> 16k (AEC)
+                try:
+                    ref_chunk, self.ref_resample_state = audioop.ratecv(
+                        data, 
+                        2, 
+                        1, 
+                        24000, 
+                        16000, 
+                        self.ref_resample_state
+                    )
+                    self.aec.feed_reference(ref_chunk)
+                except Exception as e:
+                    print(f"Ref resample error: {e}")
+                # -----------------------------
+                
+                self.speaker_queue.task_done()
+            except:
+                continue
 
     async def send_audio_loop(self):
         """
-        STANDBY: Only listen for wake word. Send periodic silent packets to keep connection alive.
-        ACTIVE: Upload real-time audio to cloud for 10s after wake or command.
+        改进后的非阻塞音频循环：使用队列缓冲，彻底消除卡顿和丢帧。
         """
         import time
+        import threading
         import protocol
         import websockets
         
-        CHUNK = 3200
-        print(f"🎙️ Jarvis initialized in {'ACTIVE' if self.is_active else 'STANDBY'} mode.")
+        print(f"🎙️ Jarvis initialized in {'ACTIVE' if self.is_active else 'STANDBY'} mode.", flush=True)
         
-        last_keepalive = 0
-        SILENT_SAMPLE = b'\x00' * 3200 # Constant silent frame for keepalive
+        # SILENT_SAMPLE dynamic generation moved inside loop for robustness
         
+        # 1. 准备队列和专用线程
+        self.audio_queue = asyncio.Queue(maxsize=500) # 缓冲约10秒音频，防止由于网络卡顿导致的崩坏
+        hardware_chunk = input_audio_config["chunk"] * 3
+        
+        loop = asyncio.get_running_loop()
+        
+        # 启动“吸音”线程
+        self.reader_thread = threading.Thread(
+            target=self._mic_reader_thread, 
+            args=(loop, self.audio_queue, hardware_chunk),
+            daemon=True
+        )
+        self.reader_thread.start()
+        print("✅ Audio Reader Thread Started (Zero-Latency Mode)")
+
         while True:
             try:
-                # 1. Read Mic Data
-                raw_data = self.input_stream.read(CHUNK, exception_on_overflow=False)
+                # 2. 从队列获取数据 (纯异步等待，消耗极低)
+                raw_data_48k = await self.audio_queue.get()
                 
+                # Resample 48k -> 16k using polyphase filtering (High Quality)
+                # ratecv(fragment, width, nchannels, inrate, outrate, state, weightA, weightB)
+                raw_data, self.mic_resample_state = audioop.ratecv(
+                    raw_data_48k, 
+                    2,  # width (16-bit = 2 bytes)
+                    1,  # channels
+                    INPUT_HARDWARE_SAMPLE_RATE,  # Use config variable (e.g. 48000)
+                    16000, 
+                    self.mic_resample_state
+                )
+                
+                # Dynamic silence generation to handle clock drift/resample jitter
+                current_chunk_size = len(raw_data)
+                silent_chunk = b'\x00' * current_chunk_size
+                
+                pcm_16k = np.frombuffer(raw_data, dtype=np.int16)
+
                 # --- AEC Processing ---
                 data = self.aec.cancel_echo(raw_data)
-                # ----------------------
                 
                 now = time.time()
+                
+                # Audio level monitoring (print every ~2 seconds if active)
+                if int(now) % 2 == 0 and now - getattr(self, '_last_level_time', 0) > 1.0:
+                    self._last_level_time = now
+                    rms = np.sqrt(np.mean(pcm_16k.astype(np.float32)**2))
+                    if rms > 10: 
+                        print(f"[MIC INFO] Level RMS: {rms:.1f}")
 
-                # 2. Local Wake Word Detection (Always running)
-                # BUT: Don't interrupt if we're in the middle of executing a tool OR speaking
-                if self.wake_detector.process_audio(data):
-                    # Skip wake word if:
-                    # - Tool is being executed (processing_tool)
-                    # - Jarvis is speaking TTS (self_speaking_mute)
-                    # Skip wake word if:
-                    # - Tool is being executed (processing_tool)
-                    # - We trust AEC to filter out self-speech, so we ALLOW wake word during speech!
+                # --- WAKE WORD GAIN BOOST (Increase to 10x for sensitivity) ---
+                try:
+                    wake_pcm = np.frombuffer(data, dtype=np.int16).astype(np.float32)
+                    wake_pcm = np.clip(wake_pcm * 10.0, -32768, 32767).astype(np.int16)
+                    data_for_wake = wake_pcm.tobytes()
+                except:
+                    data_for_wake = data
+
+                # 2. Local Wake Word Detection
+                # SENSITIVITY UP: Lowering threshold during music (0.85 -> 0.70)
+                current_threshold = 0.70 if self.music_playing else None
+                
+                if self.wake_detector.process_audio(data_for_wake, threshold=current_threshold):
                     if self.processing_tool:
                         continue
                     
-                    # IMMEDIATE DUCK to maximize listening for the follow-up
-                    from audio_utils import lower_music_volume
-                    lower_music_volume()
+                    wake_cooldown = getattr(self, '_last_wake_time', 0)
+                    if now - wake_cooldown < 2.0:
+                        continue 
+                    self._last_wake_time = now
                     
-                    print("\n🎤 'JARVIS' detected!")
+                    from audio_utils import play_wake_sound
                     
-                    if not self.is_active:
-                        # Full wake-up: sound, music stop, volume duck
-                        await self.stop_music_and_resume() 
-                        self.is_active = True
-                        print(f"🌟 Mode: ACTIVE")
-                    else:
-                        # Already active: just reset timer and acknowledge softly
-                        print(f"✨ Session extended")
-                        # Ensure volume is ducked if it wasn't
-                        from audio_utils import lower_music_volume
-                        lower_music_volume()
-                        # If a bot was speaking, stop it
-                        if self.bot_turn_active or self.self_speaking_mute:
-                             print("🛑 Interrupting speech...")
-                             self.self_speaking_mute = False
-                             self.bot_turn_active = False
+                    # 1. Play sound and get its length
+                    sound_duration = play_wake_sound()
                     
+                    # 2. Stop music & reset in background
+                    await self.stop_music_and_resume() 
+                    await self.send_reset_signal()
+                    if self.aec: self.aec.reset()
+                    
+                    # 3. SET DYNAMIC IGNORE WINDOWS
+                    # Wait for the sound to finish + 0.2s margin
+                    ignore_period = sound_duration + 0.2
+                    self._ignore_audio_until = time.time() + ignore_period
+                    self.ignore_server_audio_until = time.time() + (ignore_period + 1.0)
+                    self.discard_incoming_audio = True
+                    
+                    # Increase wake_cooldown to prevent double triggers during the long sound
+                    self._last_wake_time = time.time() + (sound_duration * 0.5) 
+                    
+                    print(f"\n🎤 Local Wake: 'JARVIS' detected! Sound length: {sound_duration:.2f}s")
+                    self.is_active = True
                     self.active_until = now + self.ACTIVE_TIMEOUT
-                    continue # Skip sending this frame
+                    continue
 
-                # CRITICAL FIX: Auto-unmute mic after Jarvis stops speaking (1 second silence)
-                # This must work in both ACTIVE and STANDBY to ensure wake word can hear clearly
+                # Auto-unmute mic after Jarvis stops speaking
                 if self.self_speaking_mute and self.last_audio_time > 0:
                     if now - self.last_audio_time > 1.0:
-                        print("\n[已恢复收音] Mic auto-resumed after speech pause")
                         self.self_speaking_mute = False
                         self.bot_turn_active = False
                         self.last_audio_time = 0
-                        # Reset timeout for continuous conversation
                         self.active_until = now + self.ACTIVE_TIMEOUT
 
                 # 3. State Management
                 if self.is_active:
-                    # Check for timeout
                     if now > self.active_until:
                         self.is_active = False
                         print("\n💤 Timeout - Returning to STANDBY mode.")
-                        # Restore volume to original level so music keeps playing nicely in background
                         from audio_utils import restore_music_volume
                         restore_music_volume()
-                        # Ensure mute flags are reset
                         self.self_speaking_mute = False
                         self.bot_turn_active = False
                 
-                # 4. Data Sending Logic (ECHO FIX: check self_speaking_mute)
-                if self.is_active:
-                    if not self.self_speaking_mute:
-                        # ACTIVE: Send real mic data
-                        await self._send_raw_audio(data)
-                    else:
-                        # ECHO PREVENTED: Send silence instead of mic data
-                        await self._send_raw_audio(SILENT_SAMPLE[:320])
-                else:
-                    # STANDBY: Keepalive
-                    if now - last_keepalive > 5.0:
-                        await self._send_raw_audio(SILENT_SAMPLE[:320])
-                        last_keepalive = now
-                        print(".", end="", flush=True)
+                # 4. Data Sending Logic
+                # 判断当前是否正在播放（队列不为空 OR 标志位）
+                is_speaking_now = not self.speaker_queue.empty() or self.self_speaking_mute
                 
-                await asyncio.sleep(0.01)
-
+                if self.is_active and not is_speaking_now:
+                    # 只有当队列空了，且没有被逻辑静音时，才发送真实音频
+                    if getattr(self, '_ignore_audio_until', 0) > now:
+                        await self._send_raw_audio(silent_chunk)
+                    else:
+                        # ... (发送真实音频的代码) ...
+                            try:
+                                audio_np = np.frombuffer(data, dtype=np.int16).astype(np.float32)
+                                audio_np = np.clip(audio_np * 8.0, -32768, 32767).astype(np.int16)
+                                data_boosted = audio_np.tobytes()
+                                
+                                if int(now) % 3 == 0 and now % 1 < 0.1:
+                                    boosted_rms = np.sqrt(np.mean(audio_np.astype(np.float64)**2))
+                                    raw_rms = np.sqrt(np.mean(np.frombuffer(data, dtype=np.int16).astype(np.float64)**2))
+                                    print(f"[MIC INFO] Boosted RMS: {boosted_rms:.1f} (Raw: {raw_rms:.1f})")
+                                    
+                                await self._send_raw_audio(data_boosted)
+                            except Exception as e:
+                                # Fallback to non-boosted audio if math fails
+                                await self._send_raw_audio(data)
+                else:
+                    # 正在说话中，发送静音包压制麦克风
+                    if self.is_active:
+                         await self._send_raw_audio(silent_chunk)
+                
             except websockets.exceptions.ConnectionClosed:
                 print("\n⚠️ Send loop detected connection close.")
-                raise # Reraise to exit connect() and trigger reconnect
-                
+                raise 
             except Exception as e:
                 print(f"Audio loop error: {e}")
-                # Don't sleep too long or we lag
                 await asyncio.sleep(0.1)
 
     async def _send_raw_audio(self, data):
@@ -240,38 +408,70 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         """Helper to stop music (temporarily or fully) and resume normal listening"""
         from audio_utils import play_wake_sound, lower_music_volume
         
-        # 1. Duck volume immediately so we can hear the next user command
-        lower_music_volume()
-        
-        # 2. Play wake sound
-        play_wake_sound()
-        
-        # 3. Stop music (We usually keep it stopped to avoid echo in long turns, 
-        # but the ducking already happened for the 'ding')
+        # 1. Stop music IMMEDIATELY to free up audio device
         local_tool = self.tools.get("play_music")
         cloud_tool = self.tools.get("play_music_cloud")
         if local_tool: await local_tool.execute(action="stop")
         if cloud_tool: await cloud_tool.execute(action="stop")
+
+        # 2. Duck volume for TTS/UI feedback
+        lower_music_volume()
+        
+        # 3. Play wake sound
+        # play_wake_sound()  <--- Decoupled: Managed by main loop now
         
         self.music_playing = False
         self.self_speaking_mute = False # Ensure mic is open
         self.bot_turn_active = False    # Ensure we can speak cleanly
+        self.discard_incoming_audio = True # INTERRUPT: Ignore any trailing cloud audio
         print("🔊 Music stopped & Volume ducked - Jarvis is ready.")
+
+    async def _monitor_music_processes(self):
+        """Background loop to check if music players have finished naturally"""
+        from audio_utils import restore_music_volume
+        print("🔍 Music process monitor started.")
+        while True:
+            try:
+                if self.music_playing:
+                    # Check both local and cloud tools
+                    local_player = self.tools.get("play_music")
+                    cloud_player = self.tools.get("play_music_cloud")
+                    
+                    local_active = local_player and local_player._current_process and local_player._current_process.poll() is None
+                    cloud_active = cloud_player and cloud_player._current_process and cloud_player._current_process.poll() is None
+                    
+                    if not local_active and not cloud_active:
+                        # Music has finished naturally
+                        print("\n🎵 Music finished naturally. Resuming mic...")
+                        self.music_playing = False
+                        self.self_speaking_mute = False
+                        self.bot_turn_active = False
+                        restore_music_volume()
+                
+                await asyncio.sleep(2.0) # Check every 2 seconds
+            except Exception as e:
+                print(f"⚠️ Monitor error: {e}")
+                await asyncio.sleep(5.0)
 
     async def keyboard_input_loop(self):
         """Listen for keyboard input and send as text query"""
         import sys
+        
+        # --- BACKGROUND SAFETY ---
+        if not sys.stdin.isatty():
+            print("⌨️  Stdin is not a TTY. Keyboard monitoring disabled.")
+            return
+
         from asyncio import get_event_loop
-        
-        loop = get_event_loop()
-        reader = asyncio.StreamReader()
-        protocol_reader = asyncio.StreamReaderProtocol(reader)
-        await loop.connect_read_pipe(lambda: protocol_reader, sys.stdin)
-        
-        print("⌨️  键盘监听已开启 - 直接输入文字即可...")
-        
-        while True:
-            try:
+        try:
+            loop = get_event_loop()
+            reader = asyncio.StreamReader()
+            protocol_reader = asyncio.StreamReaderProtocol(reader)
+            await loop.connect_read_pipe(lambda: protocol_reader, sys.stdin)
+            
+            print("⌨️  键盘监听已开启 - 直接输入文字即可...")
+            
+            while True:
                 # Async read from stdin
                 line = await reader.readline()
                 if not line:
@@ -317,10 +517,8 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 else:
                     # Send to Doubao for normal chat (will reply with voice)
                     await self.send_text_query(text)
-                    
-            except Exception as e:
-                print(f"Keyboard error: {e}")
-                break
+        except Exception as e:
+            print(f"Keyboard loop not available: {e}")
 
     async def connect(self):
         import ssl
@@ -348,7 +546,7 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 # Reset state flags on fresh connection
                 self.self_speaking_mute = False
                 self.bot_turn_active = False
-                self.processing_tool = False
+                print("✅ Connected!")
                 
                 # 1. StartConnection (Event 1)
                 await self.send_start_connection()
@@ -356,15 +554,15 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 # 2. StartSession (Event 100)
                 await self.send_start_session()
                 
-                # 3. Audio
+                # 3. Audio & Keyboard & Monitor
                 self.setup_audio()
                 print("🎙️ Jarvis is alive. Speak or Type!")
                 
-                # Run everything concurrently
                 await asyncio.gather(
-                    self.receive_loop(),
-                    self.send_audio_loop(),
-                    self.keyboard_input_loop()
+                    self.receive_loop(), 
+                    self.send_audio_loop(), 
+                    self.keyboard_input_loop(),
+                    self._monitor_music_processes()
                 )
                 
         except Exception as e:
@@ -386,7 +584,7 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         # Parse?
         print(f"   StartConnection OK")
 
-    async def send_start_session(self):
+    async def send_start_session(self, wait_for_resp=True):
         import protocol
         
         # Merge config with dynamic updates
@@ -394,9 +592,8 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         
         # Ensure we ask for standard PCM (Explicitly S16LE to avoid noise)
         config_payload["tts"]["audio_config"]["format"] = "pcm_s16le" 
-        # config_payload["dialog"]["extra"]["input_mod"] = "hybrid" # Try hybrid if supported, or stick to "audio"
         
-        print(f"⚙️ Session Config: {json.dumps(config_payload, ensure_ascii=False)[:200]}...")
+        print(f"⚙️ Session ID: {self.session_id} | Config: {json.dumps(config_payload, ensure_ascii=False)[:100]}...")
         
         req = bytearray(protocol.generate_header())
         req.extend((100).to_bytes(4, 'big'))
@@ -412,10 +609,61 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         req.extend(payload)
         
         await self.ws.send(req)
-        resp = await self.ws.recv()
-        # Parse start session response to check for errors
-        parsed = protocol.parse_response(resp)
-        print(f"   StartSession Response: {parsed}")
+        if wait_for_resp:
+            resp = await self.ws.recv()
+            # Parse start session response to check for errors
+            parsed = protocol.parse_response(resp)
+            print(f"   StartSession Response: {parsed}")
+
+    async def send_finish_session(self):
+        """Send FinishSession (Event 102) to end current turn and refresh limit"""
+        import protocol
+        if not self.ws: return
+        
+        print(f"🏁 Ending Session: {self.session_id}")
+        req = bytearray(protocol.generate_header())
+        req.extend((102).to_bytes(4, 'big'))
+        
+        session_bytes = self.session_id.encode('utf-8')
+        req.extend(len(session_bytes).to_bytes(4, 'big'))
+        req.extend(session_bytes)
+        
+        # Payload (Empty JSON)
+        payload = gzip.compress(b"{}")
+        req.extend(len(payload).to_bytes(4, 'big'))
+        req.extend(payload)
+        
+        try:
+            await self.ws.send(req)
+        except Exception as e:
+            print(f"⚠️ FinishSession failed: {e}")
+
+    async def send_reset_signal(self):
+        """Perform a 'Hot Reset' (Finish old session, Rotate ID, Start new session)"""
+        import uuid
+        import asyncio
+        if not self.ws: return
+        
+        try:
+            # 1. End old session explicitly
+            await self.send_finish_session()
+            
+            # CRITICAL: Wait for server to process FinishSession before starting new one
+            # This prevents "session number limit exceeded" error
+            await asyncio.sleep(0.3)
+            
+            # 2. Rotate Session ID
+            old_id = self.session_id
+            self.session_id = str(uuid.uuid4())
+            print(f"🔄 Rotating Session ID: {old_id[:8]}... -> {self.session_id[:8]}...")
+            
+            # 3. Start new session (wait for response to ensure it's accepted)
+            await self.send_start_session(wait_for_resp=True)
+            print("✨ Cloud Hot Reset Complete")
+            
+        except Exception as e:
+            print(f"⚠️ Cloud Reset Error: {e}")
+
 
 
     async def receive_loop(self):
@@ -452,19 +700,20 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                     if self.skip_cloud_response:
                         continue
                     if not self.processing_tool and isinstance(payload, bytes):
+                        # --- INTERRUPT FIX: Handle discarded chunks ---
+                        # Use a time-based window to kill trailing audio from last turn
+                        if self.discard_incoming_audio or time.time() < getattr(self, 'ignore_server_audio_until', 0):
+                            continue
+                            
                         # ECHO FIX: Mute mic while we are pushing audio out
                         self.self_speaking_mute = True
                         self.last_audio_time = time.time()  # Track last audio chunk
                         
                         try:
-                            self.output_stream.write(payload, exception_on_underflow=False)
-                            
-                            # --- AEC Reference Feeding ---
-                            # No resampling needed (Both are 16k now)
-                            self.aec.feed_reference(payload)
-                            # -----------------------------
-                            
+                            # Non-blocking enqueue to speaker thread
+                            self.speaker_queue.put(payload)
                         except Exception as e:
+                            print(f"\n⚠️ Audio Enqueue Error: {e}")
                             if "35" in str(e):
                                 pass
                             else:
@@ -489,18 +738,17 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                     if not isinstance(event, dict):
                         continue
                     
-                    # DEBUG: Disabled to prevent terminal I/O blocking
-                    # print(f"\n[DEBUG] Event: {json.dumps(event, ensure_ascii=False)[:300]}")
-                        
-                    # Filter voice activity noise
-                    if event.get('type') not in ['audio', 'speech_segments']:
-                        # print(f"\n📦 Event: {json.dumps(event, ensure_ascii=False)[:200]}")
-                        pass
+                    # --- INTERRUPT FIX: Stop discarding once we get a new event ---
+                    self.discard_incoming_audio = False
+                    
+                    # --- VERBOSE LOGGING ---
+                    if event.get('type') not in ['audio']:
+                        print(f"\n📦 Event: {json.dumps(event, ensure_ascii=False)}")
                     
                     if not self.is_active:
-                         # Even if in standby, we might get late events or a "Confirm Retreat" TTS
-                         # But normally we don't trigger tools or text logic in standby
-                         pass
+                         # CLOUD WAKE: If we're in standby and receive any speech, wake up!
+                         # This acts as a backup to the local Porcupine detector
+                         pass 
 
                     user_text = None
                     bot_text = None
@@ -522,16 +770,34 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                     elif 'content' in event:
                         bot_text = event['content']
                     
-                    # Tool Activation Logic
+                    # Tool Activation & Wake Logic
                     if user_text:
                         print(f"\n🎧 User Speech: {user_text}")
-                        # Keep active mode alive whenever user speaks
-                        self.is_active = True
-                        self.active_until = time.time() + self.ACTIVE_TIMEOUT
                         
-                        await self.check_and_run_tool(user_text)
+                        # WAKE LOGIC: If not active, check if user called 'Jarvis'
+                        wake_keywords = ["jarvis", "贾维斯", "在吗", "你好", "hello", "hi"]
+                        is_wake = any(kw in user_text.lower() for kw in wake_keywords)
+                        
+                        if not self.is_active and is_wake:
+                            print("🌟 Cloud Wake: Activate session!")
+                            self.is_active = True
+                            self.active_until = time.time() + self.ACTIVE_TIMEOUT
+                            # Also duck music immediately if needed
+                            try:
+                                from audio_utils import lower_music_volume
+                                lower_music_volume()
+                            except: pass
+                        
+                        # Only process tools and text if we are ACTIVE
+                        if self.is_active:
+                            self.active_until = time.time() + self.ACTIVE_TIMEOUT
+                            await self.check_and_run_tool(user_text)
                     
                     if bot_text:
+                        # STANDBY MODE: Ignore bot responses entirely
+                        if not self.is_active:
+                            continue
+                            
                         # Process protocols
                         await self.process_protocol_event(bot_text)
 
@@ -653,7 +919,7 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 print("📰 Fetching news summary via Trigger...")
                 result = await info_tools.get_news_briefing()
                 # Feed result back to LLM to speak naturally
-                prompt = f"System: 已获取今日头条。执行结果是：{result}。请用新闻主播语气播报。"
+                prompt = f"System: 已获取今日头条。执行结果是：{result}。请用一个新闻主播的语气播报。"
                 await self.send_text_query(prompt)
 
         except Exception as e:
@@ -669,20 +935,20 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         self.is_active = True
         self.active_until = time.time() + self.ACTIVE_TIMEOUT
         
-        # Priority check for music stop/pause (Must match exactly to avoid searching for 'pause' song)
-        stop_keywords = ["停止", "暂停", "关掉", "断开", "别播了", "切断"]
-        if any(kw in text for kw in stop_keywords):
-            print(f"🛑 Local Stop Triggered: {text}")
-            # Stop both local and cloud music
+        # Priority check for music stop/pause (Strict match only)
+        # We only stop if the user explicitly says one of these as a standalone command 
+        # or it's clearly a command to stop music.
+        if text.strip() in ["停止", "暂停", "关掉", "闭嘴", "别播了", "切断", "停止播放"]:
+            print(f"🛑 Local Explicit Stop Triggered: {text}")
             local_tool = self.tools.get("play_music")
             cloud_tool = self.tools.get("play_music_cloud")
-            
             if local_tool: await local_tool.execute(action="stop")
             if cloud_tool: await cloud_tool.execute(action="stop")
-            
             self.music_playing = False  
             self.self_speaking_mute = False 
-            print("🎤 Mic resumed (music stopped)")
+            from audio_utils import restore_music_volume
+            restore_music_volume()
+            print("🎤 Mic resumed (music stopped manually)")
             return
 
         # Priority check for Sleep/Standby
@@ -750,9 +1016,7 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 print(f"\n⚡ Detected Intent: {tool_name}")
                 self.processing_tool = True
                 self.skip_cloud_response = True  # Mute Doubao's response
-                
-                # Clear any pending audio from Doubao
-                # (The ASR may have already triggered a response)
+                self.discard_incoming_audio = True # IMMEDIATELY discard any concurrent server audio
                 
                 # Execute Tool
                 tool = self.tools.get(tool_name)
@@ -765,7 +1029,9 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                             "天气", "查询", "的", "今天", "怎么样", "现在", "目前", 
                             "帮我", "看看", "查一下", "情况", "怎样", "如何", "查查",
                             "明天", "后天", "昨天", "预报", "告诉我", "问一下", "问问",
-                            "啊", "呢", "吧", "吗", "呀", "哦", "嗯", "那个"
+                            "啊", "呢", "吧", "吗", "呀", "哦", "嗯", "那个",
+                            "你觉得", "有没有", "能不能", "请问", "我想知道", "搜一下",
+                            "告诉我", "给我也", "的一个", "点一首", "请听", "麻烦", "告诉"
                         ]
                         
                         # Step 1: Remove all stopwords
@@ -776,13 +1042,13 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                         
                         # Step 2: If still too long or empty, try known city patterns
                         if len(city) > 10 or not city:
-                            city_match = re.search(r'(北京|上海|广州|深圳|青岛|杭州|成都|重庆|武汉|西安|南京|苏州|天津|长沙|郑州|厦门|合肥|济南|福州|昆明|大连|宁波|无锡|东莞|佛山|沈阳|哈尔滨)', text)
+                            city_match = re.search(r'(北京|上海|广州|深圳|青岛|杭州|成都|重庆|武汉|西安|南京|苏州|天津|长沙|郑州|厦门|合肥|济南|福州|昆明|大连|宁波|无锡|东莞|佛山|沈阳|哈尔滨|深圳)', text)
                             if city_match:
                                 city = city_match.group(1)
                             else:
                                 city = "Beijing"  # Ultimate fallback
                         
-                        # Step 3: Clean up any remaining noise
+                        # Step 3: Clean up any remaining noise (Only keep Chinese/English)
                         city = re.sub(r'[^\u4e00-\u9fa5a-zA-Z]', '', city)
                         if not city:
                             city = "Beijing"
@@ -882,10 +1148,18 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 return
 
 if __name__ == "__main__":
+    # Ensure volume is high on boot
+    from audio_utils import restore_music_volume, play_boot_sound
+    restore_music_volume()
+    
     # Play boot sequence once
     play_boot_sound()
+    print("🚀 [STARTUP] Boot sound triggered, waiting 2s for audio device to stabilize...")
+    time.sleep(2)
     
+    print("🚀 [STARTUP] Initializing HybridJarvis instance...")
     jarvis = HybridJarvis()
+    print("🚀 [STARTUP] HybridJarvis instance created")
     
     # Robust Reconnection Loop
     RETRY_DELAY = 1
@@ -894,6 +1168,7 @@ if __name__ == "__main__":
     while True:
         try:
             print(f"\n🚀 Starting Jarvis (Auto-Reconnect Mode)...")
+            print("🚀 Calling jarvis.connect()...")
             asyncio.run(jarvis.connect())
             
             # If connect returns cleanly (user exit), break loop

@@ -8,6 +8,7 @@ Sources:
 import os
 import requests
 import subprocess
+import platform
 from typing import Dict, Optional
 from .base import BaseTool
 
@@ -56,10 +57,19 @@ class MiguMusicTool(BaseTool):
     async def execute(self, action: str, query: str = "") -> str:
         if action == "stop":
             if self._current_process:
-                self._current_process.terminate()
+                try:
+                    self._current_process.terminate()
+                except:
+                    try: self._current_process.kill()
+                    except: pass
                 self._current_process = None
-                return "⏹️ 音乐已停止"
-            return "当前没有播放"
+                
+            # Force cleanup on Linux
+            if platform.system() == "Linux":
+                subprocess.run(["pkill", "-9", "mpv"], stderr=subprocess.DEVNULL)
+                subprocess.run(["pkill", "-9", "mpg123"], stderr=subprocess.DEVNULL)
+                
+            return "⏹️ 音乐已停止"
 
         if action == "play" and query:
             # 0. Init
@@ -142,7 +152,18 @@ class MiguMusicTool(BaseTool):
 
             # 4. Play
             if self._current_process:
-                self._current_process.terminate()
+                try:
+                    self._current_process.terminate()
+                except:
+                    try:
+                        self._current_process.kill()
+                    except: pass
+                self._current_process = None
+                
+                # Double check: kill any lingering players to free ALSA
+                if platform.system() == "Linux":
+                    subprocess.run(["pkill", "-9", "mpv"], stderr=subprocess.DEVNULL)
+                    subprocess.run(["pkill", "-9", "mpg123"], stderr=subprocess.DEVNULL)
             
             try:
                 cmd = self._get_player_command(file_path)
@@ -155,12 +176,17 @@ class MiguMusicTool(BaseTool):
         return "❌ 请提供歌名"
 
     def _get_player_command(self, file_path):
-        import platform
         sys_name = platform.system()
         if sys_name == "Darwin":
             return ["afplay", file_path]
         elif sys_name == "Linux":
-            return ["mpg123", file_path]
+            # For m4a, use mpv or ffplay; for mp3, mpg123 works
+            if file_path.endswith(".m4a") or file_path.endswith(".mp4"):
+                # Standardize music volume to 60
+                return ["mpv", "--volume=60", "--no-video", "--really-quiet", file_path]
+            else:
+                # Standardize mpg123 volume to approx 60%
+                return ["mpg123", "-f", "20000", "-q", file_path]
         else:
             return ["ffplay", "-nodisp", "-autoexit", file_path]
 

@@ -102,37 +102,35 @@ class SoftwareAEC:
             return mic_audio
             
         mic_samples = list(struct.unpack(f"{num_samples}h", mic_audio))
+        all_clean_samples = []
         
-        # Get delayed reference signal
-        if len(self.reference_buffer) < self.frame_size:
-            # Not enough reference data yet, return original
-            return mic_audio
-        
-        # Extract reference samples (with delay compensation)
-        ref_samples = []
-        for _ in range(min(self.frame_size, len(self.reference_buffer))):
-            if self.reference_buffer:
-                ref_samples.append(self.reference_buffer.popleft())
-            else:
-                ref_samples.append(0)
-        
-        # Pad if needed
-        while len(ref_samples) < self.frame_size:
-            ref_samples.append(0)
-        
-        # Process through AEC
-        try:
-            # cancel_echo(rec_buffer, echo_buffer) -> processed
-            clean_samples = self.aec.cancel_echo(
-                mic_samples[:self.frame_size],
-                ref_samples
-            )
+        # Process in steps of frame_size
+        for i in range(0, num_samples - self.frame_size + 1, self.frame_size):
+            frame_mic = mic_samples[i:i + self.frame_size]
             
-            # Convert back to bytes
-            return struct.pack(f"{len(clean_samples)}h", *clean_samples)
-        except Exception as e:
-            # On error, return original
-            return mic_audio
+            # Get delayed reference signal
+            if len(self.reference_buffer) < self.frame_size:
+                # Not enough reference data, use silence as reference
+                ref_samples = [0] * self.frame_size
+            else:
+                # Extract reference samples
+                ref_samples = [self.reference_buffer.popleft() for _ in range(self.frame_size)]
+            
+            # Process through AEC
+            try:
+                clean_frame = self.aec.cancel_echo(frame_mic, ref_samples)
+                all_clean_samples.extend(clean_frame)
+            except Exception as e:
+                # On error, fallback to original frame
+                all_clean_samples.extend(frame_mic)
+        
+        # Handle trailing samples if any (not a full frame)
+        processed_len = len(all_clean_samples)
+        if processed_len < num_samples:
+            all_clean_samples.extend(mic_samples[processed_len:])
+            
+        # Convert back to bytes
+        return struct.pack(f"{len(all_clean_samples)}h", *all_clean_samples)
     
     def set_bluetooth_delay(self, delay_ms: int) -> None:
         """

@@ -5,6 +5,7 @@ Play local music files using macOS 'afplay'
 import os
 import subprocess
 import glob
+import platform
 from typing import Dict, List, Optional
 from .base import BaseTool
 
@@ -52,10 +53,19 @@ class MusicPlayerTool(BaseTool):
         
         if action == "stop":
             if self._current_process:
-                self._current_process.terminate()
+                try:
+                    self._current_process.terminate()
+                except:
+                    try: self._current_process.kill()
+                    except: pass
                 self._current_process = None
-                return "⏹️ 音乐已停止"
-            return "没有正在播放的音乐"
+            
+            # Force cleanup
+            if platform.system() == "Linux":
+                subprocess.run(["pkill", "-9", "mpv"], stderr=subprocess.DEVNULL)
+                subprocess.run(["pkill", "-9", "mpg123"], stderr=subprocess.DEVNULL)
+
+            return "⏹️ 音乐已停止"
             
         elif action == "list":
             files = self._scan_music()
@@ -72,25 +82,51 @@ class MusicPlayerTool(BaseTool):
         elif action == "play":
             # 1. Stop current
             if self._current_process:
-                self._current_process.terminate()
-                
-            # 2. Find file
-            files = self._scan_music(query)
+                try:
+                    self._current_process.terminate()
+                except:
+                    self._current_process.kill()
+            
+            if platform.system() == "Linux":
+                subprocess.run(["pkill", "-9", "mpv"], stderr=subprocess.DEVNULL)
+                subprocess.run(["pkill", "-9", "mpg123"], stderr=subprocess.DEVNULL)
+            
+            # 2. Find file(s)
+            # Special case for "all" or empty query for continuous play
+            if not query or query.lower() in ["all", "随便", "全部", "列表"]:
+                files = self._scan_music()
+                is_playlist = True
+            else:
+                files = self._scan_music(query)
+                is_playlist = False
+
             if not files:
                 return f"❌ 未找到音乐: {query}"
             
-            target_file = files[0]
-            
-            # 3. Play (Mac only)
+            # 3. Play
             try:
-                # Use afplay (built-in macOS command)
-                # running in background so it doesn't block Jarvis
+                if platform.system() == "Darwin":
+                    # Darwin afplay doesn't support playlists easily, just play first
+                    cmd = ["afplay", files[0]]
+                else:
+                    # Linux: use mpv for playlist/single, mpg123 for mp3
+                    if is_playlist:
+                        # Standardize music volume to 60 (out of 100)
+                        cmd = ["mpv", "--volume=60", "--no-video", "--really-quiet", "--shuffle"] + files
+                    elif files[0].endswith(".m4a") or files[0].endswith(".mp4"):
+                        cmd = ["mpv", "--volume=60", "--no-video", "--really-quiet", files[0]]
+                    else:
+                        # Standardize mpg123 volume to approx 60% (~20000 / 32768)
+                        cmd = ["mpg123", "-f", "20000", "-q", files[0]]
+                        
                 self._current_process = subprocess.Popen(
-                    ["afplay", target_file],
+                    cmd,
                     stdout=subprocess.DEVNULL,
                     stderr=subprocess.DEVNULL
                 )
-                return f"▶️ 正在播放：{os.path.basename(target_file)}"
+                if is_playlist:
+                    return f"▶️ 正在开启随机连播模式（共 {len(files)} 首）"
+                return f"▶️ 正在播放：{os.path.basename(files[0])}"
             except Exception as e:
                 return f"❌ 播放失败: {str(e)}"
                 

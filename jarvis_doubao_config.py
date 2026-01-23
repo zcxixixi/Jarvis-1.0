@@ -9,6 +9,9 @@ load_dotenv(override=True)
 # ================= JARVIS 豆包配置 =================
 APP_ID = os.getenv("DOUBAO_APP_ID")
 ACCESS_TOKEN = os.getenv("DOUBAO_ACCESS_TOKEN")
+MICROPHONE_DEVICE_INDEX = os.getenv("MICROPHONE_DEVICE_INDEX")
+if MICROPHONE_DEVICE_INDEX is not None:
+    MICROPHONE_DEVICE_INDEX = int(MICROPHONE_DEVICE_INDEX)
 
 ws_connect_config = {
     "base_url": "wss://openspeech.bytedance.com/api/v3/realtime/dialogue",
@@ -33,7 +36,7 @@ start_session_req = {
         "audio_config": {
             "channel": 1,
             "format": "pcm_s16le",
-            "sample_rate": 16000  
+            "sample_rate": 24000  
         },
     },
     "dialog": {
@@ -82,8 +85,9 @@ Jarvis：正在接入音频流，希望这能拯救您的品味。""",
 }
 
 # 音频配置
+INPUT_HARDWARE_SAMPLE_RATE = 48000  # USB Microphone native rate
 input_audio_config = {
-    "chunk": 3200,
+    "chunk": 1280,
     "format": "pcm",
     "channels": 1,
     "sample_rate": 16000,
@@ -91,9 +95,9 @@ input_audio_config = {
 }
 
 output_audio_config = {
-    "chunk": 3200,
+    "chunk": 1280,
     "format": "pcm",
     "channels": 1,
-    "sample_rate": 16000,
+    "sample_rate": 24000,
     "bit_size": pyaudio.paInt16
 }
