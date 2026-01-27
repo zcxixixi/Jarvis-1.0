@@ -15,4 +15,5 @@ fi
 
 # Run Jarvis
 echo "🚀 Starting Jarvis..."
-python3 hybrid_jarvis.py
+cd "$SCRIPT_DIR"
+JARVIS_TEXT_ONLY=1 python3 main.py
