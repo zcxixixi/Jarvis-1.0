@@ -1,0 +1,942 @@
+{"ts": "2026-01-27 14:08:37", "level": "INFO", "message": "Realtime panel ready"}
+{"ts": "2026-01-27 14:09:12", "level": "INFO", "message": "Realtime panel server started at http://localhost:8099"}
+{"ts": "2026-01-27 14:30:11", "level": "INFO", "message": "Soak test started: duration=600s, concurrency=3"}
+{"ts": "2026-01-27 14:30:12", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:17", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:18", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:18", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:23", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:24", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:24", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:25", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:26", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:26", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:26", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:26", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:29", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:29", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:29", "level": "INFO", "message": "Soak worker 1: 10 ok / 8 fail"}
+{"ts": "2026-01-27 14:30:29", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:30", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:30", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:32", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:33", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:33", "level": "INFO", "message": "Soak worker 2: 10 ok / 7 fail"}
+{"ts": "2026-01-27 14:30:33", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:35", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:43", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:43", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:45", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:45", "level": "INFO", "message": "Soak worker 2: 20 ok / 11 fail"}
+{"ts": "2026-01-27 14:30:45", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:45", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:46", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:49", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:49", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:50", "level": "INFO", "message": "Soak worker 3: 10 ok / 2 fail"}
+{"ts": "2026-01-27 14:30:50", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:50", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:50", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:50", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:58", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:30:58", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:30:59", "level": "INFO", "message": "Soak worker 2: 30 ok / 18 fail"}
+{"ts": "2026-01-27 14:31:00", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:00", "level": "INFO", "message": "Soak worker 3: 20 ok / 6 fail"}
+{"ts": "2026-01-27 14:31:04", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:13", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:13", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:13", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:15", "level": "INFO", "message": "Soak worker 2: 40 ok / 18 fail"}
+{"ts": "2026-01-27 14:31:18", "level": "INFO", "message": "Soak worker 1: 20 ok / 13 fail"}
+{"ts": "2026-01-27 14:31:18", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:20", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:21", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:22", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:22", "level": "INFO", "message": "Soak worker 1: 30 ok / 17 fail"}
+{"ts": "2026-01-27 14:31:22", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:27", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:30", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:30", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:30", "level": "INFO", "message": "Soak worker 2: 50 ok / 20 fail"}
+{"ts": "2026-01-27 14:31:31", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:31", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:36", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:40", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:46", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:47", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:47", "level": "INFO", "message": "Soak worker 3: 30 ok / 13 fail"}
+{"ts": "2026-01-27 14:31:48", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:49", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:50", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:50", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:31:51", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:31:54", "level": "INFO", "message": "Soak worker 2: 60 ok / 22 fail"}
+{"ts": "2026-01-27 14:31:55", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:00", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:00", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:01", "level": "INFO", "message": "Soak worker 3: 40 ok / 17 fail"}
+{"ts": "2026-01-27 14:32:04", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:04", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:05", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:11", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:12", "level": "INFO", "message": "Soak worker 1: 40 ok / 23 fail"}
+{"ts": "2026-01-27 14:32:12", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:12", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:13", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:13", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:18", "level": "INFO", "message": "Soak worker 2: 70 ok / 26 fail"}
+{"ts": "2026-01-27 14:32:19", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:21", "level": "INFO", "message": "Soak worker 2: 80 ok / 27 fail"}
+{"ts": "2026-01-27 14:32:22", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:23", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:23", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:23", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:30", "level": "INFO", "message": "Soak worker 3: 50 ok / 20 fail"}
+{"ts": "2026-01-27 14:32:30", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:31", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:32", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:32", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:32", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:33", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:33", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:33", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:33", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:33", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:33", "level": "INFO", "message": "Soak worker 2: 90 ok / 34 fail"}
+{"ts": "2026-01-27 14:32:33", "level": "INFO", "message": "Soak worker 3: 60 ok / 26 fail"}
+{"ts": "2026-01-27 14:32:34", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:34", "level": "INFO", "message": "Soak worker 1: 50 ok / 25 fail"}
+{"ts": "2026-01-27 14:32:34", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:34", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:34", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:47", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:49", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:49", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:49", "level": "INFO", "message": "Soak worker 3: 70 ok / 31 fail"}
+{"ts": "2026-01-27 14:32:53", "level": "INFO", "message": "Soak worker 2: 100 ok / 35 fail"}
+{"ts": "2026-01-27 14:32:54", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:58", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:58", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:58", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:32:58", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:58", "level": "INFO", "message": "Soak worker 1: 60 ok / 30 fail"}
+{"ts": "2026-01-27 14:32:59", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:32:59", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:00", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:01", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:09", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:15", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:16", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:16", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:17", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:19", "level": "INFO", "message": "Soak worker 3: 80 ok / 35 fail"}
+{"ts": "2026-01-27 14:33:20", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:24", "level": "INFO", "message": "Soak worker 1: 70 ok / 32 fail"}
+{"ts": "2026-01-27 14:33:25", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:26", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:26", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:26", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:26", "level": "INFO", "message": "Soak worker 1: 80 ok / 36 fail"}
+{"ts": "2026-01-27 14:33:26", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:28", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:28", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:28", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:29", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:33", "level": "INFO", "message": "Soak worker 2: 110 ok / 39 fail"}
+{"ts": "2026-01-27 14:33:33", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:34", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:34", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:35", "level": "INFO", "message": "Soak worker 3: 90 ok / 36 fail"}
+{"ts": "2026-01-27 14:33:35", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:35", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:35", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:36", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:36", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:36", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:36", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:37", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:38", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:38", "level": "INFO", "message": "Soak worker 3: 100 ok / 45 fail"}
+{"ts": "2026-01-27 14:33:38", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:39", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:39", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:41", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:41", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:41", "level": "INFO", "message": "Soak worker 3: 110 ok / 50 fail"}
+{"ts": "2026-01-27 14:33:41", "level": "INFO", "message": "Soak worker 1: 90 ok / 41 fail"}
+{"ts": "2026-01-27 14:33:41", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:42", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:47", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:47", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:47", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:48", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:48", "level": "INFO", "message": "Soak worker 1: 100 ok / 46 fail"}
+{"ts": "2026-01-27 14:33:48", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:48", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:48", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:49", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:33:49", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:50", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:50", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:33:56", "level": "INFO", "message": "Soak worker 2: 120 ok / 48 fail"}
+{"ts": "2026-01-27 14:33:57", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:00", "level": "INFO", "message": "Soak worker 3: 120 ok / 51 fail"}
+{"ts": "2026-01-27 14:34:00", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:04", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:05", "level": "INFO", "message": "Soak worker 2: 130 ok / 50 fail"}
+{"ts": "2026-01-27 14:34:05", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:05", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:06", "level": "INFO", "message": "Soak worker 1: 110 ok / 47 fail"}
+{"ts": "2026-01-27 14:34:06", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:06", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:06", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:06", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:06", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:07", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:08", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:08", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:08", "level": "INFO", "message": "Soak worker 2: 140 ok / 56 fail"}
+{"ts": "2026-01-27 14:34:09", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:21", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:22", "level": "INFO", "message": "Soak worker 3: 130 ok / 52 fail"}
+{"ts": "2026-01-27 14:34:29", "level": "INFO", "message": "Soak worker 2: 150 ok / 57 fail"}
+{"ts": "2026-01-27 14:34:29", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:29", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:30", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:31", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:32", "level": "INFO", "message": "Soak worker 1: 120 ok / 52 fail"}
+{"ts": "2026-01-27 14:34:33", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:33", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:34", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:35", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:35", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:40", "level": "INFO", "message": "Soak worker 3: 140 ok / 54 fail"}
+{"ts": "2026-01-27 14:34:40", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:41", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:41", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:44", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:47", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:48", "level": "INFO", "message": "Soak worker 1: 130 ok / 56 fail"}
+{"ts": "2026-01-27 14:34:48", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:34:49", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:49", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:50", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:50", "level": "INFO", "message": "Soak worker 2: 160 ok / 63 fail"}
+{"ts": "2026-01-27 14:34:58", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:58", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:58", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:34:58", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:00", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:01", "level": "INFO", "message": "Soak worker 2: 170 ok / 65 fail"}
+{"ts": "2026-01-27 14:35:01", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:01", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:04", "level": "INFO", "message": "Soak worker 1: 140 ok / 60 fail"}
+{"ts": "2026-01-27 14:35:05", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:05", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:05", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:14", "level": "INFO", "message": "Soak worker 3: 150 ok / 59 fail"}
+{"ts": "2026-01-27 14:35:16", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:16", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:16", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:16", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:17", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:17", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:17", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:19", "level": "INFO", "message": "Soak worker 1: 150 ok / 67 fail"}
+{"ts": "2026-01-27 14:35:19", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:20", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:22", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:22", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:22", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:23", "level": "INFO", "message": "Soak worker 2: 180 ok / 69 fail"}
+{"ts": "2026-01-27 14:35:24", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:24", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:24", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:25", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:34", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:34", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:36", "level": "INFO", "message": "Soak worker 2: 190 ok / 75 fail"}
+{"ts": "2026-01-27 14:35:36", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:36", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:36", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:36", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:36", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:36", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:36", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:37", "level": "INFO", "message": "Soak worker 1: 160 ok / 72 fail"}
+{"ts": "2026-01-27 14:35:37", "level": "INFO", "message": "Soak worker 3: 160 ok / 65 fail"}
+{"ts": "2026-01-27 14:35:41", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:41", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:41", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:42", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:42", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:42", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:43", "level": "INFO", "message": "Soak worker 1: 170 ok / 76 fail"}
+{"ts": "2026-01-27 14:35:45", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:46", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:46", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:49", "level": "ERROR", "message": "Soak worker 2 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:50", "level": "INFO", "message": "Soak worker 2: 200 ok / 80 fail"}
+{"ts": "2026-01-27 14:35:50", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:50", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:50", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:51", "level": "ERROR", "message": "Soak worker 2 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:51", "level": "INFO", "message": "Soak worker 1: 180 ok / 78 fail"}
+{"ts": "2026-01-27 14:35:53", "level": "INFO", "message": "Soak worker 3: 170 ok / 68 fail"}
+{"ts": "2026-01-27 14:35:54", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:54", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:55", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:55", "level": "ERROR", "message": "Soak worker 3 error: 'get_news'"}
+{"ts": "2026-01-27 14:35:55", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:55", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:55", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:55", "level": "ERROR", "message": "Soak worker 3 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:56", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:56", "level": "ERROR", "message": "Soak worker 1 error: 'get_stock_price'"}
+{"ts": "2026-01-27 14:35:56", "level": "ERROR", "message": "Soak worker 1 error: 'get_news'"}
+{"ts": "2026-01-27 14:37:04", "level": "INFO", "message": "Soak test started: duration=600s, concurrency=3"}
+{"ts": "2026-01-27 14:37:19", "level": "INFO", "message": "Soak worker 1: 10 ok / 0 fail"}
+{"ts": "2026-01-27 14:37:20", "level": "INFO", "message": "Soak worker 2: 10 ok / 0 fail"}
+{"ts": "2026-01-27 14:37:34", "level": "INFO", "message": "Soak worker 2: 20 ok / 0 fail"}
+{"ts": "2026-01-27 14:37:36", "level": "INFO", "message": "Soak worker 3: 10 ok / 0 fail"}
+{"ts": "2026-01-27 14:37:50", "level": "INFO", "message": "Soak worker 2: 30 ok / 0 fail"}
+{"ts": "2026-01-27 14:37:55", "level": "INFO", "message": "Soak worker 1: 20 ok / 0 fail"}
+{"ts": "2026-01-27 14:37:58", "level": "INFO", "message": "Soak worker 3: 20 ok / 0 fail"}
+{"ts": "2026-01-27 14:37:59", "level": "INFO", "message": "Soak worker 2: 40 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:00", "level": "INFO", "message": "Soak worker 3: 30 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:08", "level": "INFO", "message": "Soak worker 2: 50 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:16", "level": "INFO", "message": "Soak worker 2: 60 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:23", "level": "INFO", "message": "Soak worker 1: 30 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:33", "level": "INFO", "message": "Soak worker 2: 70 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:36", "level": "INFO", "message": "Soak worker 3: 40 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:42", "level": "INFO", "message": "Soak worker 1: 40 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:49", "level": "INFO", "message": "Soak worker 2: 80 ok / 0 fail"}
+{"ts": "2026-01-27 14:38:54", "level": "INFO", "message": "Soak worker 3: 50 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:01", "level": "INFO", "message": "Soak worker 1: 50 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:04", "level": "INFO", "message": "Soak worker 3: 60 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:04", "level": "INFO", "message": "Soak worker 2: 90 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:11", "level": "INFO", "message": "Soak worker 2: 100 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:15", "level": "INFO", "message": "Soak worker 1: 60 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:20", "level": "INFO", "message": "Soak worker 3: 70 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:23", "level": "INFO", "message": "Soak worker 2: 110 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:25", "level": "INFO", "message": "Soak worker 2: 120 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:30", "level": "INFO", "message": "Soak worker 3: 80 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:34", "level": "INFO", "message": "Soak worker 1: 70 ok / 0 fail"}
+{"ts": "2026-01-27 14:39:36", "level": "INFO", "message": "Soak worker 1: 80 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:02", "level": "INFO", "message": "Soak worker 2: 130 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:10", "level": "INFO", "message": "Soak worker 1: 90 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:10", "level": "INFO", "message": "Soak worker 2: 140 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:18", "level": "INFO", "message": "Soak worker 3: 90 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:28", "level": "INFO", "message": "Soak worker 1: 100 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:39", "level": "INFO", "message": "Soak worker 2: 150 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:47", "level": "INFO", "message": "Soak worker 1: 110 ok / 0 fail"}
+{"ts": "2026-01-27 14:40:49", "level": "INFO", "message": "Soak worker 3: 100 ok / 0 fail"}
+{"ts": "2026-01-27 14:41:09", "level": "INFO", "message": "Soak worker 1: 120 ok / 0 fail"}
+{"ts": "2026-01-27 14:41:10", "level": "INFO", "message": "Soak worker 3: 110 ok / 0 fail"}
+{"ts": "2026-01-27 14:41:15", "level": "INFO", "message": "Soak worker 2: 160 ok / 0 fail"}
+{"ts": "2026-01-27 14:41:32", "level": "INFO", "message": "Soak worker 2: 170 ok / 0 fail"}
+{"ts": "2026-01-27 14:41:37", "level": "INFO", "message": "Soak worker 1: 130 ok / 0 fail"}
+{"ts": "2026-01-27 14:41:55", "level": "INFO", "message": "Soak worker 3: 120 ok / 0 fail"}
+{"ts": "2026-01-27 14:41:58", "level": "INFO", "message": "Soak worker 1: 140 ok / 0 fail"}
+{"ts": "2026-01-27 14:42:01", "level": "INFO", "message": "Soak worker 2: 180 ok / 0 fail"}
+{"ts": "2026-01-27 14:42:07", "level": "INFO", "message": "Soak worker 3: 130 ok / 0 fail"}
+{"ts": "2026-01-27 14:42:36", "level": "INFO", "message": "Soak worker 1: 150 ok / 0 fail"}
+{"ts": "2026-01-27 14:42:38", "level": "INFO", "message": "Soak worker 3: 140 ok / 0 fail"}
+{"ts": "2026-01-27 14:43:09", "level": "INFO", "message": "Soak worker 2: 190 ok / 0 fail"}
+{"ts": "2026-01-27 14:43:14", "level": "INFO", "message": "Soak worker 3: 150 ok / 0 fail"}
+{"ts": "2026-01-27 14:43:21", "level": "INFO", "message": "Soak worker 1: 160 ok / 0 fail"}
+{"ts": "2026-01-27 14:43:27", "level": "INFO", "message": "Soak worker 3: 160 ok / 0 fail"}
+{"ts": "2026-01-27 14:43:37", "level": "INFO", "message": "Soak worker 3: 170 ok / 0 fail"}
+{"ts": "2026-01-27 14:43:47", "level": "INFO", "message": "Soak worker 2: 200 ok / 0 fail"}
+{"ts": "2026-01-27 14:43:53", "level": "INFO", "message": "Soak worker 1: 170 ok / 0 fail"}
+{"ts": "2026-01-27 14:44:05", "level": "INFO", "message": "Soak worker 1: 180 ok / 0 fail"}
+{"ts": "2026-01-27 14:44:33", "level": "INFO", "message": "Soak worker 3: 180 ok / 0 fail"}
+{"ts": "2026-01-27 14:44:41", "level": "INFO", "message": "Soak worker 1: 190 ok / 0 fail"}
+{"ts": "2026-01-27 14:44:44", "level": "INFO", "message": "Soak worker 2: 210 ok / 0 fail"}
+{"ts": "2026-01-27 14:45:03", "level": "INFO", "message": "Soak worker 1: 200 ok / 0 fail"}
+{"ts": "2026-01-27 14:45:11", "level": "INFO", "message": "Soak worker 3: 190 ok / 0 fail"}
+{"ts": "2026-01-27 14:45:20", "level": "INFO", "message": "Soak worker 2: 220 ok / 0 fail"}
+{"ts": "2026-01-27 14:45:42", "level": "INFO", "message": "Soak worker 3: 200 ok / 0 fail"}
+{"ts": "2026-01-27 14:45:56", "level": "INFO", "message": "Soak worker 2: 230 ok / 0 fail"}
+{"ts": "2026-01-27 14:45:57", "level": "INFO", "message": "Soak worker 1: 210 ok / 0 fail"}
+{"ts": "2026-01-27 14:46:27", "level": "INFO", "message": "Soak worker 3: 210 ok / 0 fail"}
+{"ts": "2026-01-27 14:46:32", "level": "INFO", "message": "Soak worker 1: 220 ok / 0 fail"}
+{"ts": "2026-01-27 14:46:35", "level": "INFO", "message": "Soak worker 2: 240 ok / 0 fail"}
+{"ts": "2026-01-27 14:46:45", "level": "INFO", "message": "Soak worker 3: 220 ok / 0 fail"}
+{"ts": "2026-01-27 14:46:49", "level": "INFO", "message": "Soak worker 2: 250 ok / 0 fail"}
+{"ts": "2026-01-27 14:47:00", "level": "INFO", "message": "Soak worker 3: 230 ok / 0 fail"}
+{"ts": "2026-01-27 14:47:04", "level": "INFO", "message": "Soak worker 1: 230 ok / 0 fail"}
+{"ts": "2026-01-27 14:51:41", "level": "INFO", "message": "Soak test started: duration=600s, concurrency=2"}
+{"ts": "2026-01-27 14:51:57", "level": "INFO", "message": "Soak worker 1: 10 ok / 0 fail"}
+{"ts": "2026-01-27 14:52:30", "level": "INFO", "message": "Soak worker 2: 10 ok / 0 fail"}
+{"ts": "2026-01-27 14:52:34", "level": "INFO", "message": "Soak worker 1: 20 ok / 0 fail"}
+{"ts": "2026-01-27 14:53:00", "level": "INFO", "message": "Soak worker 1: 30 ok / 0 fail"}
+{"ts": "2026-01-27 14:53:02", "level": "INFO", "message": "Soak worker 2: 20 ok / 0 fail"}
+{"ts": "2026-01-27 14:53:39", "level": "INFO", "message": "Soak worker 2: 30 ok / 0 fail"}
+{"ts": "2026-01-27 14:53:47", "level": "INFO", "message": "Soak worker 1: 40 ok / 0 fail"}
+{"ts": "2026-01-27 14:54:02", "level": "INFO", "message": "Soak worker 1: 50 ok / 0 fail"}
+{"ts": "2026-01-27 14:54:25", "level": "INFO", "message": "Soak worker 1: 60 ok / 0 fail"}
+{"ts": "2026-01-27 14:54:32", "level": "INFO", "message": "Soak worker 2: 40 ok / 0 fail"}
+{"ts": "2026-01-27 14:55:10", "level": "INFO", "message": "Soak worker 1: 70 ok / 0 fail"}
+{"ts": "2026-01-27 14:55:17", "level": "INFO", "message": "Soak worker 2: 50 ok / 0 fail"}
+{"ts": "2026-01-27 14:55:17", "level": "INFO", "message": "Soak worker 1: 80 ok / 0 fail"}
+{"ts": "2026-01-27 14:56:00", "level": "INFO", "message": "Soak worker 2: 60 ok / 0 fail"}
+{"ts": "2026-01-27 14:56:10", "level": "INFO", "message": "Soak worker 1: 90 ok / 0 fail"}
+{"ts": "2026-01-27 14:56:16", "level": "INFO", "message": "Soak worker 1: 100 ok / 0 fail"}
+{"ts": "2026-01-27 14:56:32", "level": "INFO", "message": "Soak worker 2: 70 ok / 0 fail"}
+{"ts": "2026-01-27 14:56:42", "level": "INFO", "message": "Soak worker 1: 110 ok / 0 fail"}
+{"ts": "2026-01-27 14:57:23", "level": "INFO", "message": "Soak worker 2: 80 ok / 0 fail"}
+{"ts": "2026-01-27 14:57:26", "level": "INFO", "message": "Soak worker 1: 120 ok / 0 fail"}
+{"ts": "2026-01-27 14:57:57", "level": "INFO", "message": "Soak worker 1: 130 ok / 0 fail"}
+{"ts": "2026-01-27 14:58:00", "level": "INFO", "message": "Soak worker 2: 90 ok / 0 fail"}
+{"ts": "2026-01-27 14:58:18", "level": "INFO", "message": "Soak worker 2: 100 ok / 0 fail"}
+{"ts": "2026-01-27 14:58:29", "level": "INFO", "message": "Soak worker 1: 140 ok / 0 fail"}
+{"ts": "2026-01-27 14:58:50", "level": "INFO", "message": "Soak worker 2: 110 ok / 0 fail"}
+{"ts": "2026-01-27 14:58:50", "level": "INFO", "message": "Soak worker 1: 150 ok / 0 fail"}
+{"ts": "2026-01-27 14:59:15", "level": "INFO", "message": "Soak worker 2: 120 ok / 0 fail"}
+{"ts": "2026-01-27 14:59:26", "level": "INFO", "message": "Soak worker 2: 130 ok / 0 fail"}
+{"ts": "2026-01-27 14:59:30", "level": "INFO", "message": "Soak worker 1: 160 ok / 0 fail"}
+{"ts": "2026-01-27 14:59:44", "level": "INFO", "message": "Soak worker 1: 170 ok / 0 fail"}
+{"ts": "2026-01-27 14:59:58", "level": "INFO", "message": "Soak worker 2: 140 ok / 0 fail"}
+{"ts": "2026-01-27 15:00:25", "level": "INFO", "message": "Soak worker 2: 150 ok / 0 fail"}
+{"ts": "2026-01-27 15:00:35", "level": "INFO", "message": "Soak worker 1: 180 ok / 0 fail"}
+{"ts": "2026-01-27 15:01:10", "level": "INFO", "message": "Soak worker 1: 190 ok / 0 fail"}
+{"ts": "2026-01-27 15:01:22", "level": "INFO", "message": "Soak worker 2: 160 ok / 0 fail"}
+{"ts": "2026-01-28 08:05:48", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 08:05:48", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 08:05:48"}
+{"ts": "2026-01-28 08:05:57", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 08:06:06", "level": "BOT", "message": "BOT: 🌡️ 北京天气：阴天\n温度：-6°C（体感 -9°C）\n湿度：58%\n风速：6 km/h"}
+{"ts": "2026-01-28 08:06:06", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 08:06:23", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 08:06:23", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 08:06:26", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 08:06:34", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 08:06:47", "level": "BOT", "message": "BOT: 🌡️ 上海天气：多云\n温度：2.0°C\n风速：4.3 km/h"}
+{"ts": "2026-01-28 08:07:00", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 08:07:01", "level": "BOT", "message": "BOT: 看起来像是随机的乱码，"}
+{"ts": "2026-01-28 08:13:57", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 08:13:57", "level": "BOT", "message": "BOT: 现在是上午 08:10"}
+{"ts": "2026-01-28 08:27:18", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 08:27:18", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 08:27:18"}
+{"ts": "2026-01-28 08:27:26", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 08:27:33", "level": "BOT", "message": "BOT: 🌡️ 北京天气：阴天\n温度：-6°C（体感 -9°C）\n湿度：58%\n风速：6 km/h"}
+{"ts": "2026-01-28 08:27:34", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 08:27:52", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 08:27:52", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 08:27:54", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 08:28:02", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 08:28:06", "level": "BOT", "message": "BOT: 🌡️ 上海天气：多云\n温度：2.5°C\n风速：4.4 km/h"}
+{"ts": "2026-01-28 08:28:28", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 08:28:30", "level": "BOT", "message": "BOT: 看起来像是随机的字符组合，"}
+{"ts": "2026-01-28 08:29:51", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 08:29:51", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 08:29:51"}
+{"ts": "2026-01-28 08:29:59", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 08:30:13", "level": "BOT", "message": "BOT: 🌡️ 北京天气：雾\n温度：2.6°C\n风速：4.3 km/h"}
+{"ts": "2026-01-28 08:30:13", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 08:30:25", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 08:30:25", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 08:30:33", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 08:30:34", "level": "BOT", "message": "BOT: 今天是星期三，先生。"}
+{"ts": "2026-01-28 08:30:41", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 08:30:54", "level": "BOT", "message": "BOT: 🌡️ 上海天气：多云\n温度：3.2°C\n风速：4.5 km/h"}
+{"ts": "2026-01-28 08:31:07", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 08:31:08", "level": "BOT", "message": "BOT: 看起来您似乎输入了一些乱"}
+{"ts": "2026-01-28 08:33:01", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 08:33:01", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 08:33:01"}
+{"ts": "2026-01-28 08:33:09", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 08:33:22", "level": "BOT", "message": "BOT: 🌡️ 北京天气：雾\n温度：2.6°C\n风速：4.3 km/h"}
+{"ts": "2026-01-28 08:33:22", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 08:33:35", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 08:33:35", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 08:33:42", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 08:33:44", "level": "BOT", "message": "BOT: 今天是星期三，先生。"}
+{"ts": "2026-01-28 08:33:50", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 08:33:55", "level": "BOT", "message": "BOT: 🌡️ 上海天气：晴天\n温度：2°C（体感 -0°C）\n湿度：80%\n风速：9 km/h"}
+{"ts": "2026-01-28 08:34:16", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 08:34:18", "level": "BOT", "message": "BOT: 看起来像是随机的乱码，"}
+{"ts": "2026-01-28 08:48:56", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 08:48:56", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 08:48:56"}
+{"ts": "2026-01-28 08:49:04", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 08:49:08", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：-3°C（体感 -5°C）\n湿度：35%\n风速：5 km/h"}
+{"ts": "2026-01-28 08:49:12", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 08:49:30", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 08:49:30", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 08:49:32", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 08:49:40", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 08:49:49", "level": "BOT", "message": "BOT: 🌡️ 上海天气：晴天\n温度：2°C（体感 -0°C）\n湿度：80%\n风速：9 km/h"}
+{"ts": "2026-01-28 08:50:06", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 08:50:08", "level": "BOT", "message": "BOT: 看起来像是随机的乱码，"}
+{"ts": "2026-01-28 09:00:55", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 09:00:56", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 09:00:56"}
+{"ts": "2026-01-28 09:01:04", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 09:01:12", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：-3°C（体感 -5°C）\n湿度：35%\n风速：5 km/h"}
+{"ts": "2026-01-28 09:01:12", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 09:01:30", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 09:01:30", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 09:01:32", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 09:01:40", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 09:01:53", "level": "BOT", "message": "BOT: 🌡️ 上海天气：多云\n温度：4.4°C\n风速：4.7 km/h"}
+{"ts": "2026-01-28 09:02:06", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 09:02:08", "level": "BOT", "message": "BOT: 看起来像是随机的乱码，"}
+{"ts": "2026-01-28 09:04:40", "level": "INFO", "message": "Soak test started: duration=120s, concurrency=2"}
+{"ts": "2026-01-28 09:04:53", "level": "INFO", "message": "Soak worker 2: 10 ok / 0 fail"}
+{"ts": "2026-01-28 09:05:04", "level": "INFO", "message": "Soak worker 1: 10 ok / 0 fail"}
+{"ts": "2026-01-28 09:05:14", "level": "INFO", "message": "Soak worker 1: 20 ok / 0 fail"}
+{"ts": "2026-01-28 09:05:25", "level": "INFO", "message": "Soak worker 1: 30 ok / 0 fail"}
+{"ts": "2026-01-28 09:05:27", "level": "INFO", "message": "Soak worker 2: 20 ok / 0 fail"}
+{"ts": "2026-01-28 09:05:40", "level": "INFO", "message": "Soak worker 1: 40 ok / 0 fail"}
+{"ts": "2026-01-28 09:05:48", "level": "INFO", "message": "Soak worker 2: 30 ok / 0 fail"}
+{"ts": "2026-01-28 09:05:51", "level": "INFO", "message": "Soak worker 1: 50 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:03", "level": "INFO", "message": "Soak worker 2: 40 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:08", "level": "INFO", "message": "Soak worker 1: 60 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:09", "level": "INFO", "message": "Soak worker 2: 50 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:19", "level": "INFO", "message": "Soak worker 1: 70 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:22", "level": "INFO", "message": "Soak worker 2: 60 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:32", "level": "INFO", "message": "Soak worker 2: 70 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:35", "level": "INFO", "message": "Soak worker 1: 80 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:38", "level": "INFO", "message": "Soak worker 1: 90 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:40", "level": "INFO", "message": "Soak worker 2: 80 ok / 0 fail"}
+{"ts": "2026-01-28 09:06:41", "level": "INFO", "message": "Soak worker 1 finished. ok=95 fail=0 avg_latency=1.165s"}
+{"ts": "2026-01-28 09:06:46", "level": "INFO", "message": "Soak worker 2 finished. ok=81 fail=0 avg_latency=1.448s"}
+{"ts": "2026-01-28 09:06:47", "level": "INFO", "message": "Soak test done. ok=176 fail=0 avg_latency=1.306s"}
+{"ts": "2026-01-28 09:17:21", "level": "TEST", "message": "[TEST:test_doubao_audio_file.py] playing audio file: /tmp/jarvis_tts_output.wav"}
+{"ts": "2026-01-28 09:17:30", "level": "TEST", "message": "[TEST:test_audio_latency.py] playing 440Hz test tone"}
+{"ts": "2026-01-28 09:17:35", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 你好，Jarvis"}
+{"ts": "2026-01-28 09:17:36", "level": "WARN", "message": "[TEST:test_voice_output.py] DEEPSEEK_API_KEY missing"}
+{"ts": "2026-01-28 09:17:37", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:17:41", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 现在几点了"}
+{"ts": "2026-01-28 09:17:41", "level": "WARN", "message": "[TEST:test_voice_output.py] DEEPSEEK_API_KEY missing"}
+{"ts": "2026-01-28 09:17:43", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:17:46", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 今天天气怎么样"}
+{"ts": "2026-01-28 09:17:46", "level": "WARN", "message": "[TEST:test_voice_output.py] DEEPSEEK_API_KEY missing"}
+{"ts": "2026-01-28 09:17:48", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:42:02", "level": "TEST", "message": "[TEST:test_audio_latency.py] playing 440Hz test tone"}
+{"ts": "2026-01-28 09:42:08", "level": "TEST", "message": "[TEST:test_doubao_audio_file.py] playing audio file: /tmp/jarvis_tts_output.wav"}
+{"ts": "2026-01-28 09:42:15", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 你好，Jarvis"}
+{"ts": "2026-01-28 09:42:15", "level": "WARN", "message": "[TEST:test_voice_output.py] DOUBAO_ARK_API_KEY or DOUBAO_ENDPOINT_ID missing; using fallback"}
+{"ts": "2026-01-28 09:42:16", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:42:20", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 现在几点了"}
+{"ts": "2026-01-28 09:42:20", "level": "WARN", "message": "[TEST:test_voice_output.py] DOUBAO_ARK_API_KEY or DOUBAO_ENDPOINT_ID missing; using fallback"}
+{"ts": "2026-01-28 09:42:21", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:42:25", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 今天天气怎么样"}
+{"ts": "2026-01-28 09:42:25", "level": "WARN", "message": "[TEST:test_voice_output.py] DOUBAO_ARK_API_KEY or DOUBAO_ENDPOINT_ID missing; using fallback"}
+{"ts": "2026-01-28 09:42:26", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:45:51", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 你好，Jarvis"}
+{"ts": "2026-01-28 09:45:51", "level": "TEST", "message": "[TEST:test_voice_output.py] using Doubao ARK for response"}
+{"ts": "2026-01-28 09:45:58", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:46:05", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 现在几点了"}
+{"ts": "2026-01-28 09:46:05", "level": "TEST", "message": "[TEST:test_voice_output.py] using Doubao ARK for response"}
+{"ts": "2026-01-28 09:46:12", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:46:21", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 今天天气怎么样"}
+{"ts": "2026-01-28 09:46:21", "level": "TEST", "message": "[TEST:test_voice_output.py] using Doubao ARK for response"}
+{"ts": "2026-01-28 09:46:30", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-28 09:59:29", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 09:59:42", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 09:59:42", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 09:59:42"}
+{"ts": "2026-01-28 09:59:44", "level": "WARN", "message": "TTS audio not received; fallback to local TTS"}
+{"ts": "2026-01-28 09:59:50", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 09:59:59", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：-4°C（体感 -6°C）\n湿度：54%\n风速：6 km/h"}
+{"ts": "2026-01-28 09:59:59", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 10:00:17", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 10:00:17", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 10:00:18", "level": "WARN", "message": "TTS audio not received; fallback to local TTS"}
+{"ts": "2026-01-28 10:00:19", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 10:00:20", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 10:00:33", "level": "BOT", "message": "BOT: 🌡️ 上海天气：晴朗\n温度：6.4°C\n风速：7.5 km/h"}
+{"ts": "2026-01-28 10:00:35", "level": "WARN", "message": "TTS audio not received; fallback to local TTS"}
+{"ts": "2026-01-28 10:00:47", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 10:00:48", "level": "BOT", "message": "BOT: 看起来像是随意敲击的字符，如果"}
+{"ts": "2026-01-28 10:24:00", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 10:24:14", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 10:24:14", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 10:24:14"}
+{"ts": "2026-01-28 10:24:22", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 10:24:23", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：-4°C（体感 -6°C）\n湿度：54%\n风速：6 km/h"}
+{"ts": "2026-01-28 10:24:30", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 10:24:31", "level": "BOT", "message": "BOT: 不用谢，有什么其他吩咐"}
+{"ts": "2026-01-28 10:24:48", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 10:24:48", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 10:24:50", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 10:24:58", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 10:25:04", "level": "BOT", "message": "BOT: 🌡️ 上海天气：局部多云\n温度：6°C（体感 4°C）\n湿度：56%\n风速：9 km/h"}
+{"ts": "2026-01-28 10:25:24", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 10:25:26", "level": "BOT", "message": "BOT: 看起来像是随意敲击的字符"}
+{"ts": "2026-01-28 10:25:49", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 10:26:02", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 10:26:02", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 10:26:02"}
+{"ts": "2026-01-28 10:26:06", "level": "WARN", "message": "Strict TTS mismatch (timeout); fallback to local TTS"}
+{"ts": "2026-01-28 10:26:10", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 10:26:16", "level": "WARN", "message": "Strict TTS mismatch (timeout); fallback to local TTS"}
+{"ts": "2026-01-28 10:26:22", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：-4°C（体感 -6°C）\n湿度：54%\n风速：6 km/h"}
+{"ts": "2026-01-28 10:26:22", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 10:26:24", "level": "BOT", "message": "BOT: 🌡️北京天气："}
+{"ts": "2026-01-28 10:26:42", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 10:26:46", "level": "WARN", "message": "Strict TTS mismatch (timeout); fallback to local TTS"}
+{"ts": "2026-01-28 10:27:03", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 10:27:03", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 10:27:04", "level": "BOT", "message": "BOT: 🔢123"}
+{"ts": "2026-01-28 10:27:23", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 10:27:24", "level": "BOT", "message": "BOT: 🌡️ 上海天气：局部多云\n温度：6°C（体感 4°C）\n湿度：56%\n风速：9 km/h"}
+{"ts": "2026-01-28 10:27:24", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 10:27:30", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 10:27:43", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 10:27:50", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 10:27:43"}
+{"ts": "2026-01-28 10:27:51", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 10:28:08", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：-4°C（体感 -6°C）\n湿度：54%\n风速：6 km/h"}
+{"ts": "2026-01-28 10:28:08", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 10:28:09", "level": "BOT", "message": "BOT: 不用客气，有什么其他"}
+{"ts": "2026-01-28 10:28:17", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 10:28:25", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 10:28:25", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 10:28:28", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 10:28:44", "level": "BOT", "message": "BOT: 🌡️ 上海天气：局部多云\n温度：6°C（体感 4°C）\n湿度：56%\n风速：9 km/h"}
+{"ts": "2026-01-28 10:28:47", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 12:05:15", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 12:05:38", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 12:05:51", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 12:05:52", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 12:05:51"}
+{"ts": "2026-01-28 12:05:59", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 12:06:01", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：0°C（体感 -3°C）\n湿度：31%\n风速：8 km/h"}
+{"ts": "2026-01-28 12:06:07", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 12:06:09", "level": "BOT", "message": "BOT: 不用谢，有什么其他吩咐"}
+{"ts": "2026-01-28 12:06:26", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 12:06:26", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 12:06:27", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 12:06:28", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 12:06:31", "level": "BOT", "message": "BOT: 🌡️ 上海天气：晴天\n温度：8°C（体感 7°C）\n湿度：49%\n风速：10 km/h"}
+{"ts": "2026-01-28 12:06:55", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 12:06:56", "level": "BOT", "message": "BOT: 看起来像是随机的按键输入，"}
+{"ts": "2026-01-28 14:24:09", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 14:27:34", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 14:27:48", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 14:27:48", "level": "WARN", "message": "HTTP TTS failed; fallback to WS TTS (400, message='Bad Request', url='https://openspeech.bytedance.com/api/v3/tts/unidirectional')"}
+{"ts": "2026-01-28 14:27:48", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 14:27:48"}
+{"ts": "2026-01-28 14:27:56", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 14:27:57", "level": "WARN", "message": "HTTP TTS failed; fallback to WS TTS (400, message='Bad Request', url='https://openspeech.bytedance.com/api/v3/tts/unidirectional')"}
+{"ts": "2026-01-28 14:27:57", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：2°C（体感 0°C）\n湿度：37%\n风速：7 km/h"}
+{"ts": "2026-01-28 14:28:04", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 14:28:22", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 14:28:22", "level": "WARN", "message": "HTTP TTS failed; fallback to WS TTS (400, message='Bad Request', url='https://openspeech.bytedance.com/api/v3/tts/unidirectional')"}
+{"ts": "2026-01-28 14:28:22", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 14:28:24", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 14:28:32", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 14:28:34", "level": "WARN", "message": "HTTP TTS failed; fallback to WS TTS (400, message='Bad Request', url='https://openspeech.bytedance.com/api/v3/tts/unidirectional')"}
+{"ts": "2026-01-28 14:28:34", "level": "BOT", "message": "BOT: 🌡️ 上海天气：晴天\n温度：9°C（体感 8°C）\n湿度：40%\n风速：8 km/h"}
+{"ts": "2026-01-28 14:28:58", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 14:29:07", "level": "WARN", "message": "HTTP TTS failed; fallback to WS TTS (400, message='Bad Request', url='https://openspeech.bytedance.com/api/v3/tts/unidirectional')"}
+{"ts": "2026-01-28 14:44:04", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-28 14:44:17", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-28 14:44:17", "level": "BOT", "message": "BOT: 2026年01月28日 Wednesday 14:44:17"}
+{"ts": "2026-01-28 14:44:25", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-28 14:44:27", "level": "BOT", "message": "BOT: 🌡️ 北京天气：晴天\n温度：2°C（体感 0°C）\n湿度：37%\n风速：7 km/h"}
+{"ts": "2026-01-28 14:44:33", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-28 14:44:52", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-28 14:44:52", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-28 14:44:53", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-28 14:45:01", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-28 14:45:14", "level": "BOT", "message": "BOT: 🌡️ 上海天气：多云\n温度：7.9°C\n风速：7.7 km/h"}
+{"ts": "2026-01-28 14:45:28", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-28 14:59:48", "level": "USER", "message": "USER: 帮我查下上海天气，顺便计算 123 乘以 456"}
+{"ts": "2026-01-28 15:00:04", "level": "BOT", "message": "BOT: 🌡️ 上海天气：晴天\n温度：8°C（体感 7°C）\n湿度：53%\n风速：11 km/h"}
+{"ts": "2026-01-28 15:00:07", "level": "USER", "message": "USER: 你刚才查的天气是多少度？"}
+{"ts": "2026-01-28 15:00:26", "level": "BOT", "message": "BOT: 抱歉，我没有找到 你刚才查是 的位置。"}
+{"ts": "2026-01-28 15:00:29", "level": "USER", "message": "USER: asdfghjkl qwerty 123"}
+{"ts": "2026-01-28 15:00:32", "level": "USER", "message": "USER: 别说了，换个话题"}
+{"ts": "2026-01-28 15:00:49", "level": "USER", "message": "USER: 5秒后提醒我该喝水了"}
+{"ts": "2026-01-29 08:32:06", "level": "TEST", "message": "[TEST:dialogue_auto_check.py] starting Jarvis subprocess (audio may play)"}
+{"ts": "2026-01-29 08:32:19", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-29 08:32:19", "level": "BOT", "message": "BOT: 2026年01月29日 Thursday 08:32:19"}
+{"ts": "2026-01-29 08:32:27", "level": "USER", "message": "USER: 北京天气怎么样"}
+{"ts": "2026-01-29 08:32:40", "level": "BOT", "message": "BOT: 🌡️ 北京天气：小雨\n温度：8.9°C\n风速：9.1 km/h"}
+{"ts": "2026-01-29 08:32:40", "level": "USER", "message": "USER: 谢谢"}
+{"ts": "2026-01-29 08:32:53", "level": "USER", "message": "USER: 计算 123 乘以 456"}
+{"ts": "2026-01-29 08:32:53", "level": "BOT", "message": "BOT: 🔢 123*456 = 56088"}
+{"ts": "2026-01-29 08:33:00", "level": "USER", "message": "USER: 今天星期几"}
+{"ts": "2026-01-29 08:33:08", "level": "USER", "message": "USER: 上海天气"}
+{"ts": "2026-01-29 08:33:11", "level": "BOT", "message": "BOT: 🌡️ 上海天气：多云\n温度：7°C（体感 5°C）\n湿度：61%\n风速：13 km/h"}
+{"ts": "2026-01-29 08:33:34", "level": "USER", "message": "USER: asdfghjkl 乱码"}
+{"ts": "2026-01-29 08:36:53", "level": "USER", "message": "USER: 现在几点"}
+{"ts": "2026-01-29 08:36:53", "level": "BOT", "message": "BOT: 2026年01月29日 Thursday 08:36:53"}
+{"ts": "2026-01-29 08:37:15", "level": "USER", "message": "USER: 现在股价"}
+{"ts": "2026-01-29 08:37:19", "level": "BOT", "message": "BOT: 抱歉，我没有找到 现在 的实时行情数据，请确认代码是否正确。"}
+{"ts": "2026-01-29 08:37:28", "level": "USER", "message": "USER: 特斯拉的股价"}
+{"ts": "2026-01-29 08:37:28", "level": "BOT", "message": "BOT: 特斯拉的 (TSLA) 当前价格为 431.46 USD，今日下跌 0.04%。"}
+{"ts": "2026-01-29 08:42:02", "level": "USER", "message": "USER: 你能听到我说话吗"}
+{"ts": "2026-01-29 08:43:22", "level": "USER", "message": "USER: 查询特斯拉股价"}
+{"ts": "2026-01-29 08:43:24", "level": "BOT", "message": "BOT: 查询特斯拉 (TSLA) 当前价格为 431.46 USD，今日下跌 0.04%。"}
+{"ts": "2026-01-29 08:43:42", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 08:43:54", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 08:45:05", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 08:45:06", "level": "BOT", "message": "BOT: 你好呀，今天过得怎么样？"}
+{"ts": "2026-01-29 08:45:11", "level": "USER", "message": "USER: 你是谁"}
+{"ts": "2026-01-29 08:45:13", "level": "BOT", "message": "BOT: 我是Jarvis，很高兴为你服务。"}
+{"ts": "2026-01-29 08:45:20", "level": "USER", "message": "USER: 很很好"}
+{"ts": "2026-01-29 08:45:33", "level": "BOT", "message": "BOT: 听起来你好像不是真心在夸我呢，你真的觉得很好吗？"}
+{"ts": "2026-01-29 08:45:51", "level": "USER", "message": "USER: 你查询一下今天的英伟达股价"}
+{"ts": "2026-01-29 08:45:53", "level": "BOT", "message": "BOT: 你查询一下今天的英伟达 (NVDA) 当前价格为 191.52 USD，今日上涨 1.41%。"}
+{"ts": "2026-01-29 08:46:17", "level": "USER", "message": "USER: 你给我生气一个我看看"}
+{"ts": "2026-01-29 08:46:19", "level": "BOT", "message": "BOT: 你这要求还挺奇怪的，一般人都不爱看别人生气吧？不过，谁让你是我的朋友呢，那"}
+{"ts": "2026-01-29 08:46:22", "level": "BOT", "message": "BOT: ？"}
+{"ts": "2026-01-29 08:47:36", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 08:47:37", "level": "BOT", "message": "BOT: 你好，有什么可以为你效劳的？"}
+{"ts": "2026-01-29 08:47:52", "level": "USER", "message": "USER: 你知道我是谁吗"}
+{"ts": "2026-01-29 08:47:53", "level": "BOT", "message": "BOT: 我还不知道你是谁，你可以告诉我。"}
+{"ts": "2026-01-29 08:48:09", "level": "USER", "message": "USER: 我是你的主人"}
+{"ts": "2026-01-29 08:48:13", "level": "BOT", "message": "BOT: 好的先生，有什么吩咐？"}
+{"ts": "2026-01-29 08:48:58", "level": "BOT", "message": "BOT: 你好，有什么需要我帮忙的吗？"}
+{"ts": "2026-01-29 08:49:38", "level": "BOT", "message": "BOT: 是的，先生，我可以听到你说话。"}
+{"ts": "2026-01-29 08:49:47", "level": "BOT", "message": "BOT: 可能是音频输出设备出现了问题，先生。请检查一下你的音量设置，或者"}
+{"ts": "2026-01-29 08:50:01", "level": "USER", "message": "USER: 我听不到你说话"}
+{"ts": "2026-01-29 08:50:02", "level": "BOT", "message": "BOT: 请检查一下音频连接，先生。如果问题仍然存在，请告诉我"}
+{"ts": "2026-01-29 08:55:18", "level": "BOT", "message": "BOT: 你好，有什么可以为你效劳的？"}
+{"ts": "2026-01-29 08:55:32", "level": "USER", "message": "USER: 你能听到我说话吗"}
+{"ts": "2026-01-29 08:55:33", "level": "BOT", "message": "BOT: 当然可以，先生。我的听觉系统非常灵敏。"}
+{"ts": "2026-01-29 08:58:45", "level": "USER", "message": "USER: 介绍一下托尼史塔克"}
+{"ts": "2026-01-29 08:58:47", "level": "BOT", "message": "BOT: 托尼·斯塔克，天才发明家、企业家，也是钢铁侠。他拥有卓越的智慧和财富，"}
+{"ts": "2026-01-29 08:59:23", "level": "BOT", "message": "BOT: 等于二，先生。这应该不难吧？"}
+{"ts": "2026-01-29 08:59:31", "level": "BOT", "message": "BOT: 等于一，先生。数学是严谨的，基本的运算法"}
+{"ts": "2026-01-29 08:59:53", "level": "BOT", "message": "BOT: 我刚才已经说过了，先生，零不能做除数，这是数学的基本规则，请换个数字吧。"}
+{"ts": "2026-01-29 09:00:06", "level": "BOT", "message": "BOT: 等于零，先生。零除以任何非零"}
+{"ts": "2026-01-29 09:06:26", "level": "USER", "message": "USER: 你是谁"}
+{"ts": "2026-01-29 09:06:38", "level": "USER", "message": "USER: 你是谁"}
+{"ts": "2026-01-29 09:07:16", "level": "USER", "message": "USER: 介绍一下你自己"}
+{"ts": "2026-01-29 09:08:10", "level": "USER", "message": "USER: 你是谁"}
+{"ts": "2026-01-29 09:08:12", "level": "BOT", "message": "BOT: 我是Jarvis，先生。"}
+{"ts": "2026-01-29 09:08:19", "level": "USER", "message": "USER: 我真服了你了"}
+{"ts": "2026-01-29 09:08:20", "level": "BOT", "message": "BOT: 抱歉，是我哪里做得不好吗？"}
+{"ts": "2026-01-29 09:16:54", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:18:13", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:18:14", "level": "BOT", "message": "BOT: 你好啊，有什么想聊的吗？"}
+{"ts": "2026-01-29 09:18:24", "level": "USER", "message": "USER: 我听不到你说话"}
+{"ts": "2026-01-29 09:20:22", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:20:23", "level": "BOT", "message": "BOT: 你好啊，有什么想聊的吗？"}
+{"ts": "2026-01-29 09:20:33", "level": "USER", "message": "USER: 还是听不到说话"}
+{"ts": "2026-01-29 09:20:35", "level": "BOT", "message": "BOT: 现在可以听到我说话了吗？如果还是不行的话，你可以检查一下你的设备音量是不是有问题。"}
+{"ts": "2026-01-29 09:24:22", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:24:24", "level": "BOT", "message": "BOT: 你好啊，有什么我能帮忙的？"}
+{"ts": "2026-01-29 09:24:35", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:24:37", "level": "BOT", "message": "BOT: 你好啊，有什么我可以帮忙的吗？"}
+{"ts": "2026-01-29 09:28:18", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:28:20", "level": "BOT", "message": "BOT: 你好啊，有什么想聊的吗？"}
+{"ts": "2026-01-29 09:29:12", "level": "USER", "message": "USER: 为什么"}
+{"ts": "2026-01-29 09:29:38", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:29:40", "level": "BOT", "message": "BOT: 你好啊，有什么可以为你效劳的？"}
+{"ts": "2026-01-29 09:30:03", "level": "USER", "message": "USER: 福利"}
+{"ts": "2026-01-29 09:31:06", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:31:08", "level": "BOT", "message": "BOT: 你好啊，有什么需要我帮忙的吗？"}
+{"ts": "2026-01-29 09:32:03", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:32:04", "level": "BOT", "message": "BOT: 你好啊，有什么可以为你效劳的？"}
+{"ts": "2026-01-29 09:32:09", "level": "USER", "message": "USER: 哈哈"}
+{"ts": "2026-01-29 09:32:10", "level": "BOT", "message": "BOT: 什么事情让你这么开心啊？"}
+{"ts": "2026-01-29 09:34:54", "level": "USER", "message": "USER: 你好哦"}
+{"ts": "2026-01-29 09:34:55", "level": "BOT", "message": "BOT: 你好啊，今天过得怎么样？"}
+{"ts": "2026-01-29 09:35:08", "level": "USER", "message": "USER: 我还是听不到你说话"}
+{"ts": "2026-01-29 09:35:15", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:35:28", "level": "USER", "message": "USER: 。。。"}
+{"ts": "2026-01-29 09:39:31", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 09:39:32", "level": "BOT", "message": "BOT: 你好啊，有什么想聊的吗？"}
+{"ts": "2026-01-29 09:59:45", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 10:49:38", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 10:49:56", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 10:51:13", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 11:17:10", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:20:32", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:21:58", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:23:46", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:25:34", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:26:24", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:27:27", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:28:06", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:30:02", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:34:25", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:36:03", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:38:18", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:38:18", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:46:19", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:46:19", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:48:11", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:48:11", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:50:20", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:50:20", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:52:14", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 11:52:14", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 12:58:08", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 12:58:08", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 12:58:50", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 12:58:50", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 12:59:51", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:01:55", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:03:42", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:04:25", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:04:59", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:04:59", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:05:49", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:06:00", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。"}
+{"ts": "2026-01-29 13:06:00", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:06:33", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:06:51", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:07:40", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:08:42", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:09:25", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:15:39", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:18:08", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:18:51", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:18:54", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:19:37", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:19:47", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:27:28", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:28:11", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:29:29", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:30:13", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:30:25", "level": "BOT", "message": "BOT: 苹果现在的 (AAPL) 当前价格为 256.44 USD，今日下跌 0.65%。"}
+{"ts": "2026-01-29 13:31:09", "level": "BOT", "message": "BOT: 为您播报最新的world新闻（来源：feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n"}
+{"ts": "2026-01-29 13:34:38", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:35:14", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:37:51", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:38:31", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:38:41", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:39:23", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:40:06", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:40:53", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:41:29", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:41:29", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:42:36", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:42:36", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:44:00", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:47:21", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:48:12", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:48:16", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 苹果现在的 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:49:09", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:55:47", "level": "USER", "message": "USER: 今天的苹果股价"}
+{"ts": "2026-01-29 13:55:50", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 今天的苹果 (AAPL) 现价 256.44 USD，今日下跌了 0.65%。"}
+{"ts": "2026-01-29 13:56:05", "level": "USER", "message": "USER: 好的谢谢你"}
+{"ts": "2026-01-29 13:56:18", "level": "USER", "message": "USER: 你能不能告诉我今天的英伟达股价"}
+{"ts": "2026-01-29 13:56:19", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 你能不能告诉我今天的英伟达 (NVDA) 现价 191.52 USD，今日上涨了 1.41%。"}
+{"ts": "2026-01-29 13:56:37", "level": "USER", "message": "USER: 今天的新闻"}
+{"ts": "2026-01-29 13:56:40", "level": "BOT", "message": "BOT: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：\n1. Trump warns Iran 'time is running out' for nuclear deal as US military builds up in Gulf。\n2. 'Don't take us to a hospital': Iran protesters treated in secret to avoid arrest。\n3. Border agents involved in fatal shooting of Alex Pretti placed on leave。\n\n您对哪条感兴趣吗？"}
+{"ts": "2026-01-29 13:58:07", "level": "USER", "message": "USER: 今天菏泽天气"}
+{"ts": "2026-01-29 13:58:17", "level": "BOT", "message": "BOT: 🌡️ 菏泽天气：局部多云\n温度：6°C（体感 4°C）\n湿度：50%\n风速：15 km/h"}
+{"ts": "2026-01-29 13:59:48", "level": "USER", "message": "USER: 你能听见我说话吗"}
+{"ts": "2026-01-29 13:59:53", "level": "USER", "message": "USER: 你是谁"}
+{"ts": "2026-01-29 14:00:08", "level": "USER", "message": "USER: 我今天黄金赚钱了吗"}
+{"ts": "2026-01-29 14:00:24", "level": "USER", "message": "USER: 英伟达股票"}
+{"ts": "2026-01-29 14:00:29", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 英伟达（NVDA）现价 191.52 USD，今日上涨了 1.41%。"}
+{"ts": "2026-01-29 14:00:47", "level": "USER", "message": "USER: 今天菏泽天气"}
+{"ts": "2026-01-29 14:01:01", "level": "BOT", "message": "BOT: 🌡️ 菏泽天气：阴\n温度：6.2°C\n风速：14.5 km/h"}
+{"ts": "2026-01-29 14:02:54", "level": "USER", "message": "USER: 今天菏泽天气"}
+{"ts": "2026-01-29 14:03:04", "level": "BOT", "message": "BOT: 菏泽天气：局部多云，温度6度，体感4度，湿度50%，风速15公里每小时。"}
+{"ts": "2026-01-29 14:03:25", "level": "USER", "message": "USER: 今天股票行情，查一下英伟达的吧"}
+{"ts": "2026-01-29 14:03:34", "level": "BOT", "message": "BOT: 抱歉，我没有找到 今天股票 的实时行情数据，请确认代码是否正确。"}
+{"ts": "2026-01-29 14:03:50", "level": "USER", "message": "USER: 你看看黄金的价格"}
+{"ts": "2026-01-29 14:07:29", "level": "USER", "message": "USER: 今天股票行情，帮我查一下英伟达"}
+{"ts": "2026-01-29 14:07:33", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 英伟达（NVDA）现价 191.52 USD，今日上涨了 1.41%。"}
+{"ts": "2026-01-29 14:07:59", "level": "USER", "message": "USER: 黄金走势"}
+{"ts": "2026-01-29 14:08:00", "level": "BOT", "message": "BOT: 市场总是有起有落嘛。 黄金（GC=F）现价 5588.90 USD，今日上涨了 0.70%。"}
+{"ts": "2026-01-29 14:09:16", "level": "USER", "message": "USER: 今天菏泽天气"}
+{"ts": "2026-01-29 14:09:22", "level": "BOT", "message": "BOT: 菏泽天气：局部多云，温度6度，体感4度，湿度50%，风速15公里每小时。"}
+{"ts": "2026-01-29 14:11:14", "level": "USER", "message": "USER: 你好，英伟达的股价"}
+{"ts": "2026-01-29 14:11:19", "level": "BOT", "message": "BOT: 这是最新的价格。 英伟达（NVDA）现价 191.52 USD，今日上涨了 1.41%。"}
+{"ts": "2026-01-29 14:11:43", "level": "USER", "message": "USER: 黄金价格"}
+{"ts": "2026-01-29 14:11:44", "level": "BOT", "message": "BOT: 来看看最新行情。 黄金（GC=F）现价 5598.90 USD，今日上涨了 0.88%。"}
+{"ts": "2026-01-29 14:13:24", "level": "USER", "message": "USER: 菏泽今天天气"}
+{"ts": "2026-01-29 14:13:28", "level": "BOT", "message": "BOT: 菏泽天气：局部多云，温度6度，体感4度，湿度50%，风速15公里每小时。"}
+{"ts": "2026-01-29 14:16:17", "level": "USER", "message": "USER: 今天菏泽的天气"}
+{"ts": "2026-01-29 14:16:31", "level": "BOT", "message": "BOT: 菏泽天气：阴，温度6.3度，风速15.1公里每小时。"}
+{"ts": "2026-01-29 14:29:30", "level": "USER", "message": "USER: 你好"}
+{"ts": "2026-01-29 14:29:37", "level": "USER", "message": "USER: 今天黄金价格"}
+{"ts": "2026-01-29 14:29:41", "level": "BOT", "message": "BOT: 这是最新的价格。 黄金（GC=F）现价 5608.10 USD，今日上涨了 1.04%。"}
+{"ts": "2026-01-29 14:34:56", "level": "BOT", "message": "BOT: 今天"}
+{"ts": "2026-01-29 14:34:57", "level": "BOT", "message": "BOT: 特斯拉"}
+{"ts": "2026-01-29 14:34:57", "level": "BOT", "message": "BOT: 的"}
+{"ts": "2026-01-29 14:34:57", "level": "BOT", "message": "BOT: 股价"}
+{"ts": "2026-01-29 14:34:57", "level": "BOT", "message": "BOT: 是"}
+{"ts": "2026-01-29 14:34:57", "level": "BOT", "message": "BOT: 每股"}
+{"ts": "2026-01-29 14:34:57", "level": "BOT", "message": "BOT: 今天特斯拉的股价是每股"}
+{"ts": "2026-01-29 14:34:57", "level": "BOT", "message": "BOT: 今天特斯拉的股价是每股"}
+{"ts": "2026-01-29 14:35:12", "level": "BOT", "message": "BOT: Yes"}
+{"ts": "2026-01-29 14:35:12", "level": "BOT", "message": "BOT: ,S"}
+{"ts": "2026-01-29 14:35:12", "level": "BOT", "message": "BOT: ir"}
+{"ts": "2026-01-29 14:35:13", "level": "BOT", "message": "BOT: Yes,Sir"}
+{"ts": "2026-01-29 14:35:13", "level": "BOT", "message": "BOT: Yes,Sir"}
+{"ts": "2026-01-29 14:39:37", "level": "BOT", "message": "BOT: 先生"}
+{"ts": "2026-01-29 14:39:37", "level": "BOT", "message": "BOT: ，"}
+{"ts": "2026-01-29 14:39:37", "level": "BOT", "message": "BOT: 特斯拉"}
+{"ts": "2026-01-29 14:39:37", "level": "BOT", "message": "BOT: 目前"}
+{"ts": "2026-01-29 14:39:37", "level": "BOT", "message": "BOT: 的"}
+{"ts": "2026-01-29 14:39:37", "level": "BOT", "message": "BOT: 股价"}
+{"ts": "2026-01-29 14:39:37", "level": "BOT", "message": "BOT: 是"}
+{"ts": "2026-01-29 14:39:38", "level": "BOT", "message": "BOT: 先生，特斯拉目前的股价是"}
+{"ts": "2026-01-29 14:39:38", "level": "BOT", "message": "BOT: 先生，特斯拉目前的股价是"}
+{"ts": "2026-01-29 14:40:04", "level": "USER", "message": "USER: 🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s"}
+{"ts": "2026-01-29 14:40:04", "level": "USER", "message": "USER: [STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word"}
+{"ts": "2026-01-29 14:40:04", "level": "BOT", "message": "BOT: 您"}
+{"ts": "2026-01-29 14:40:05", "level": "BOT", "message": "BOT: 想"}
+{"ts": "2026-01-29 14:40:05", "level": "BOT", "message": "BOT: 了解"}
+{"ts": "2026-01-29 14:40:05", "level": "BOT", "message": "BOT: 一下"}
+{"ts": "2026-01-29 14:40:05", "level": "BOT", "message": "BOT: 其他"}
+{"ts": "2026-01-29 14:40:05", "level": "BOT", "message": "BOT: 公司"}
+{"ts": "2026-01-29 14:40:05", "level": "BOT", "message": "BOT: 的"}
+{"ts": "2026-01-29 14:40:05", "level": "USER", "message": "USER: [DEBUG] Found Bot Text Candidate: 先生..."}
+{"ts": "2026-01-29 14:40:06", "level": "BOT", "message": "BOT: 您想了解一下其他公司的"}
+{"ts": "2026-01-29 14:40:06", "level": "BOT", "message": "BOT: 您想了解一下其他公司的"}
+{"ts": "2026-01-29 14:40:06", "level": "USER", "message": "USER: 🤖 Bot: 先生"}
+{"ts": "2026-01-29 14:40:07", "level": "USER", "message": "USER: [DEBUG] Found Bot Text Candidate: ，..."}
+{"ts": "2026-01-29 14:40:08", "level": "USER", "message": "USER: 🤖 Bot: ，"}
+{"ts": "2026-01-29 14:40:09", "level": "USER", "message": "USER: [DEBUG] Found Bot Text Candidate: 特斯拉..."}
+{"ts": "2026-01-29 14:40:12", "level": "BOT", "message": "BOT: 价格比较稳定。 特斯拉（TSLA）现价 431.46 USD，今日下跌了 0.04%。"}
+{"ts": "2026-01-29 14:40:12", "level": "USER", "message": "USER: 🤖 Bot: 特斯拉"}
+{"ts": "2026-01-29 14:40:13", "level": "BOT", "message": "BOT: 价格比较稳定。 特斯拉（TSLA）现价 431.46 USD，今日下跌了 0.04%。"}
+{"ts": "2026-01-29 14:40:13", "level": "USER", "message": "USER: [DEBUG] Found Bot Text Candidate: 目前..."}
+{"ts": "2026-01-29 14:40:13", "level": "USER", "message": "USER: 🤖 Bot: 目前"}
+{"ts": "2026-01-29 14:40:14", "level": "USER", "message": "USER: [DEBUG] Found Bot Text Candidate: 的..."}
+{"ts": "2026-01-29 14:41:09", "level": "USER", "message": "USER: 🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word[DEBUG] Found Bot Text Candidate: 先生...🤖 Bot: 先生[DEBUG] Found Bot Text Candidate: ，...🤖 Bot: ，[DEBUG] Found Bot Text Candidate: 特斯拉...🤖 Bot: 特斯拉[DEBUG] Found Bot Text Candidate: 目前...🤖 Bot: 目前[DEBUG] Found Bot Text Candidate: 的...🤖 Bot: 的[DEBUG] Found Bot Text Candidate: 股价...🤖 Bot: 股价[DEBUG] Found Bot Text Candidate: 是...🤖 Bot: 是[AUDIO] 📦 Received chunk 0: 18000 bytes[AUDIO] 📦 Received chunk 1: 19414 bytes🗣️ Jarvis: 先生，特斯拉目前的股价是[AUDIO] 📦 Received chunk 2: 19150 bytes[AUDIO] 📦 Received chunk 3: 19436 bytes[AUDIO] 📦 Received chunk 4: 19190 bytes[TURN] 🟢 Released | Reason: server_done[AUDIO] 🔊 Playing... (Chunk: 10)[AUDIO] 🔊 Playing... (Chunk: 20)🧵 [READER] Reading mic data... (len=14400)特斯拉股价"}
+{"ts": "2026-01-29 14:41:11", "level": "BOT", "message": "BOT: 看起来今天波动不大，比较平稳。 特斯拉（TSLA）现价 431.46 USD，今日下跌了 0.04%。"}
+{"ts": "2026-01-29 15:04:15", "level": "BOT", "message": "BOT: 你"}
+{"ts": "2026-01-29 15:04:15", "level": "BOT", "message": "BOT: 好"}
+{"ts": "2026-01-29 15:04:15", "level": "BOT", "message": "BOT: 啊"}
+{"ts": "2026-01-29 15:04:15", "level": "BOT", "message": "BOT: ，"}
+{"ts": "2026-01-29 15:04:15", "level": "BOT", "message": "BOT: 有"}
+{"ts": "2026-01-29 15:04:15", "level": "BOT", "message": "BOT: 什么"}
+{"ts": "2026-01-29 15:04:15", "level": "BOT", "message": "BOT: 想"}
+{"ts": "2026-01-29 15:04:16", "level": "BOT", "message": "BOT: 你好啊，有什么想"}
+{"ts": "2026-01-29 15:04:16", "level": "BOT", "message": "BOT: 你好啊，有什么想"}
+{"ts": "2026-01-29 15:06:13", "level": "BOT", "message": "BOT: 你"}
+{"ts": "2026-01-29 15:06:13", "level": "BOT", "message": "BOT: 好"}
+{"ts": "2026-01-29 15:06:13", "level": "BOT", "message": "BOT: 啊"}
+{"ts": "2026-01-29 15:06:13", "level": "BOT", "message": "BOT: ，"}
+{"ts": "2026-01-29 15:06:13", "level": "BOT", "message": "BOT: 有"}
+{"ts": "2026-01-29 15:06:13", "level": "BOT", "message": "BOT: 什么"}
+{"ts": "2026-01-29 15:06:13", "level": "BOT", "message": "BOT: 想"}
+{"ts": "2026-01-29 15:06:14", "level": "BOT", "message": "BOT: 你好啊，有什么想"}
+{"ts": "2026-01-29 15:06:14", "level": "BOT", "message": "BOT: 你好啊，有什么想"}
+{"ts": "2026-01-29 16:45:21", "level": "BOT", "message": "BOT: 你"}
+{"ts": "2026-01-29 16:45:21", "level": "BOT", "message": "BOT: 好"}
+{"ts": "2026-01-29 16:45:21", "level": "BOT", "message": "BOT: 啊"}
+{"ts": "2026-01-29 16:45:21", "level": "BOT", "message": "BOT: ，"}
+{"ts": "2026-01-29 16:45:21", "level": "BOT", "message": "BOT: 有"}
+{"ts": "2026-01-29 16:45:21", "level": "BOT", "message": "BOT: 什么"}
+{"ts": "2026-01-29 16:45:22", "level": "BOT", "message": "BOT: 你好啊，有什么"}
+{"ts": "2026-01-29 16:45:22", "level": "BOT", "message": "BOT: 你好啊，有什么"}
+{"ts": "2026-01-29 16:45:27", "level": "BOT", "message": "BOT: 抱歉"}
+{"ts": "2026-01-29 16:45:27", "level": "BOT", "message": "BOT: ，"}
+{"ts": "2026-01-29 16:45:27", "level": "BOT", "message": "BOT: 我"}
+{"ts": "2026-01-29 16:45:27", "level": "BOT", "message": "BOT: 暂时"}
+{"ts": "2026-01-29 16:45:27", "level": "BOT", "message": "BOT: 无法"}
+{"ts": "2026-01-29 16:45:27", "level": "BOT", "message": "BOT: 连接"}
+{"ts": "2026-01-29 16:45:28", "level": "BOT", "message": "BOT: 抱歉，我暂时无法连接"}
+{"ts": "2026-01-29 16:45:28", "level": "BOT", "message": "BOT: 抱歉，我暂时无法连接"}
+{"ts": "2026-01-29 16:45:42", "level": "BOT", "message": "BOT: 帮您查到了。 英伟达（NVDA）现价 191.52 USD，今日上涨了 1.41%。"}
+{"ts": "2026-01-29 20:40:06", "level": "BOT", "message": "BOT: 帮您查到了。 特斯拉（TSLA）现价 431.46 USD，今日下跌了 1.89%。"}
+{"ts": "2026-01-29 20:40:06", "level": "BOT", "message": "BOT: 帮您查到了。 特斯拉（TSLA）现价 431.46 USD，今日下跌了 1.89%。"}
+{"ts": "2026-01-29 22:36:56", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 你好，Jarvis"}
+{"ts": "2026-01-29 22:36:56", "level": "TEST", "message": "[TEST:test_voice_output.py] using Doubao ARK for response"}
+{"ts": "2026-01-29 22:37:01", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-29 22:37:10", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 现在几点了"}
+{"ts": "2026-01-29 22:37:10", "level": "TEST", "message": "[TEST:test_voice_output.py] using Doubao ARK for response"}
+{"ts": "2026-01-29 22:37:19", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-29 22:37:29", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 今天天气怎么样"}
+{"ts": "2026-01-29 22:37:29", "level": "TEST", "message": "[TEST:test_voice_output.py] using Doubao ARK for response"}
+{"ts": "2026-01-29 22:37:34", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}
+{"ts": "2026-01-29 22:38:53", "level": "TEST", "message": "[TEST:test_voice_output.py] prompt: 你好，Jarvis"}
+{"ts": "2026-01-29 22:38:53", "level": "TEST", "message": "[TEST:test_voice_output.py] using Doubao ARK for response"}
+{"ts": "2026-01-29 22:38:59", "level": "TEST", "message": "[TEST:test_voice_output.py] playing audio: /tmp/jarvis_response.mp3"}

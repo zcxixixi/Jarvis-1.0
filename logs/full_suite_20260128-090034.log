@@ -1,0 +1,1131 @@
+Jarvis full suite run @ 2026-01-28 09:00:34
+================================================================================
+
+## run_all_tests.sh (capture)
+$ JARVIS_CAPTURE_TTS=1 ./run_all_tests.sh
+============================================================
+🚀 JARVIS INTEGRATION PIPELINE
+============================================================
+🐍 Activating virtual environment (.venv)...
+🔍 Checking Python Syntax...
+✅ Syntax Check Passed
+
+🔧 Running Text-Based Tool & Agent Tests...
+============================================================
+🤖 Jarvis Automated Dialogue Test Suite
+============================================================
+
+============================================================
+🔧 Quick Tool Tests (No Jarvis subprocess needed)
+============================================================
+
+✅ 时间: 2026年01月28日 Wednesday 09:00:35...
+✅ 计算: 🔢 2+2 = 4...
+✅ 天气: 🌡️ 北京天气：雾
+温度：3.0°C
+风速：4.0 km/h...
+
+============================================================
+🎭 Dialogue Tests
+============================================================
+🚀 Starting Jarvis subprocess...
+⏳ Waiting for Jarvis to initialize...
+
+============================================================
+🧪 连续对话测试 (15秒窗口)
+============================================================
+
+📝 Test: 唤醒
+📤 Sent: Jarvis
+📥 🚀 [TOP-LEVEL] Hybrid Jarvis script starting...
+📥 🚀 [TOP-LEVEL] Imports complete
+📥 /Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/../core/hybrid_jarvis.py:22: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+📥 import audioop # For high-quality resampling ratecv
+📥 ⚠️ Boot sound not found: /Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/utils/voice/open_voice.mp4
+📥 🚀 [STARTUP] Boot sound triggered, waiting 2s for audio device to stabilize...
+📥 🚀 [STARTUP] Initializing HybridJarvis instance...
+📥 🔧 HybridJarvis: Initializing...
+📥 🔧 HybridJarvis: Base class initialized
+📥 🤖 Initializing Jarvis Agent...
+📥 📚 Memory loaded: 1000 conversations, 500 tasks
+📥 🔌 Loading all plugins...
+📥 📦 Discovered 15 plugin modules
+📥 ✅ weather_tools: loaded 2 tools
+📥 ✅ web_tools: loaded 3 tools
+📥 ✅ info_tools: loaded 2 tools
+📥 ✅ system_tools: loaded 3 tools
+📥 ✅ migu_tools: loaded 1 tools
+📥 ✅ file_tools: loaded 3 tools
+📥 ✅ mi_home_tools: loaded 2 tools
+📥 ✅ time_tools: loaded 1 tools
+📥 ✅ scheduler_tools: loaded 3 tools
+📥 ✅ smart_home_tools: loaded 3 tools
+📥 ✅ netease_tools: loaded 1 tools
+📥 ✅ music_tools: loaded 1 tools
+📥 ✅ calculator_tools: loaded 2 tools
+📥 ✅ email_tools: loaded 2 tools
+📥 ✅ calendar_tools: loaded 2 tools
+📥 ✅ Loaded 31 total tools
+📥 🔧 Loaded 31 tools via plugin manager
+📥 ⏰ Scheduler loaded 0 tasks
+📥 🧠 HybridJarvis: Cognitive Brain Connected
+📥 /Users/kaijimima1234/Desktop/jarvis/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:123: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'CoreMLExecutionProvider, AzureExecutionProvider, CPUExecutionProvider'
+📥 warnings.warn(
+📥 🎙️ OpenWakeWord initialized (model: 'hey_jarvis_v0.1')
+📥 🔧 HybridJarvis: Loading AEC...
+📥 [AEC] ✅ Initialized: frame_size=160, filter_length=1024, sample_rate=16000
+📥 [AEC] Bluetooth/System delay compensation: 200ms (Buffered 3200 silence samples)
+📥 🔧 HybridJarvis: AEC Loaded
+📥 🚀 [STARTUP] HybridJarvis instance created
+📥 
+📥 🚀 Starting Jarvis (Auto-Reconnect Mode)...
+📥 🚀 Calling jarvis.connect()...
+📥 🤖 Connecting to Doubao...
+📥 ✅ Connected! LogID: N/A
+📥 ✅ Connected!
+📥 StartConnection OK
+📥 ⚙️ Session ID: d18f874e-c6c3-4242-8ce4-7e7a77ea887d | Config: {"asr": {"extra": {"end_smooth_window_ms": 1500}}, "tts": {"speaker": "zh_male_yunzhou_jupiter_bigtt...
+📥 StartSession Response: {'message_type': 'SERVER_FULL_RESPONSE', 'event': 150, 'session_id': "b'd18f874e-c6c3-4242-8ce4-7e7a77ea887d'", 'payload_msg': {'dialog_id': '8cb89d04-544f-4dde-a4cb-e8f78734271f'}, 'payload_size': 52}
+📥 ⚠️  Jarvis: Target mic 'USB Audio' not found. Using config fallback: 1
+📥 🎙️ Jarvis: Opening Mic (Index 1) at 48000Hz...
+📥 🎙️ Jarvis: Audio setup complete (In: 16000Hz, Out: 24000Hz, Spk: 2)
+📥 ✅ Speaker Thread Started (Jitter Buffer Max: 50)
+📥 🎙️ Jarvis is alive. Speak or Type!
+📥 📥 Receive loop started.
+📥 🎙️ Jarvis initialized in STANDBY mode.
+📥 🧵 [THREAD] Mic Reader Thread starting...
+📥 ✅ Audio Reader Thread Started (Zero-Latency Mode)
+📥 🔍 Music process monitor started.
+📥 ⌨️  Stdin pipe detected - processing input stream...
+📥 
+📥 ⌨️ 'Jarvis' typed! Waking up...
+📥 🔇 Ducking volume: 44% -> 30%
+📥 🔊 Music stopped & Volume ducked - Jarvis is ready.
+✅ 唤醒: 64 lines output
+
+📝 Test: 时间查询
+📤 Sent: 现在几点
+📥 📝 键盘输入: 现在几点
+📥 
+📥 ⚡ Detected Intent: get_current_time
+📥 🔧 Tool Result: 2026年01月28日 Wednesday 09:00:56
+📥 🗣️ Jarvis: 2026年01月28日 Wednesday 09:00:56
+✅ 时间查询: 5 lines output
+
+📝 Test: 天气查询
+📤 Sent: 北京天气怎么样
+📥 📝 键盘输入: 北京天气怎么样
+📥 
+📥 ⚡ Detected Intent: get_weather
+📥 📍 Extracted City: 北京
+✅ 天气查询: 4 lines output
+
+📝 Test: 礼貌回复
+📤 Sent: 谢谢
+📥 🔧 Tool Result: 🌡️ 北京天气：晴天
+📥 温度：-3°C（体感 -5°C）
+📥 湿度：35%
+📥 风速：5 km/h
+📥 🗣️ Jarvis: 🌡️ 北京天气：晴天
+📥 温度：-3°C（体感 -5°C）
+📥 湿度：35%
+📥 风速：5 km/h
+📥 📝 键盘输入: 谢谢
+📥 📤 Sending text: 谢谢
+✅ 礼貌回复: 10 lines output
+
+============================================================
+🧪 功能快速切换
+============================================================
+
+📝 Test: 唤醒
+📤 Sent: Jarvis
+📥 
+📥 ⌨️ 'Jarvis' typed! Waking up...
+📥 🔊 Music stopped & Volume ducked - Jarvis is ready.
+✅ 唤醒: 3 lines output
+
+📝 Test: 计算
+📤 Sent: 计算 123 乘以 456
+📥 📝 键盘输入: 计算 123 乘以 456
+📥 
+📥 ⚡ Detected Intent: calculate
+📥 🔧 Tool Result: 🔢 123*456 = 56088
+📥 🗣️ Jarvis: 🔢 123*456 = 56088
+📥 ⚠️ Turn response timeout. Forcing release.
+📥 🟢 Turn released (response_timeout)
+✅ 计算: 7 lines output
+
+📝 Test: 日期
+📤 Sent: 今天星期几
+📥 📝 键盘输入: 今天星期几
+📥 📤 Sending text: 今天星期几
+📥 
+📥 [已恢复收音] Mic auto-resumed after speech pause
+✅ 日期: 4 lines output
+
+📝 Test: 天气
+📤 Sent: 上海天气
+📥 📝 键盘输入: 上海天气
+📥 
+📥 ⚡ Detected Intent: get_weather
+📥 📍 Extracted City: 上海
+✅ 天气: 4 lines output
+
+============================================================
+🧪 边界情况测试
+============================================================
+
+📝 Test: 唤醒
+📤 Sent: Jarvis
+📥 ⚠️ Turn response timeout. Forcing release.
+📥 🟢 Turn released (response_timeout)
+📥 🔧 Tool Result: 🌡️ 上海天气：多云
+📥 温度：4.4°C
+📥 风速：4.7 km/h
+📥 🗣️ Jarvis: 🌡️ 上海天气：多云
+📥 温度：4.4°C
+📥 风速：4.7 km/h
+📥 
+📥 ⌨️ 'Jarvis' typed! Waking up...
+📥 🔊 Music stopped & Volume ducked - Jarvis is ready.
+✅ 唤醒: 11 lines output
+
+📝 Test: 空输入
+📤 Sent: 
+✅ 空输入: 0 lines output
+
+📝 Test: 无效输入
+📤 Sent: asdfghjkl 乱码
+📥 📝 键盘输入: asdfghjkl 乱码
+📥 📤 Sending text: asdfghjkl 乱码
+📥 
+📥 🗣️ Jarvis: 看起来像是随机的乱码，
+✅ 无效输入: 4 lines output
+
+📝 Test: 休眠
+📤 Sent: 退下
+📥 
+📥 ⌨️ '退下' typed! Sleeping...
+📥 🔊 Restoring volume: 44%
+✅ 休眠: 3 lines output
+
+============================================================
+📊 Test Summary
+============================================================
+✅ PASS - 连续对话测试 (15秒窗口)
+✅ PASS - 功能快速切换
+✅ PASS - 边界情况测试
+
+总计: 3/3 场景通过
+🛑 Jarvis stopped
+✅ Text-Based Tests Passed
+
+env Checking Environment Configuration...
+✅ .env file found
+
+============================================================
+🎉 ALL TESTS PASSED
+============================================================
+
+💡 Tip: Use 'fswatch' or 'entr' to run this efficiently on file change:
+   ls **/*.py | entr -c ./run_all_tests.sh
+
+## doubao_http_check.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/doubao_http_check.py
+🔑 Testing Doubao Integration
+   Model: doubao-seed-1-8-251228
+   Token: 1502c...633b4
+📡 Sending Request...
+📥 Status: 200
+✅ Response: Greetings! While I’m actually Doubao, developed by ByteDance, I’m fully geared up to assist you with whatever you need—whether it’s diving into complex questions, brainstorming creative ideas, or tackling daily practical tasks. Feel free to share what’s on your mind, and I’ll be right here to help! 😊
+
+## test_connection.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_connection.py
+🔧 Config Check:
+   APP_ID: 3805698959
+   TOKEN:  None......
+❌ Error: Missing credentials in .env
+
+## test_headless.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_headless.py
+
+[STDERR]
+Traceback (most recent call last):
+  File "/Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/test_headless.py", line 15, in <module>
+    from jarvis_doubao_realtime import DoubaoRealtimeJarvis
+ModuleNotFoundError: No module named 'jarvis_doubao_realtime'
+
+## test_hybrid_top.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_hybrid_top.py
+🚀 [TOP-LEVEL] Hybrid Jarvis script starting...
+🚀 [TOP-LEVEL] Imports complete
+
+[STDERR]
+Traceback (most recent call last):
+  File "/Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/test_hybrid_top.py", line 14, in <module>
+    from jarvis_doubao_realtime import DoubaoRealtimeJarvis, DoubaoProtocol
+ModuleNotFoundError: No module named 'jarvis_doubao_realtime'
+
+## test_integration_dialogue.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_integration_dialogue.py
+
+============================================================
+🔧 Integration Test: Agent Core & Tools (Direct Call)
+============================================================
+
+❌ Tests Encountered an Error: No module named 'agent_core'
+
+## test_learning.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_learning.py
+
+[STDERR]
+Traceback (most recent call last):
+  File "/Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/test_learning.py", line 17, in <module>
+    from agent_core import JarvisAgent
+ModuleNotFoundError: No module named 'agent_core'
+
+## test_minimal.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_minimal.py
+Step 1: All basic imports finished
+Step 2: Initializing PyAudio...
+SUCCESS: PyAudio initialized
+Step 3: Opening Output Stream (Device 2, 24kHz)...
+SUCCESS: Output stream opened
+Step 4: Opening Input Stream (Device 1, 48kHz)...
+SUCCESS: Input stream opened
+ALL TESTS COMPLETED
+
+## test_network_down.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_network_down.py
+
+[STDERR]
+Traceback (most recent call last):
+  File "/Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/test_network_down.py", line 53, in <module>
+    raise SystemExit(asyncio.run(main()))
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/test_network_down.py", line 18, in main
+    from tools.weather_tools import GetWeatherTool
+ModuleNotFoundError: No module named 'tools'
+
+## test_pipeline.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_pipeline.py
+============================================================
+🧪 JARVIS CONTINUOUS TEST PIPELINE
+============================================================
+Started: 2026-01-28 09:02:32
+
+
+📦 Test Suite 1: Tool Loading
+----------------------------------------
+  ✅ Loaded 27 tools
+
+💾 Test Suite 2: Memory Store
+----------------------------------------
+📚 Memory loaded: 2 conversations, 0 tasks
+  ✅ Memory persistence works
+
+🤖 Test Suite 3: Agent Core
+----------------------------------------
+🤖 Initializing Jarvis Agent...
+📚 Memory loaded: 1000 conversations, 500 tasks
+🔌 Loading all plugins...
+📦 Discovered 15 plugin modules
+  ✅ weather_tools: loaded 2 tools
+  ✅ web_tools: loaded 3 tools
+  ✅ info_tools: loaded 2 tools
+  ✅ system_tools: loaded 3 tools
+  ✅ migu_tools: loaded 1 tools
+  ✅ file_tools: loaded 3 tools
+  ✅ mi_home_tools: loaded 2 tools
+  ✅ time_tools: loaded 1 tools
+  ✅ scheduler_tools: loaded 3 tools
+  ✅ smart_home_tools: loaded 3 tools
+  ✅ netease_tools: loaded 1 tools
+  ✅ music_tools: loaded 1 tools
+  ✅ calculator_tools: loaded 2 tools
+  ✅ email_tools: loaded 2 tools
+  ✅ calendar_tools: loaded 2 tools
+✅ Loaded 31 total tools
+🔧 Loaded 31 tools via plugin manager
+⏰ Scheduler loaded 0 tasks
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+  ✅ 时间查询: 2026年01月28日 Wednesday 09:02:33...
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+  ✅ 计算: 🔢 2+2 = 4...
+
+🔗 Test Suite 4: Multi-step Planning
+----------------------------------------
+🤖 Initializing Jarvis Agent...
+🔧 Loaded 31 tools via plugin manager
+📋 Plan created: 2 steps
+🔄 Step 1/2: Execute get_weather
+⏰ Scheduler started
+⏰ Scheduler started
+🔄 Step 2/2: Execute get_current_time
+  ✅ Multi-step execution works
+
+🔄 Test Suite 5: Error Recovery
+----------------------------------------
+🤖 Initializing Jarvis Agent...
+🔧 Loaded 31 tools via plugin manager
+🧠 No keyword match. Engaging Cognitive Brain (Doubao)...
+⚠️ Missing Doubao API Key or Endpoint ID for HTTP Planner.
+📋 Plan created: 1 steps
+🔄 Step 1/1: Respond conversationally
+  ✅ Graceful handling of edge cases
+
+📄 Report saved to: /Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/test_report.md
+
+============================================================
+📊 RESULTS: 6/6 tests passed
+⏱️  Total time: 12.74s
+============================================================
+
+## test_resilience.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_resilience.py
+
+[STDERR]
+Traceback (most recent call last):
+  File "/Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/tests/test_resilience.py", line 9, in <module>
+    from agent_core import JarvisAgent
+ModuleNotFoundError: No module named 'agent_core'
+
+## test_robustness.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_robustness.py
+============================================================
+🛡️  JARVIS ROBUSTNESS TEST SUITE
+============================================================
+Started: 2026-01-28 09:02:45
+
+🔬 Edge Case Inputs
+----------------------------------------
+🤖 Initializing Jarvis Agent...
+📚 Memory loaded: 1000 conversations, 500 tasks
+🔌 Loading all plugins...
+📦 Discovered 15 plugin modules
+  ✅ weather_tools: loaded 2 tools
+  ✅ web_tools: loaded 3 tools
+  ✅ info_tools: loaded 2 tools
+  ✅ system_tools: loaded 3 tools
+  ✅ migu_tools: loaded 1 tools
+  ✅ file_tools: loaded 3 tools
+  ✅ mi_home_tools: loaded 2 tools
+  ✅ time_tools: loaded 1 tools
+  ✅ scheduler_tools: loaded 3 tools
+  ✅ smart_home_tools: loaded 3 tools
+  ✅ netease_tools: loaded 1 tools
+  ✅ music_tools: loaded 1 tools
+  ✅ calculator_tools: loaded 2 tools
+  ✅ email_tools: loaded 2 tools
+  ✅ calendar_tools: loaded 2 tools
+✅ Loaded 31 total tools
+🔧 Loaded 31 tools via plugin manager
+⏰ Scheduler loaded 0 tasks
+🧠 No keyword match. Engaging Cognitive Brain (Doubao)...
+⚠️ Missing Doubao API Key or Endpoint ID for HTTP Planner.
+📋 Plan created: 1 steps
+🔄 Step 1/1: Respond conversationally
+  ✅ edge_Empty string: Handled: Conversation response (no tool
+🧠 No keyword match. Engaging Cognitive Brain (Doubao)...
+⚠️ Missing Doubao API Key or Endpoint ID for HTTP Planner.
+📋 Plan created: 1 steps
+🔄 Step 1/1: Respond conversationally
+  ✅ edge_Whitespace only: Handled: Conversation response (no tool
+🧠 No keyword match. Engaging Cognitive Brain (Doubao)...
+⚠️ Missing Doubao API Key or Endpoint ID for HTTP Planner.
+📋 Plan created: 1 steps
+🔄 Step 1/1: Respond conversationally
+  ✅ edge_Special characters: Handled: Conversation response (no tool
+🧠 No keyword match. Engaging Cognitive Brain (Doubao)...
+⚠️ Missing Doubao API Key or Endpoint ID for HTTP Planner.
+📋 Plan created: 1 steps
+🔄 Step 1/1: Respond conversationally
+  ✅ edge_Very long input: Handled: Conversation response (no tool
+🧠 No keyword match. Engaging Cognitive Brain (Doubao)...
+⚠️ Missing Doubao API Key or Endpoint ID for HTTP Planner.
+📋 Plan created: 1 steps
+🔄 Step 1/1: Respond conversationally
+  ✅ edge_Long Chinese: Handled: Conversation response (no tool
+🧠 No keyword match. Engaging Cognitive Brain (Doubao)...
+⚠️ Missing Doubao API Key or Endpoint ID for HTTP Planner.
+📋 Plan created: 1 steps
+🔄 Step 1/1: Respond conversationally
+  ✅ edge_Emoji only: Handled: Conversation response (no tool
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+⏰ Scheduler started
+  ✅ edge_Repeated keyword: Handled: 抱歉，我没有找到 天气 的位置。
+  ✅ edge_None value: Skipped (None)
+
+💾 Memory Persistence
+----------------------------------------
+📚 Memory loaded: 1 conversations, 0 tasks
+  ✅ memory_persistence: Data survives restart
+
+🔧 Tool Error Handling
+----------------------------------------
+  ✅ tool_error_Empty city: Handled: 🌡️ 天气：晴天
+温度：-6°C（体感 -14°C）
+湿度：
+  ✅ tool_error_Invalid expression: Handled: ❌ 计算错误：name 'invalid' is not d
+  ✅ tool_error_Division by zero: Handled: ❌ 错误：除数不能为零
+
+🔀 Concurrent Requests
+----------------------------------------
+🤖 Initializing Jarvis Agent...
+🔧 Loaded 31 tools via plugin manager
+⏰ Scheduler started
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+  ✅ concurrent_requests: 5 requests in 10.10s
+
+⚡ Rapid Fire (20 requests)
+----------------------------------------
+🤖 Initializing Jarvis Agent...
+🔧 Loaded 31 tools via plugin manager
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+  ✅ rapid_fire: 20 requests, avg 0.021s each
+
+🔗 Multi-step Planning
+----------------------------------------
+🤖 Initializing Jarvis Agent...
+🔧 Loaded 31 tools via plugin manager
+📋 Plan created: 2 steps
+🔄 Step 1/2: Execute get_weather
+⏰ Scheduler started
+⏰ Scheduler started
+🔄 Step 2/2: Execute get_current_time
+  ✅ multi_step: Handled: 告诉我时间和天气...
+📋 Plan created: 2 steps
+🔄 Step 1/2: Execute get_weather
+🔄 Step 2/2: Execute calculate
+  ✅ multi_step: Handled: 计算 2+2 然后告诉我北京天气...
+📋 Plan created: 2 steps
+🔄 Step 1/2: Execute get_weather
+🔄 Step 2/2: Execute get_current_time
+  ✅ multi_step: Handled: 现在几点了，顺便查一下上海天气...
+
+============================================================
+📊 ROBUSTNESS RESULTS: 17/17 tests passed
+⏱️  Total time: 65.65s
+============================================================
+
+## test_audio_latency.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_audio_latency.py
+🎵 Audio Latency Profiler
+============================================================
+
+Testing 50 audio chunks...
+  Chunk 0: 140.13ms
+  Chunk 10: 117.73ms
+  Chunk 20: 94.67ms
+  Chunk 30: 89.01ms
+  Chunk 40: 115.07ms
+
+============================================================
+📊 Results:
+  Average:   100.36ms
+  Std Dev:   10.69ms
+  95th %%:    120.10ms
+  99th %%:    131.10ms
+  Max:       140.13ms
+============================================================
+❌ High latency - likely packet loss
+
+## test_doubao_tts_text.py (tts)
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_doubao_tts_text.py 你好
+✅ Connected
+📤 TTS request sent: 你好
+⚠️ TTS wait timeout.
+⚠️ No TTS audio frames received.
+
+## test_doubao_tts_text.py (--chat)
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_doubao_tts_text.py 你好 --chat
+✅ Connected
+📤 CHAT request sent: 你好
+[CONTENT]: 你
+[CONTENT]: 好
+[CONTENT]: ，
+[CONTENT]: 有
+[CONTENT]: 什么
+[CONTENT]: 可以
+[CONTENT]: 为
+[CONTENT]: 你
+[CONTENT]: 效劳
+[CONTENT]: 的
+[CONTENT]: ？
+✅ TTS audio saved: /tmp/jarvis_tts_output.wav (7 chunks)
+
+## test_doubao_audio_file.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_doubao_audio_file.py /tmp/jarvis_tts_output.wav
+🤖 Connecting to Doubao (Latency Test Mode)...
+✅ Connected!
+   StartConnection OK
+   StartSession OK
+🎙️ Streaming & Playing: /tmp/jarvis_tts_output.wav
+   [DEBUG] Receive loop started
+
+[DEBUG EVENT]: {"asr_task_id": "2bcf0b30-a560-447c-bcd2-18554368e478_0_0", "is_duplex_interrupted": false, "local_message_id": "", "question_id": "36699179087369474", "round_id": 1}
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 18, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 29.99995994567883}, "results": [{"alternatives": [{"end_time": 1.142, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 1.142, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 19, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 60.00005054473889}, "results": [{"alternatives": [{"end_time": 1.172, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 1.172, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 22, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 90.00096948242198}, "results": [{"alternatives": [{"end_time": 1.382, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 1.382, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "prefetch": true, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 23, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 120.00094087219249}, "results": [{"alternatives": [{"end_time": 1.412, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好。"}], "end_time": 1.412, "index": 0, "is_interim": true, "is_soft_finished": true, "is_vad_timeout": false, "soft_vad_type": 999, "start_time": 0.422, "text": "你好。"}]}
+
+[ASR]: 你好。
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 26, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 270.00002534484867}, "results": [{"alternatives": [{"end_time": 1.621999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 1.621999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 27, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 239.99999673461892}, "results": [{"alternatives": [{"end_time": 1.651999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 1.651999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 29, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 419.9999442825315}, "results": [{"alternatives": [{"end_time": 1.831999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 1.831999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 31, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 480.00000627136205}, "results": [{"alternatives": [{"end_time": 1.891999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 1.891999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 33, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 660.0000730285642}, "results": [{"alternatives": [{"end_time": 2.071999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 2.071999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 35, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 720.0000158081052}, "results": [{"alternatives": [{"end_time": 2.131999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 2.131999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 37, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 900.0000825653074}, "results": [{"alternatives": [{"end_time": 2.311999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 2.311999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 39, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 960.0000253448484}, "results": [{"alternatives": [{"end_time": 2.371999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好"}], "end_time": 2.371999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 0.422, "text": "你好"}]}
+
+[ASR]: 你好
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.253850519657135, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "你好", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 40, "soft_finish_paralinguistic": {"asr_text": "你好。", "para_resp": {}, "para_text": ""}, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 980.0009599456785}, "results": [{"alternatives": [{"end_time": 2.392, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 0.422, "text": "你好。"}], "end_time": 2.392, "index": 0, "is_interim": false, "is_vad_timeout": false, "start_time": 0.422, "text": "你好。"}]}
+
+[ASR]: 你好。
+
+[DEBUG EVENT]: {"comfort_wait_time": 0, "last_prefetch_cost_time": 1794, "last_resp_cost_time": 2273, "no_content": false, "prefetch_backtrack_time": 479, "task_request_seq_id": 0, "task_request_timestamp": 0, "user_duration": 967}
+
+[DEBUG EVENT]: {"enable_v3_loudness_balance": true, "model_type": "v3", "question_id": "36699179087369474", "reply_id": "36699179087369730", "tts_task_id": "2bcf0b30-a560-447c-bcd2-18554368e478_1_1", "tts_type": "default", "v3_loundness_params": ""}
+
+[DEBUG EVENT]: {"content": "", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 
+
+[DEBUG EVENT]: {"content": "你", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 你
+
+[DEBUG EVENT]: {"content": "好", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 好
+
+[DEBUG EVENT]: {"content": "呀", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 呀
+
+[DEBUG EVENT]: {"content": "，", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: ，
+
+[DEBUG EVENT]: {"content": "有", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 有
+
+[DEBUG EVENT]: {"content": "什么", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 什么
+
+[DEBUG EVENT]: {"content": "想", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 想
+.
+[DEBUG EVENT]: {"content": "跟", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 跟
+.
+[DEBUG EVENT]: {"content": "我", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 我
+
+[DEBUG EVENT]: {"content": "聊", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 聊
+
+[DEBUG EVENT]: {"content": "的", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 的
+.
+[DEBUG EVENT]: {"content": "吗", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: 吗
+.
+[DEBUG EVENT]: {"content": "？", "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[CONTENT]: ？
+..
+[DEBUG EVENT]: {"question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[DEBUG EVENT]: {"usage": {"cached_audio_tokens": 0, "cached_text_tokens": 0, "input_audio_tokens": 13, "input_text_tokens": 905, "output_audio_tokens": 54, "output_text_tokens": 17}}
+
+[DEBUG EVENT]: {"question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[DEBUG EVENT]: {"extra": {"ast_seq_id": 0, "src_channel": 0}, "no_content": true, "question_id": "36699179087369474", "reply_id": "36699179087369730"}
+
+[DEBUG EVENT]: {"asr_task_id": "2bcf0b30-a560-447c-bcd2-18554368e478_1_1", "is_duplex_interrupted": false, "local_message_id": "", "question_id": "36699179087369986", "round_id": 2}
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.6829665303230286, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "问", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 89, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 210.0000062713625}, "results": [{"alternatives": [{"end_time": 3.391999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": "问"}], "end_time": 3.391999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 2.212, "text": "问"}]}
+
+[ASR]: 问
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": -1, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 91, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 209.999949050903}, "results": [{"alternatives": [{"end_time": 3.451999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": ""}], "end_time": 3.451999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 2.212, "text": ""}]}
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.47885429859161377, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "问你", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 93, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 359.99801580810555}, "results": [{"alternatives": [{"end_time": 3.631999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": "问你"}], "end_time": 3.631999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 2.212, "text": "问你"}]}
+
+[ASR]: 问你
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": 0.47885429859161377, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "问你", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 95, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 419.99795858764656}, "results": [{"alternatives": [{"end_time": 3.691999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": "问你"}], "end_time": 3.691999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 2.212, "text": "问你"}]}
+
+[ASR]: 问你
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": -1, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 97, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 599.9980253448487}, "results": [{"alternatives": [{"end_time": 3.871999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": ""}], "end_time": 3.871999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 2.212, "text": ""}]}
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": -1, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 99, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 659.9979681243897}, "results": [{"alternatives": [{"end_time": 3.931999, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": ""}], "end_time": 3.931999, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 2.212, "text": ""}]}
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": -1, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "", "pre_query_round": 0, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 100, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 810.0002092590332}, "results": [{"alternatives": [{"end_time": 4.082001, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": ""}], "end_time": 4.082001, "index": 0, "is_interim": true, "is_vad_timeout": false, "start_time": 2.212, "text": ""}]}
+
+[DEBUG EVENT]: {"extra": {"interrupt_score": -1, "is_pvad": false, "model_version": "BigASR-BigStreamv1.4.8_chunk_8", "origin_text": "", "pre_query_round": 1, "req_payload": {"end_smooth_silence_proportion": 0.9, "eos_silence_timeout": 1500}, "seq_id": 102, "source": "bigasr-acllm-release-streaming-grpc-v3", "vad_backtrack_silence_time_ms": 849.9992174377442}, "results": [{"alternatives": [{"end_time": 4.122, "oi_decoding_info": {"oi_former_word_num": 0, "oi_latter_word_num": 0, "oi_words": null}, "semantic_related_to_prev": null, "start_time": 2.212, "text": ""}], "end_time": 4.122, "index": 0, "is_interim": false, "is_vad_timeout": false, "start_time": 2.212, "text": ""}]}
+
+[DEBUG EVENT]: {"comfort_wait_time": 0, "no_content": true, "task_request_seq_id": 0, "task_request_timestamp": 0}
+✅ Input audio finished streaming.
+
+[DEBUG EVENT]: {}
+
+   [DEBUG] Stream ended, waiting for responses...
+
+   [DEBUG] Receive loop finished
+
+## voice_output_validator.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/voice_output_validator.py
+Checked 50 entries from /Users/kaijimima1234/Desktop/jarvis/logs/final_responses.jsonl
+Source breakdown: {'tool': 35, 'cloud': 15}
+⚠️ Issues found: 15
+- LANG_MISMATCH: user='给我新闻简报' bot='为您播报最新的world新闻（来源：feeds.bbci.co.uk）：
+1. India and EU announce 'mother of all trade deals'。
+2. US to send ICE agents to Winter Olympics, prompting Italian anger。
+3. Immigration chief at centre of Trump's crackdown set to leave Minneapolis。
+' tool=get_news
+- LANG_MISMATCH: user='现在几点' bot='2026年01月28日 Wednesday 07:51:55' tool=get_current_time
+- LANG_MISMATCH: user='计算 123 乘以 456' bot='🔢 123*456 = 56088' tool=calculate
+- LANG_MISMATCH: user='现在几点' bot='2026年01月28日 Wednesday 08:05:48' tool=get_current_time
+- LANG_MISMATCH: user='计算 123 乘以 456' bot='🔢 123*456 = 56088' tool=calculate
+- LANG_MISMATCH: user='现在几点' bot='2026年01月28日 Wednesday 08:27:18' tool=get_current_time
+- LANG_MISMATCH: user='计算 123 乘以 456' bot='🔢 123*456 = 56088' tool=calculate
+- LANG_MISMATCH: user='现在几点' bot='2026年01月28日 Wednesday 08:29:51' tool=get_current_time
+- LANG_MISMATCH: user='计算 123 乘以 456' bot='🔢 123*456 = 56088' tool=calculate
+- LANG_MISMATCH: user='现在几点' bot='2026年01月28日 Wednesday 08:33:01' tool=get_current_time
+- LANG_MISMATCH: user='计算 123 乘以 456' bot='🔢 123*456 = 56088' tool=calculate
+- LANG_MISMATCH: user='现在几点' bot='2026年01月28日 Wednesday 08:48:56' tool=get_current_time
+- LANG_MISMATCH: user='计算 123 乘以 456' bot='🔢 123*456 = 56088' tool=calculate
+- LANG_MISMATCH: user='现在几点' bot='2026年01月28日 Wednesday 09:00:56' tool=get_current_time
+- LANG_MISMATCH: user='计算 123 乘以 456' bot='🔢 123*456 = 56088' tool=calculate
+
+## test_voice_output.py
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/test_voice_output.py
+
+==================================================
+🎤 用户: 你好，Jarvis
+🤔 Jarvis 思考中...
+🤖 Jarvis: API密钥未配置
+🔊 生成语音...
+📢 播放中...
+✅ 完成
+
+==================================================
+🎤 用户: 现在几点了
+🤔 Jarvis 思考中...
+🤖 Jarvis: API密钥未配置
+🔊 生成语音...
+📢 播放中...
+✅ 完成
+
+==================================================
+🎤 用户: 今天天气怎么样
+🤔 Jarvis 思考中...
+🤖 Jarvis: API密钥未配置
+🔊 生成语音...
+📢 播放中...
+✅ 完成
+
+## soak_test.py (120s)
+$ /Users/kaijimima1234/Desktop/jarvis/.venv/bin/python jarvis_assistant/tests/soak_test.py --duration 120 --concurrency 2
+🤖 Initializing Jarvis Agent...
+📚 Memory loaded: 1000 conversations, 500 tasks
+🔌 Loading all plugins...
+📦 Discovered 15 plugin modules
+  ✅ weather_tools: loaded 2 tools
+  ✅ web_tools: loaded 3 tools
+  ✅ info_tools: loaded 2 tools
+  ✅ system_tools: loaded 3 tools
+  ✅ migu_tools: loaded 1 tools
+  ✅ file_tools: loaded 3 tools
+  ✅ mi_home_tools: loaded 2 tools
+  ✅ time_tools: loaded 1 tools
+  ✅ scheduler_tools: loaded 3 tools
+  ✅ smart_home_tools: loaded 3 tools
+  ✅ netease_tools: loaded 1 tools
+  ✅ music_tools: loaded 1 tools
+  ✅ calculator_tools: loaded 2 tools
+  ✅ email_tools: loaded 2 tools
+  ✅ calendar_tools: loaded 2 tools
+✅ Loaded 31 total tools
+🔧 Loaded 31 tools via plugin manager
+⏰ Scheduler loaded 0 tasks
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+🤖 Initializing Jarvis Agent...
+🔧 Loaded 31 tools via plugin manager
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+⏰ Scheduler started
+⏰ Scheduler started
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_current_time
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute calculate
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_stock_price
+
+================================================================================
+
+# SUMMARY
+- run_all_tests.sh (capture): PASS (110.7s)
+- doubao_http_check.py: PASS (6.2s)
+- test_connection.py: FAIL(1) (0.1s)
+- test_headless.py: FAIL(1) (0.1s)
+- test_hybrid_top.py: FAIL(1) (0.1s)
+- test_integration_dialogue.py: FAIL(1) (0.1s)
+- test_learning.py: FAIL(1) (0.1s)
+- test_minimal.py: PASS (0.7s)
+- test_network_down.py: FAIL(1) (0.1s)
+- test_pipeline.py: PASS (12.9s)
+- test_resilience.py: FAIL(1) (0.1s)
+- test_robustness.py: PASS (65.8s)
+- test_audio_latency.py: PASS (5.5s)
+- test_doubao_tts_text.py (tts): PASS (16.4s)
+- test_doubao_tts_text.py (--chat): PASS (1.7s)
+- test_doubao_audio_file.py: PASS (8.7s)
+- voice_output_validator.py: PASS (0.0s)
+- test_voice_output.py: PASS (16.2s)
+- soak_test.py (120s): PASS (127.4s)
+
+# SKIPPED
+- test_asr_hook.py: requires live mic input
+- manual tests: manual/interactive
+- test_api.sh: missing tests/test_doubao_api.py
+- test_aec.sh: missing tests/test_aec_realtime.py + manual
+- test_noise.sh: missing tests/test_noise_suppression.py

@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+.env
+*.wav
+*.pcm
+*.webp
+*.png
+.DS_Store
+brain/
+QUALITY_SCORE.md
+temp_audio/
+recordings/
