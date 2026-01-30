@@ -16,9 +16,9 @@ class BidirectionalTTS:
     def __init__(self):
         from jarvis_assistant.config.doubao_config import TTS_2_0_CONFIG
         self.endpoint = "wss://openspeech.bytedance.com/api/v3/tts/bidirection"
-        # [DEBUG] Force Hardcoded values to match working test_tts_module.py
-        self.appid = "3284176421"
-        self.access_token = "elO_bo1SMiqeKF5_J0uIFFT6VjNAPLV0"
+        # Load from environment variables for security
+        self.appid = os.getenv("DOUBAO_APP_ID")
+        self.access_token = os.getenv("DOUBAO_SPEECH_TOKEN")
         
         self.voice_type = "zh_male_lengkugege_emo_v2_mars_bigtts"  # [FIX] Working male voice
         self.resource_id = "volc.service_type.10029"  # 对齐 Demo 资源ID
