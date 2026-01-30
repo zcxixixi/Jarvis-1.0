@@ -1,0 +1,23 @@
+#!/usr/bin/expect -f
+set timeout 20
+spawn bluetoothctl
+expect "]#"
+send "scan on\r"
+sleep 8
+send "pair 8C:53:C3:23:48:B4\r"
+expect {
+    "Pairing successful" { puts "Paired!" }
+    "already exists" { puts "Already paired" }
+    "Failed to pair" { puts "Pair failed" }
+    timeout { puts "Pair Timeout" }
+}
+send "trust 8C:53:C3:23:48:B4\r"
+expect "]#"
+send "connect 8C:53:C3:23:48:B4\r"
+expect {
+    "Connection successful" { puts "Connected!" }
+    "Failed to connect" { puts "Connect failed" }
+    timeout { puts "Connect Timeout" }
+}
+send "exit\r"
+expect eof

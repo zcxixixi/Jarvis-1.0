@@ -1,0 +1,45 @@
+
+    async def receive_loop(self):
+        async for message in self.ws:
+            if not self.is_running: break
+            if len(message) < 8: continue
+            
+            result = DoubaoProtocol.parse_response(message)
+            serialization_type = (message[2] >> 4)
+            
+            if serialization_type == 1:  # JSON
+                payload = result.get('payload_msg')
+                if not isinstance(payload, dict): continue
+                
+                event_type = payload.get('type')
+                
+                if event_type == 'AudioInput' and payload.get('state') == 'finished':
+                    asr_text = payload.get('asr_text') or payload.get('text')
+                    if asr_text: asyncio.create_task(self.on_text_received(asr_text))
+                
+                elif event_type == 'ASR' and payload.get('is_final'):
+                    asr_text = payload.get('text')
+                    if asr_text: asyncio.create_task(self.on_text_received(asr_text))
+                
+                elif event_type == 'Error' or 'code' in result:
+                    code = result.get('code') or payload.get('code')
+                    msg = payload.get('message') or payload.get('payload_msg', {}).get('error', 'Unknown Error')
+                    print(f"[REALTIME] ❌ Server Error {code}: {msg}")
+
+            elif serialization_type == 0:  # Audio
+                payload = result.get('payload_msg')
+                if not isinstance(payload, bytes): continue
+                
+                # [LOGIC FIX] 只要收到音频，就必须进队，除非明确由 BidirTTS 接管
+                # print(f"DEBUG: Audio chunk received ({len(payload)} bytes)")
+                
+                if hasattr(self, 'speaker_queue'):
+                    try: 
+                        # 强行设置 self_speaking_mute 以配合 AEC 和进度打印
+                        if hasattr(self, 'self_speaking_mute'):
+                            self.self_speaking_mute = True
+                            
+                        self.speaker_queue.put_nowait(payload)
+                        # print("DEBUG: Successfully put in queue")
+                    except Exception as e:
+                        print(f"[AUDIO] ❌ Queue error: {e}")

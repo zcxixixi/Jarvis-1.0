@@ -1,0 +1,12 @@
+{
+    "bedroom_light": {
+        "ip": "192.168.1.10",
+        "token": "YOUR_TOKEN_HERE_OR_LEAVE_BLANK_TO_SIMULATE",
+        "model": "yeelink.light.color1"
+    },
+    "living_room_fan": {
+        "ip": "192.168.1.11",
+        "token": "YOUR_TOKEN_HERE",
+        "model": "zhimi.fan.v3"
+    }
+}
