@@ -1,4 +1,4 @@
-# Jarvis 2.0 - AI Voice Assistant
+# Jarvis 1.5 - AI Voice Assistant
 
 中文 AI 语音助手，支持语音唤醒、意图识别、智能工具调用和流式语音合成。
 
@@ -55,5 +55,5 @@ jarvis/
 
 ---
 
-**版本**: 2.0 (Phase 6 Complete)  
+**版本**: 1.5 (Refined Core)  
 **更新**: 2026-01-31

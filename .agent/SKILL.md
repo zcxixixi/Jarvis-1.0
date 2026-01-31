@@ -86,6 +86,34 @@ When Agent speaks, music must pause and mic must mute:
 - TTS can synthesize Chinese text
 - PyAudio can play the output
 
+## 🧩 Verified Code Patterns
+
+### PyAudio Streaming Playback
+Used in `test_full_voice_pipeline.py` to play raw PCM bytes from TTS V3:
+```python
+import pyaudio
+p = pyaudio.PyAudio()
+stream = p.open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)
+
+# Play chunks as they arrive from WebSocket
+async for chunk in tts.synthesize(text):
+    if isinstance(chunk, bytes):
+        stream.write(chunk)
+```
+
+### Punctuation-based Text Buffering
+Used to ensure natural pauses and stop emoji-related TTS crashes:
+```python
+buffer = ""
+for token in llm_stream:
+    buffer += token
+    if any(p in token for p in "，。！？,.!?\n"):
+        cleaned = clean_text_for_tts(buffer)
+        if cleaned:
+            await tts.synthesize(cleaned)
+        buffer = ""
+```
+
 ---
 
 ## 🎯 Future Development Roadmap
