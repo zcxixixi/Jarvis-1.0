@@ -27,6 +27,7 @@ from jarvis_assistant.services.doubao.tts_v3 import (
     synthesize_stream as tts_v3_synthesize,
     DoubaoTTSV1
 )
+from jarvis_assistant.utils.text_utils import clean_text_for_tts
 
 class HybridJarvis(DoubaoRealtimeJarvis):
     async def on_text_received(self, text: str):
@@ -2192,8 +2193,43 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                  self.speaker_queue.put_nowait(("agent", chunk))
         except Exception as e:
             print(f"⚠️ Cloud TTS V3 failed: {e}")
-            # [FIX] Enforce high-quality cloud TTS. Fallback removed as per user request.
             pass
+
+    async def _speak_stream(self, text_chunk: str, is_final: bool = False):
+        """
+        Streaming TTS handler: buffers text and sends to TTS on punctuation.
+        Mimics logic from test_full_voice_pipeline.py
+        """
+        if not hasattr(self, "_tts_stream_buffer"):
+            self._tts_stream_buffer = ""
+            
+        self._tts_stream_buffer += text_chunk
+        
+        # Check for punctuation triggers or final signal
+        buffer = self._tts_stream_buffer
+        should_flush = is_final
+        text_to_speak = ""
+        
+        # Punctuation triggers
+        if any(p in text_chunk for p in ["，", "。", "！", "？", ",", ".", "!", "?", "\n", "：", ":"]):
+             # Find the last punctuation index to split safely
+             # For simplicity, if we hit a trigger, we try to speak everything
+             should_flush = True
+        
+        if should_flush:
+            text_to_speak = buffer.strip()
+            self._tts_stream_buffer = "" # Reset buffer
+            
+            if text_to_speak:
+                # Clean text
+                cleaned = clean_text_for_tts(text_to_speak)
+                if cleaned:
+                    print(f"🔈 Stream TTS: {cleaned}")
+                    try:
+                        async for chunk in self.tts_v1.synthesize(cleaned):
+                            self.speaker_queue.put_nowait(("agent", chunk))
+                    except Exception as e:
+                        print(f"⚠️ Stream TTS failed: {e}")
 
     async def _speak_local(self, text: str):
     # [FIX] Re-enable local fallback as per user request to ensure audio output

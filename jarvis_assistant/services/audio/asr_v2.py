@@ -106,16 +106,16 @@ class ASRServiceV2:
         }
 
     async def connect(self):
-        # [FIX] For websockets >= 14.0/16.0, use 'additional_headers' or just direct kwargs?
-        # Actually in 10.0+ it became 'additional_headers' for the high level API but 'extra_headers' strictly for handshake? 
-        # Check source: websockets 16.0 client.connect implementation.
-        # It accepts **kwargs and passes them to the handshake.
-        # It seems 'additional_headers' is preferred in some contexts.
-        # Let's try 'additional_headers'.
+        """Connect to ASR service with proper authentication headers"""
+        # [FIX] Use X-Api-* headers like TTS does
+        headers = {
+            'X-Api-App-Key': self.appid,
+            'X-Api-Access-Key': self.token,
+            'X-Api-Resource-Id': 'volc.speech.asr',
+            'X-Api-Connect-Id': str(uuid.uuid4()),
+        }
         
-        header = {'Authorization': f'Bearer; {self.token}'}
-        # If 'additional_headers' fails, we will try to pass headers directly or update code.
-        self.ws = await websockets.connect(self.ws_url, additional_headers=header)
+        self.ws = await websockets.connect(self.ws_url, additional_headers=headers)
         
         # Send Full Client Request (Init)
         req = self._construct_init_request()
@@ -142,10 +142,13 @@ class ASRServiceV2:
                 result = parse_response(resp)
                 payload = result.get('payload', {})
                 
-                if 'text' in payload:
-                    text = payload['text']
-                    is_final = payload.get('is_final', False)
-                    if self.on_transcription:
+                if 'result' in payload and len(payload['result']) > 0:
+                    # Extract text from result array
+                    text = payload['result'][0].get('text', '')
+                    sequence = payload.get('sequence', 0)
+                    is_final = sequence < 0  # Negative sequence means final
+                    
+                    if self.on_transcription and text:
                         await self.on_transcription(text, is_final)
                 
                 if payload.get('code') and payload.get('code') != 1000:
@@ -154,6 +157,7 @@ class ASRServiceV2:
             if self._running: logger.error(f"ASR Recv Loop Error: {e}")
 
     async def send_audio(self, chunk: bytes, is_last: bool = False):
+        """Send audio data to ASR service"""
         if not self.ws or not self._running: return
         
         payload = gzip.compress(chunk)
@@ -164,6 +168,30 @@ class ASRServiceV2:
         msg.extend(len(payload).to_bytes(4, 'big'))
         msg.extend(payload)
         await self.ws.send(msg)
+    
+    async def get_final_result(self, timeout: float = 10.0) -> str:
+        """
+        Wait for final transcription result.
+        Returns the final text when ASR completes.
+        """
+        final_text = ""
+        result_event = asyncio.Event()
+        
+        async def transcription_callback(text: str, is_final: bool):
+            nonlocal final_text
+            if text:
+                final_text = text
+            if is_final:
+                result_event.set()
+        
+        self.on_transcription = transcription_callback
+        
+        try:
+            await asyncio.wait_for(result_event.wait(), timeout=timeout)
+            return final_text
+        except asyncio.TimeoutError:
+            logger.warning(f"ASR timeout after {timeout}s")
+            return final_text
 
     async def close(self):
         self._running = False

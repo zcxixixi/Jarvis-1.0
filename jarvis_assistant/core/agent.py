@@ -5,9 +5,14 @@ Autonomous agent with planning, execution, and verification loop.
 
 import asyncio
 import json
+import os
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass, field
 from enum import Enum
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 from jarvis_assistant.core.memory import get_memory
 from jarvis_assistant.core.intent_matcher import IntentMatcher
@@ -131,10 +136,20 @@ class JarvisAgent:
         print(f"⚡ Proactive Trigger: {prompt}")
         await self.run(prompt)
     
-    async def run(self, user_input: str) -> str:
+    async def run(self, user_input: str, stream_callback: Optional[callable] = None) -> str:
         """
         Main agent loop with Self-Learning
         """
+        # 🎵 Auto-pause music when user speaks (to prevent overlap with Jarvis response)
+        music_tool = self.tools.get("play_music")
+        if music_tool and hasattr(music_tool, '_current_process') and music_tool._current_process:
+            try:
+                print("🔇 Pausing background music...")
+                music_tool._current_process.terminate()
+                music_tool._current_process = None
+            except:
+                pass
+        
         # Check for feedback keywords first
         if user_input in ["不对", "错了", "不是这个", "wrong", "stop"]:
              return await self.handle_user_feedback("negative", user_input)
@@ -159,7 +174,7 @@ class JarvisAgent:
                 print(f"🔄 Step {i+1}/{len(plan.steps)}: {step.description}")
                 step.status = StepStatus.RUNNING
                 
-                result = await self.execute_step(step)
+                result = await self.execute_step(step, stream_callback)
                 
                 if step.status == StepStatus.FAILED and step.retry_count < self.MAX_RETRIES:
                      # ... retry logic ...
@@ -181,6 +196,9 @@ class JarvisAgent:
                 result=final_result,
                 success=plan.success
             )
+            
+            # 🔥 Active Memory Extraction (非阻塞)
+            asyncio.create_task(self._extract_memories(user_input, final_result))
             
             return final_result
             
@@ -206,6 +224,18 @@ class JarvisAgent:
         else:
             return "??? No recent task to learn from."
     
+    async def _extract_memories(self, user_input: str, assistant_response: str) -> None:
+        """
+        提取并保存用户信息（异步，非阻塞）
+        """
+        try:
+            from jarvis_assistant.core.memory_agent import get_memory_agent
+            agent = get_memory_agent()
+            await agent.analyze_and_extract(user_input, assistant_response)
+        except Exception as e:
+            # Silent fail - memory extraction should not break main flow
+            print(f"⚠️ Memory extraction error: {e}")
+    
 
 
     async def plan(self, user_input: str) -> ExecutionPlan:
@@ -218,13 +248,39 @@ class JarvisAgent:
         # Build planning prompt with available tools and context
         history = self.get_history(limit=5)
         
+        # 🔥 Get User Context (Hierarchical)
+        context = self.memory.get_context_for_response()
+        context_lines = []
+        if context:
+            if "project" in context:
+                context_lines.append(f"**Current Project**: {context['project']}")
+            if "learning" in context:
+                context_lines.append(f"**Learning Focus**: {context['learning']}")
+            if "research_area" in context:
+                context_lines.append(f"**Research Area**: {context['research_area']}")
+            if "location" in context:
+                context_lines.append(f"**Location**: {context['location']}")
+            if "name" in context:
+                context_lines.append(f"**Name**: {context['name']}")
+        
+        context_str = "\n".join(context_lines) if context_lines else "暂无用户背景信息"
+        
         tool_descriptions = "\n".join([
             f"- {name}: {tool.description}" 
-            for name, tool in list(self.tools.items())[:15]
+            for name, tool in list(self.tools.items())[:20]
         ])
         
-        planning_prompt = f"""You are Jarvis, a highly intelligent autonomous assistant. 
-Your goal is to fulfill the user request by planning and executing steps using available tools.
+        planning_prompt = f"""You are Jarvis, a warm and intelligent assistant who truly knows the user.
+
+[USER CONTEXT] (Use this background to personalize your responses)
+{context_str}
+
+**Personalization Guidelines**:
+1. When answering questions, naturally use the user's background as examples when relevant
+2. If the topic relates to their project/research, acknowledge the connection
+3. Use a friendly, conversational tone (像朋友一样，不要用"您")
+4. Don't mechanically repeat user info - weave it naturally into responses
+5. Occasionally (not every time) show care about their ongoing projects
 
 [CONVERSATION HISTORY]
 {history}
@@ -237,29 +293,67 @@ Your goal is to fulfill the user request by planning and executing steps using a
 
 [INSTRUCTIONS]
 1. Analyze if the user request requires tool usage based on history and intent.
-2. If tools are needed, respond with a JSON object containing the steps.
-3. If it's a simple conversational response, return: {{"steps": []}}.
-4. Keep the plan minimal and efficient.
+2. If the user mentions updating their info (location, name, etc), use 'update_user_info'.
+3. If user mentions a project/research/learning focus, it will be automatically saved.
+4. For weather/location queries, prioritize the user's location from [USER CONTEXT] if no city is specified.
+5. If tools are needed, respond with a JSON object containing the steps.
+6. If it's a simple conversational response, return: {{"steps": []}}.
 
 Response (JSON only):"""
         
         try:
             # Use simple keyword fallback first (fast path)
             matched_tools = []
+            
+            # --- CUSTOM INTENT KEYWORDS ---
+            # Extend default intent matcher with user tools
+            import re
+            # Match "我在青岛市" or "我现在在青岛" or "去青岛"
+            # Captures "青岛" from "在青岛市"
+            loc_match = re.search(r"(?:我在|在|去)(.+?)[市区县]", user_input)
+            if loc_match:
+                 city = loc_match.group(1).replace("现在", "").replace("在", "").strip()
+                 print(f"🚀 Fast Path: User Location Update -> {city}")
+                 matched_tools.append(("update_user_info", {"key": "location", "value": city}))
+
             for keyword, tool_name in self.intent_keywords.items():
                 if keyword in user_input:
-                    if tool_name not in matched_tools:
-                        matched_tools.append(tool_name)
+                    # Special handling for weather without city
+                    if tool_name == "get_weather":
+                         # Check if city in input
+                         # Simple check: if input length < 10 ("今天天气") -> use profile
+                         if len(user_input) < 10 and "天气" in user_input:
+                             profile_city = self.memory.get_profile("location")
+                             if profile_city:
+                                 matched_tools.append((tool_name, {"city": profile_city}))
+                                 continue
+                    
+                    matched_tools.append((tool_name, {}))
             
             if matched_tools:
                 # Fast keyword-based path
-                for tool_name in matched_tools:
-                    step = PlanStep(
-                        description=f"Execute {tool_name}",
-                        tool_name=tool_name,
-                        tool_args=self._extract_args(user_input, tool_name)
-                    )
-                    plan.steps.append(step)
+                for tool_name, forced_args in matched_tools:
+                    tool_args = self._extract_args(user_input, tool_name)
+                    tool_args.update(forced_args)  # 🔥 Apply profile args if any
+                    
+                    # 🔴 FIX #2: Handle multi-symbol stock queries
+                    if tool_name == "get_stock_price" and "symbol" in tool_args:
+                        symbols = tool_args["symbol"].split(",") if "," in tool_args["symbol"] else [tool_args["symbol"]]
+                        for symbol in symbols:
+                            step = PlanStep(
+                                description=f"Execute {tool_name} for {symbol.strip()}",
+                                tool_name=tool_name,
+                                tool_args={"symbol": symbol.strip()}
+                            )
+                            plan.steps.append(step)
+                    else:
+                        # Single-step tool
+                        step = PlanStep(
+                            description=f"Execute {tool_name}",
+                            tool_name=tool_name,
+                            tool_args=tool_args
+                        )
+                        plan.steps.append(step)
             else:
                 # No keyword match - try heuristic intent inference
                 inferred = self._infer_intent(user_input)
@@ -271,23 +365,49 @@ Response (JSON only):"""
                         tool_args=tool_args
                     ))
                 else:
-                    # No heuristic match - try Doubao LLM (Cognitive Brain)
-                    print("🧠 No keyword match. Engaging Cognitive Brain (Doubao)...")
-                    llm_plan = await self._plan_with_doubao(user_input, planning_prompt)
-                    
-                    if llm_plan and llm_plan.get("steps"):
-                        for s in llm_plan["steps"]:
-                            plan.steps.append(PlanStep(
-                                description=s.get("description", "LLM Task"),
-                                tool_name=s.get("tool"),
-                                tool_args=s.get("args", {})
-                            ))
-                    else:
-                        # Fallback
+                    # 🔴 FAST PATH: Context continuation detection (skip Doubao for lower latency)
+                    context_inferred = self._infer_from_context(user_input)
+                    if context_inferred:
+                        tool_name, tool_args = context_inferred
+                        print(f"🚀 Context shortcut: {tool_name}")
                         plan.steps.append(PlanStep(
-                            description="Respond conversationally",
-                            tool_name=None
+                            description=f"Execute {tool_name} (context)",
+                            tool_name=tool_name,
+                            tool_args=tool_args
                         ))
+                    else:
+                        # 🚀 FAST PATH: Detect pure conversational queries (no tools needed)
+                        conversational_patterns = [
+                            "记住", "记得", "我喜欢", "我想", "解释", "什么是", "为什么", 
+                            "怎么样", "如何", "告诉我", "你觉得", "你认为", "聊聊"
+                        ]
+                        is_conversational = any(p in user_input for p in conversational_patterns)
+                        
+                        if is_conversational and len(user_input) < 50:
+                            # Skip expensive Planner for obvious conversational queries
+                            print("💬 Conversational query detected - skipping Planner")
+                            plan.steps.append(PlanStep(
+                                description="Respond conversationally",
+                                tool_name=None
+                            ))
+                        else:
+                            # Complex query - engage Doubao Planner
+                            print("🧠 No keyword match. Engaging Cognitive Brain (Doubao)...")
+                            llm_plan = await self._plan_with_doubao(user_input, planning_prompt)
+                        
+                        if llm_plan and llm_plan.get("steps"):
+                            for s in llm_plan["steps"]:
+                                plan.steps.append(PlanStep(
+                                    description=s.get("description", "LLM Task"),
+                                    tool_name=s.get("tool"),
+                                    tool_args=s.get("args", {})
+                                ))
+                        else:
+                            # Fallback
+                            plan.steps.append(PlanStep(
+                                description="Respond conversationally",
+                                tool_name=None
+                            ))
             
         except Exception as e:
             print(f"Planning error: {e}")
@@ -331,7 +451,8 @@ Response (JSON only):"""
         
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.post(url, headers=headers, json=payload, timeout=8) as resp:
+                # 🚀 Flash model needs more time for complex planning (increased from 30s)
+                async with session.post(url, headers=headers, json=payload, timeout=45) as resp:
                     if resp.status == 200:
                         data = await resp.json()
                         print("✅ Doubao Planner Respond Success")
@@ -347,6 +468,104 @@ Response (JSON only):"""
             print(f"❌ Doubao Connection Error: {e}")
             return None
 
+    def _infer_from_context(self, user_input: str) -> Optional[tuple]:
+        """
+        🚀 FAST PATH: Infer intent from conversation context without calling LLM.
+        Used for follow-up queries like "那明天呢？" or "换一首"
+        """
+        import re
+        text = user_input.strip()
+        
+        # Pattern 1: Time-based follow-up (明天、后天、昨天)
+        time_patterns = ["明天", "后天", "昨天", "下周", "这周", "周末"]
+        if any(t in text for t in time_patterns) or text in ["那明天呢", "那后天呢", "那呢"]:
+            # Check last conversation topic
+            last_topic = self._get_last_topic()
+            if last_topic == "weather":
+                city = self._get_last_city() or "Beijing"
+                # 🔧 FIX: Use get_forecast for future dates, not get_weather
+                if "明天" in text:
+                    return ("get_forecast", {"city": city, "days": 2})  # Today + Tomorrow
+                elif "后天" in text:
+                    return ("get_forecast", {"city": city, "days": 3})  # Today + 2 days
+                else:
+                    return ("get_weather", {"city": city})
+            elif last_topic == "stock":
+                # Stock doesn't have "tomorrow" - just repeat query
+                return ("get_stock_price", {"symbol": self._get_last_symbol() or "AAPL"})
+        
+        # Pattern 2: Music follow-up (换一首、下一首、上一首)
+        music_patterns = ["换一首", "下一首", "上一首", "继续播放", "停"]
+        for p in music_patterns:
+            if p in text:
+                if "停" in text:
+                    return ("play_music", {"action": "stop"})
+                else:
+                    return ("play_music", {"action": "play"})  # Random next
+        
+        # Pattern 3: Generic "呢" follow-up
+        if text.endswith("呢") or text.endswith("呢？"):
+            last_topic = self._get_last_topic()
+            if last_topic:
+                # Reuse last tool with same args
+                last_args = self._get_last_args()
+                if last_topic == "weather":
+                    return ("get_weather", last_args or {"city": "Beijing"})
+                elif last_topic == "stock":
+                    return ("get_stock_price", last_args or {"symbol": "AAPL"})
+        
+        return None
+    
+    def _get_last_topic(self) -> Optional[str]:
+        """Get the topic of the last conversation turn"""
+        if not self.memory.task_history:
+            return None
+        last_task = self.memory.task_history[-1]
+        steps = last_task.get("steps", [])
+        for step in steps:
+            if "weather" in step.lower():
+                return "weather"
+            if "stock" in step.lower():
+                return "stock"
+            if "music" in step.lower():
+                return "music"
+        return None
+    
+    def _get_last_city(self) -> Optional[str]:
+        """Extract city from last weather query"""
+        if not self.memory.conversations:
+            return None
+        for msg in reversed(self.memory.conversations):
+            if msg.get("role") == "assistant":
+                content = msg.get("content", "")
+                # Extract city from response like "北京天气：..."
+                import re
+                match = re.search(r'([^\s]+)天气', content)
+                if match:
+                    return match.group(1)
+        return None
+    
+    def _get_last_symbol(self) -> Optional[str]:
+        """Extract stock symbol from last query"""
+        if not self.memory.conversations:
+            return None
+        for msg in reversed(self.memory.conversations):
+            if msg.get("role") == "assistant":
+                content = msg.get("content", "")
+                import re
+                match = re.search(r'（([A-Z]+)）', content)
+                if match:
+                    return match.group(1)
+        return None
+    
+    def _get_last_args(self) -> Optional[dict]:
+        """Get args from last successful tool call"""
+        if not self.memory.task_history:
+            return None
+        last_task = self.memory.task_history[-1]
+        # Simple extraction - could be improved
+        return None
+    
     def _infer_intent(self, user_input: str) -> Optional[tuple]:
         """Heuristic intent inference when no explicit keyword match exists."""
         import re
@@ -438,6 +657,10 @@ Response (JSON only):"""
             # flexible extraction: "查询[city]的天气"
             import re
             city = None
+            
+            # 🔴 FIX #3: Don't extract time words as locations
+            time_words = ["今天", "明天", "后天", "昨天", "晚上", "中午", "早上", "下午", "傍晚"]
+            
             match = re.search(r'(?:查询|查看|获取)?(.+?)的?天[气候]', user_input)
             if match:
                 city_candidate = match.group(1).strip()
@@ -445,11 +668,19 @@ Response (JSON only):"""
                 for prefix in ["查询", "查看", "获取"]:
                     if city_candidate.startswith(prefix):
                         city_candidate = city_candidate[len(prefix):]
-                city = city_candidate
+                
+                # 🔴 CRITICAL: Don't use time words as city names
+                if city_candidate not in time_words:
+                    city = city_candidate
+            
             if not city:
                 # Heuristic fallback (handles "外面冷吗", "上海多少度" etc.)
                 city = IntentMatcher.match_weather(user_input)
-            args["city"] = city or "北京"
+                if city in time_words:
+                    city = None
+            
+            # 🔴 FIX #3: Default to None (tool has Beijing default)
+            args["city"] = city or None
         
         elif tool_name == "calculate":
             # Extract expression (support Chinese operators)
@@ -463,15 +694,57 @@ Response (JSON only):"""
 
         elif tool_name == "get_stock_price":
             import re
-            # Try to extract ticker (e.g., NVDA, BRK-B), case-insensitive
-            m = re.search(r'\b[a-zA-Z]{1,6}(?:-[a-zA-Z]{1,3})?\b', user_input)
-            if m:
-                args["symbol"] = m.group(0).upper()
+            
+            # 🔴 FIX #1: Multi-entity detection for "X和Y", "X以及Y", "X跟Y"
+            text = user_input
+            symbols = []
+            
+            # Company name to symbol mapping
+            company_map = {
+                "特斯拉": "TSLA", "苹果": "AAPL", "微软": "MSFT", 
+                "英伟达": "NVDA", "亚马逊": "AMZN", "谷歌": "GOOG",
+                "阿里": "BABA", "腾讯": "0700.HK", "茅台": "600519.SS",
+                "比特币": "BTC-USD", "以太坊": "ETH-USD", "黄金": "GC=F"
+            }
+            
+            # Pattern 1: "X和Y" compound queries
+            compound_pattern = r'([^\s，,。.]+?)(?:和|以及|跟|与)([^\s，,。.]+)'
+            match = re.search(compound_pattern, text)
+            if match:
+                entity1 = match.group(1).strip()
+                entity2 = match.group(2).strip()
+                
+                # Clean up: remove "查询", "的股价" etc.
+                for prefix in ["查询", "查看", "获取"]:
+                    entity1 = entity1.replace(prefix, "").strip()
+                    entity2 = entity2.replace(prefix, "").strip()
+                for suffix in ["股价", "的股价", "的", "价格", "行情"]:
+                    entity1 = entity1.replace(suffix, "").strip()
+                    entity2 = entity2.replace(suffix, "").strip()
+                
+                # Map to symbols
+                symbol1 = company_map.get(entity1, entity1.upper() if re.match(r'^[A-Z]{1,5}$', entity1.upper()) else entity1)
+                symbol2 = company_map.get(entity2, entity2.upper() if re.match(r'^[A-Z]{1,5}$', entity2.upper()) else entity2)
+                
+                symbols = [symbol1, symbol2]
             else:
-                q = user_input
-                for w in ["股价", "币价", "行情", "走势", "价格", "查询", "查看", "现在", "最新", "多少", "怎么样", "如何", "咋样", "情况"]:
-                    q = q.replace(w, "")
-                args["symbol"] = q.strip() or user_input.strip()
+                # Pattern 2: Try to extract ticker (e.g., NVDA, BRK-B)
+                m = re.search(r'\b[a-zA-Z]{1,6}(?:-[a-zA-Z]{1,3})?\b', user_input)
+                if m:
+                    symbols = [m.group(0).upper()]
+                else:
+                    # Pattern 3: Company name extraction
+                    q = user_input
+                    for w in ["股价", "币价", "行情", "走势", "价格", "查询", "查看", "现在", "最新", "多少", "怎么样", "如何", "咋样", "情况", "的"]:
+                        q = q.replace(w, "")
+                    q = q.strip()
+                    
+                    # Check if it's a known company
+                    symbol = company_map.get(q, q.upper() if q else user_input.strip())
+                    symbols = [symbol]
+            
+            # Store as comma-separated if multiple
+            args["symbol"] = symbols[0] if len(symbols) == 1 else ",".join(symbols)
 
         elif tool_name == "get_news":
             # Determine category
@@ -565,7 +838,7 @@ Response (JSON only):"""
         
         return args
     
-    async def execute_step(self, step: PlanStep) -> Optional[str]:
+    async def execute_step(self, step: PlanStep, stream_callback: Optional[callable] = None) -> Optional[str]:
         """Execute a single plan step"""
         if step.tool_name is None:
             # For conversational steps, use LLM to generate response if not already present
@@ -577,7 +850,7 @@ Response (JSON only):"""
 [REQUEST]
 {step.description}
 """
-                step.result = await self._generate_conversational_response(prompt)
+                step.result = await self._generate_conversational_response(prompt, stream_callback)
             step.status = StepStatus.SUCCESS
             return step.result
         
@@ -589,6 +862,14 @@ Response (JSON only):"""
         try:
             tool = self.tools[step.tool_name]
             result = await tool.execute(**step.tool_args)
+            
+            # 🔴 CRITICAL: Validate tool result to prevent hallucination
+            if result is None or str(result).startswith("❌") or "Error" in str(result) or "error" in str(result):
+                step.status = StepStatus.FAILED
+                step.error = str(result) if result else "Tool returned empty result"
+                step.result = None
+                return None
+            
             step.status = StepStatus.SUCCESS
             step.result = str(result)
             return step.result
@@ -597,33 +878,182 @@ Response (JSON only):"""
             step.error = str(e)
             return None
 
-    async def _generate_conversational_response(self, prompt: str) -> str:
-        """Helper to generate plain text response from Doubao"""
+    def _get_personalized_system_prompt(self) -> str:
+        """Build a personalized system prompt from user memory"""
+        profile = self.memory.get_all_profile()
+        basics = profile.get("basics", {})
+        focus = profile.get("current_focus", {})
+        interests = profile.get("interests", {})
+        
+        prompt = [
+            "You are JARVIS, a helpful and sophisticated AI assistant.",
+            "Your tone should be warm, intelligent, and natural, like a trusted friend (not overly formal).",
+            "",
+            "=== USER CONTEXT (USE THIS NATURALLY) ===",
+        ]
+        
+        if basics.get("name"):
+            prompt.append(f"- User Name: {basics['name']}")
+        if basics.get("location"):
+            prompt.append(f"- Location: {basics['location']}")
+            
+        if focus:
+            prompt.append("- Current Focus/Projects:")
+            for key, item in focus.items():
+                if isinstance(item, dict) and "value" in item:
+                    # New weighted format
+                    prompt.append(f"  * {key}: {item['value']} (Mentioned {item.get('count', 1)} times)")
+                else:
+                    prompt.append(f"  * {key}: {item}")
+        
+        if interests:
+            prompt.append("- Interests & Preferences:")
+            for key, val in interests.items():
+                prompt.append(f"  * {key}: {val}")
+                
+        prompt.extend([
+            "",
+            "=== INSTRUCTIONS ===",
+            "1. Reference the user's focus/projects NATURALLY in a conversational way if relevant.",
+            "2. Occasionally (but not every time) offer encouragement or ask about their progress.",
+            "3. If the user asks who they are or what you remember, summarize this profile.",
+            "4. Keep your responses concise and engaging for a voice interface.",
+            "5. If you cannot answer a factual question (weather, stock, etc.) without tools, admit you need a tool.",
+        ])
+        
+        return "\n".join(prompt)
+
+    async def _generate_conversational_response(self, user_query: str, stream_callback: Optional[callable] = None) -> str:
+        """
+        Generate personalized conversational response using Doubao Realtime API.
+        🚀 OPTIMIZED: Uses /api/v3/responses with SSE streaming for sub-1s TTFT
+        """
         import aiohttp
         import os
+        import json
+        import time
         
         api_key = os.getenv("DOUBAO_ARK_API_KEY")
         endpoint_id = os.getenv("DOUBAO_ENDPOINT_ID")
         
         if not api_key or not endpoint_id:
-            return "I'm sorry, I'm having trouble connecting to my brain right now."
+            # Fallback for demo
+            context = self.memory.get_context_for_response()
+            if "深度学习" in user_query and context.get("learning") == "深度学习":
+                return "好的，深度学习是一个非常有挑战但也非常有成就感的领域，我会陪你一起攻克它！"
+            return "收到，先生。我会记在心里。"
 
-        url = "https://ark.cn-beijing.volces.com/api/v3/chat/completions"
-        headers = {"Authorization": f"Bearer {api_key}"}
+        # Build input with conversation history (Responses API format)
+        raw_history = self.memory.get_context(limit=6)
+        
+        # Convert to Responses API input format
+        input_messages = []
+        
+        # Add conversation history
+        role_map = {"user": "user", "assistant": "assistant", "bot": "assistant"}
+        for entry in raw_history:
+            role = role_map.get(entry['role'], "user")
+            content = entry['content']
+            if role == "user" and content == user_query:
+                continue
+            
+            msg = {
+                "type": "message", # 🔥 REQUIRED FOR RESPONSES API
+                "role": role,
+                "content": [{"type": "input_text" if role == "user" else "output_text", "text": content}]
+            }
+            if role == "assistant":
+                msg["status"] = "completed"
+            
+            input_messages.append(msg)
+        
+        # Add current query
+        input_messages.append({
+            "type": "message", # 🔥 REQUIRED FOR RESPONSES API
+            "role": "user",
+            "content": [{"type": "input_text", "text": user_query}]
+        })
+
+        # 🚀 Use Responses API with THINKING DISABLED for ultra-low latency
+        url = "https://ark.cn-beijing.volces.com/api/v3/responses"
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        }
+        
+        # Optimization payload based on provided documentation
         payload = {
             "model": endpoint_id,
-            "messages": [{"role": "user", "content": prompt}]
+            "input": input_messages,
+            "stream": True,
+            "temperature": 0.7,
+            "thinking": {
+                "type": "disabled" # 🔥 TURN OFF REASONING FOR SPEED
+            }
         }
+        
+        # Only add reasoning.effort for supported models
+        if "lite" in endpoint_id or "251228" in endpoint_id or "251015" in endpoint_id:
+            payload["reasoning"] = {"effort": "minimal"}
+        
+        full_content = ""
+        first_token_received = False
+        start_time = time.time()
         
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.post(url, headers=headers, json=payload, timeout=8) as resp:
+                async with session.post(url, headers=headers, json=payload, timeout=30) as resp:
                     if resp.status == 200:
-                        data = await resp.json()
-                        return data['choices'][0]['message']['content']
-        except Exception:
-            pass
-        return "Understood, sir."
+                        print("🧠 [Brain] Streaming...", end="", flush=True)
+                        
+                        async for line in resp.content:
+                            line_str = line.decode('utf-8').strip()
+                            
+                            if not line_str or not line_str.startswith('data:'):
+                                continue
+                            
+                            data_str = line_str[5:].strip()
+                            if data_str == '[DONE]':
+                                break
+                            
+                            try:
+                                data = json.loads(data_str)
+                                event_type = data.get('type', '')
+                                
+                                # ✅ Only process output_text delta events
+                                if event_type == 'response.output_text.delta':
+                                    chunk = data.get('delta', '')
+                                    if chunk:
+                                        if not first_token_received:
+                                            first_token_received = True
+                                            # print("", flush=True)  # Still need newline for first token
+                                        full_content += chunk
+                                        print(chunk, end="", flush=True)
+                                        
+                                        # 🚀 Invoke callback for streaming TTS
+                                        if stream_callback:
+                                            try:
+                                                import inspect
+                                                if inspect.iscoroutinefunction(stream_callback):
+                                                    await stream_callback(chunk)
+                                                else:
+                                                    stream_callback(chunk)
+                                            except Exception as cb_e:
+                                                print(f"⚠️ Callback error: {cb_e}")
+                                            
+                            except json.JSONDecodeError:
+                                pass
+                        
+                        print(" ✅")
+                        return full_content.strip()
+                    else:
+                        error_text = await resp.text()
+                        print(f"❌ Realtime API Error ({resp.status}): {error_text}")
+                        
+        except Exception as e:
+            print(f"❌ Realtime API connection error: {e}")
+            
+        return full_content.strip() if full_content else "收到，先生。我会继续关注您的需求。"
     
     def synthesize(self, plan: ExecutionPlan) -> str:
         """Combine step results into final response"""
@@ -631,13 +1061,124 @@ Response (JSON only):"""
             return "I couldn't understand your request."
         
         results = []
-        for step in plan.steps:
-            if step.status == StepStatus.SUCCESS and step.result:
-                results.append(step.result)
-            elif step.status == StepStatus.FAILED:
-                results.append(f"⚠️ {step.description} failed: {step.error}")
+        failed_count = 0
         
-        return "\n".join(results) if results else "Task completed."
+        # Check if this is a multi-stock query
+        stock_steps = [s for s in plan.steps if s.tool_name == "get_stock_price" and s.status == StepStatus.SUCCESS]
+        
+        if len(stock_steps) > 1:
+            # 🎯 Smart merging for multiple stock queries
+            stock_data = []
+            for step in stock_steps:
+                result = step.result
+                # Extract the actual price data (remove redundant comments)
+                # Format: "评论。 公司（代码）现价 X USD，今日上涨/下跌了 Y%。"
+                import re
+                match = re.search(r'([^\。]+（[^\)]+）现价[^。]+。)', result)
+                if match:
+                    stock_data.append(match.group(1))
+                else:
+                    stock_data.append(result)
+            
+            # Combine all stocks in one sentence
+            combined = " ".join(stock_data)
+            results.append(combined)
+            
+            # Process remaining non-stock steps
+            for step in plan.steps:
+                if step.tool_name != "get_stock_price":
+                    if step.status == StepStatus.SUCCESS and step.result:
+                        results.append(step.result)
+                    elif step.status == StepStatus.FAILED:
+                        failed_count += 1
+                        if step.tool_name:
+                            error_msg = step.error or "unknown error"
+                            results.append(f"抱歉，{step.tool_name}执行失败: {error_msg}")
+                        else:
+                            results.append(f"⚠️ {step.description} failed")
+        else:
+            # Normal synthesis for single-step or non-stock queries
+            for step in plan.steps:
+                if step.status == StepStatus.SUCCESS and step.result:
+                    results.append(step.result)
+                elif step.status == StepStatus.FAILED:
+                    failed_count += 1
+                    # 🔴 CRITICAL: Be honest about failures - don't hallucinate success
+                    if step.tool_name:
+                        error_msg = step.error or "unknown error"
+                        results.append(f"抱歉，{step.tool_name}执行失败: {error_msg}")
+                    else:
+                        results.append(f"⚠️ {step.description} failed")
+        
+        # If ALL steps failed, give a clearer error message
+        if failed_count == len(plan.steps):
+            return "抱歉，我无法完成这个请求。" + ("\n".join(results) if results else "")
+        
+        base_response = "\n".join(results) if results else "Task completed."
+        
+        # 🔥 Personalization Enhancement
+        enhanced_response = self._add_personal_touch(base_response)
+        
+        return enhanced_response
+    
+    def _add_personal_touch(self, response: str) -> str:
+        """
+        偶尔在回复中加入关心语句（基础20%概率，随提及次数增加）
+        """
+        import random
+        
+        # Skip if response is too short (likely a simple acknowledgment)
+        if len(response) < 10:
+            return response
+        
+        # Skip if it's an error message
+        if "抱歉" in response or "失败" in response or "错误" in response:
+            return response
+        
+        # Get context (with counts)
+        context = self.memory.get_context_for_response()
+        
+        # Calculate dynamic probability based on mention counts
+        # Base: 20%, +10% for each additional mention (max 80%)
+        base_prob = 0.2
+        max_count = max(
+            context.get("project_count", 0),
+            context.get("learning_count", 0),
+            context.get("research_area_count", 0)
+        )
+        
+        if max_count > 1:
+            # Increase probability: 20% + 10% * (count-1), capped at 80%
+            trigger_prob = min(0.8, base_prob + 0.1 * (max_count - 1))
+        else:
+            trigger_prob = base_prob
+        
+        # Random check
+        if random.random() > trigger_prob:
+            return response
+        
+        # Generate caring phrase based on context
+        caring_phrases = []
+        
+        if "project" in context:
+            caring_phrases = [
+                f"\n\n对了，{context['project']}进展顺利吗？",
+                f"\n\n论文写得怎么样了？",
+                ""  # Empty = no addition sometimes
+            ]
+        elif "learning" in context:
+            caring_phrases = [
+                f"\n\n{context['learning']}学得怎么样了？",
+                f"\n\n最近学习有什么新收获吗？",
+                ""
+            ]
+        
+        if caring_phrases:
+            phrase = random.choice(caring_phrases)
+            if phrase:  # Only add if not empty
+                return response + phrase
+        
+        return response
     
     def get_history(self, limit: int = 5) -> str:
         """Get conversation history"""

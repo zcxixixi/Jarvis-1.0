@@ -99,8 +99,16 @@ class NeteaseMusicTool(BaseTool):
                 return f"❌ 下载失败: {song_name} (网络源受限或版权限制)"
                 
             # 4. Play (subprocess is fine)
+            # Stop ALL audio first to prevent overlap
             if self._current_process:
                 self._current_process.terminate()
+            
+            import platform
+            if platform.system() == "Darwin":
+                subprocess.run(["killall", "afplay"], stderr=subprocess.DEVNULL)
+            else:
+                subprocess.run(["pkill", "-9", "mpv"], stderr=subprocess.DEVNULL)
+                subprocess.run(["pkill", "-9", "mpg123"], stderr=subprocess.DEVNULL)
                 
             try:
                 cmd = self._get_player_command(file_path)
@@ -168,14 +176,30 @@ class NeteaseMusicTool(BaseTool):
             "type": 1,
             "offset": 0,
             "total": "true",
-            "limit": 1
+            "limit": 10  # Increase limit to find better matches
         }
         
         try:
             resp = requests.get(url, headers=headers, params=params, timeout=5)
             data = resp.json()
-            if data['code'] == 200 and data['result']['songCount'] > 0:
-                return data['result']['songs'][0]
+            if data['code'] == 200 and data['result'].get('songCount', 0) > 0:
+                songs = data['result']['songs']
+                
+                # Smart Selection:
+                # 1. Prefer songs where Artist Name contains keyword (e.g. search "Jay Chou" -> play Jay Chou's song)
+                for song in songs:
+                    for artist in song['artists']:
+                        if keyword.lower() in artist['name'].lower():
+                            print(f"   ✨ Found artist match: {song['name']} - {artist['name']}")
+                            return song
+                            
+                # 2. Prefer songs where Name equals keyword (exact match title)
+                for song in songs:
+                    if song['name'].lower() == keyword.lower():
+                        return song
+                        
+                # 3. Fallback to first result
+                return songs[0]
         except Exception as e:
             print(f"Search Error: {e}")
         return None

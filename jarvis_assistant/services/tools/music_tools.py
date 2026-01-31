@@ -85,14 +85,17 @@ class MusicPlayerTool(BaseTool):
             return f"🔎 搜索结果：\n" + "\n".join([f"- {os.path.basename(f)}" for f in files[:5]])
             
         elif action == "play":
-            # 1. Stop current
+            # 1. Stop ALL current audio (critical for preventing overlap)
             if self._current_process:
                 try:
                     self._current_process.terminate()
                 except:
                     self._current_process.kill()
             
-            if platform.system() == "Linux":
+            # Kill all audio players to ensure clean state
+            if platform.system() == "Darwin":
+                subprocess.run(["killall", "afplay"], stderr=subprocess.DEVNULL)
+            else:  # Linux
                 subprocess.run(["pkill", "-9", "mpv"], stderr=subprocess.DEVNULL)
                 subprocess.run(["pkill", "-9", "mpg123"], stderr=subprocess.DEVNULL)
             
@@ -106,7 +109,14 @@ class MusicPlayerTool(BaseTool):
                 is_playlist = False
 
             if not files:
-                return f"❌ 未找到音乐: {query}"
+                # 🎯 Fallback: Search Netease Cloud Music
+                print(f"⚠️ Local music not found for '{query}', searching Netease Cloud...")
+                try:
+                    # Import here to avoid circular dependencies if any
+                    from .netease_tools import NeteaseMusicTool
+                    return await NeteaseMusicTool().execute(action="play", query=query)
+                except Exception as e:
+                    return f"❌ 未找到本地音乐且云端搜索失败: {str(e)}"
             
             # 3. Play
             try:
