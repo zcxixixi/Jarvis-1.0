@@ -123,29 +123,29 @@ class QueryRouter:
         if total_time > 200:
             logger.warning(f"⚠️ [PERF] Slow routing: {total_time:.0f}ms")
         
+        if total_time > 200:
+            logger.warning(f"⚠️ [PERF] Slow routing: {total_time:.0f}ms")
+        
         # Step 4: Route based on intent
-        if intent == "simple":
-            # 简单查询：S2S 已经在处理，无需额外操作
-            self.current_path = "s2s"
-            print(f"➔ [ROUTER] '{resolved_text}' → S2S (fast path)")
-            logger.info(f"🔀 [ROUTER] '{resolved_text}' → S2S (fast path)")
-            
-        elif intent == "complex":
-            # 复杂查询：拦截 S2S，启动 Agent
-            self.current_path = "agent"
-            print(f"➔ [ROUTER] '{resolved_text}' → AGENT (deep path)")
-            logger.info(f"🔀 [ROUTER] '{resolved_text}' → AGENT (deep path)")
-            
-            # Speak transitional phrase for better UX
-            if intents:
-                await self._speak_transition(intents[0])
-            
-            # 异步处理 Agent 路径，避免阻塞
-            asyncio.create_task(self._handle_agent_path(resolved_text, intents))
+        # 🔥 UNIFIED ARCHITECTURE REFACTOR (Phase 7)
+        # Force ALL traffic to Agent. Deprecated S2S path.
+        
+        # 复杂查询：拦截 S2S，启动 Agent
+        self.current_path = "agent"
+        print(f"➔ [ROUTER] '{resolved_text}' → AGENT (Unified Path)")
+        logger.info(f"🔀 [ROUTER] '{resolved_text}' → AGENT (Unified Path)")
+        
+        # Speak transitional phrase for better UX (only if complexity detected, otherwise silent)
+        # For unified path, we might want to skip transitions for simple "hello" to be faster
+        if intents and "conversation" not in intents:
+             await self._speak_transition(intents[0])
+        
+        # 异步处理 Agent 路径
+        asyncio.create_task(self._handle_agent_path(resolved_text, intents))
         
         # Step 5: Update context for next query
         if self.context_resolver:
-            self.context_resolver.update_context(resolved_text, intent)
+            self.context_resolver.update_context(resolved_text, "agent")
     
     async def _speak_transition(self, intent: str):
         """

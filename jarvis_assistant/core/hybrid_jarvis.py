@@ -2395,32 +2395,29 @@ class HybridJarvis(DoubaoRealtimeJarvis):
             restore_music_volume()
             return True
 
-        # NEW: Information Services (Regex based)
-        stock_query = IntentMatcher.match_stock(text)
-        if stock_query:
-            print(f"[TOOL] ⚡ Stock matched: {stock_query}")
-            self.processing_tool = True
-            self.skip_cloud_response = True
-            self.suppress_cloud_until = time.time() + 4
-            
-            from jarvis_assistant.services.tools import info_tools
-            result = await info_tools.get_stock_price(stock_query)
-            await self._speak_tool_result(result, "get_stock_price", text)
-            self.processing_tool = False
+        # 🔥 UNIFIED ARCHITECTURE (Phase 7):
+        # All other intents (Stock, News, Weather, Music Search, Translation)
+        # are now strictly routed to JarvisAgent via QueryRouter.
+        # This method ONLY handles critical system interrupts for safety.
+        
+        return None
+
+        # Priority check for Sleep/Standby
+        sleep_keywords = ["退下", "休息", "可以了", "再见", "拜拜", "退出", "休眠"]
+        if any(kw in text for kw in sleep_keywords):
+            if not self.is_active: return # Already standby
+            print(f"[TOOL] 💤 Sleep intent detected: {text}")
+            self.is_active = False
+            self.active_until = 0
+            from jarvis_assistant.utils.audio_utils import restore_music_volume
+            restore_music_volume()
             return True
 
-        # 2. News
-        if IntentMatcher.match_news(text):
-            print(f"[TOOL] ⚡ News matched.")
-            self.processing_tool = True
-            self.skip_cloud_response = True
-            self.suppress_cloud_until = time.time() + 6
-            
-            from jarvis_assistant.services.tools import info_tools
-            result = await info_tools.get_news_briefing()
-            await self._speak_tool_result(result, "get_news", text)
-            self.processing_tool = False
-            return True
+        # NEW: Information Services (Regex based) - MOVED TO AGENT
+        # stock_query = IntentMatcher.match_stock(text)
+        # Unified Architecture: Agent handles stocks.
+
+        # News logic moved to Agent.
 
         for keyword, tool_name in self.intent_keywords.items():
             if keyword in text:

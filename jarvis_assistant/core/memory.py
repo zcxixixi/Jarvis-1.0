@@ -59,6 +59,88 @@ class MemoryStore:
                 json.dump(data, f, ensure_ascii=False, indent=2)
         except Exception as e:
             print(f"⚠️ Failed to save memory: {e}")
+        
+        # 🔥 Sync to Markdown for visibility
+        self.sync_to_markdown()
+
+    def sync_to_markdown(self, md_path: str = "MEMORY.md") -> None:
+        """Distill complex JSON memory into a clean, user-readable MEMORY.md file"""
+        try:
+            full_path = Path(".").resolve() / md_path # Default to project root
+            
+            # 1. Extract context
+            ctx = self.get_context_for_response()
+            profile = self.user_profile
+            
+            # 2. Build Markdown content
+            lines = [
+                "# JARVIS MEMORY.md",
+                "",
+                "这是一个可见的、可编辑的长期记忆库。Jarvis 会自动更新此文件，你也可以手动修改它来纠正他的认知。",
+                "",
+                "## 👤 User Profile (用户信息)",
+                f"- **Name**: {ctx.get('name', '先生 (Sir)')}",
+                f"- **Location**: {ctx.get('location', '未知')}",
+                ""
+            ]
+            
+            # 3. Add Project Context
+            lines.append("## 🛠️ Project Context (项目上下文)")
+            focus = profile.get("current_focus", {})
+            if focus:
+                for k, v in focus.items():
+                    val = v["value"] if isinstance(v, dict) else v
+                    lines.append(f"- **{k.capitalize()}**: {val}")
+            else:
+                lines.append("- (尚未记录项目信息)")
+            lines.append("")
+            
+            # 4. Add Significant Learnings
+            lines.append("## 💡 Significant Learnings (重要学习笔记)")
+            interests = profile.get("interests", {})
+            if interests:
+                for k, v in interests.items():
+                    lines.append(f"- **{k}**: {v}")
+            else:
+                lines.append("- (尚未记录重要发现)")
+            lines.append("")
+            
+            lines.append(f"---")
+            lines.append(f"*Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*")
+            
+            # Write to file
+            with open(full_path, 'w', encoding='utf-8') as f:
+                f.write("\n".join(lines))
+                
+        except Exception as e:
+            print(f"⚠️ Failed to sync memory to markdown: {e}")
+
+    def load_from_markdown(self, md_path: str = "MEMORY.md") -> None:
+        """
+        Reverse sync: Read user-edited MEMORY.md back into JSON
+        Allows user to manually 'correct' Jarvis's memory by editing the file.
+        """
+        try:
+            full_path = Path(".").resolve() / md_path
+            if not full_path.exists():
+                return
+                
+            with open(full_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            import re
+            # Parse Profile
+            name_match = re.search(r'\- \*\*Name\*\*: (.*)', content)
+            if name_match: self.user_profile.setdefault("basics", {})["name"] = name_match.group(1).strip()
+            
+            loc_match = re.search(r'\- \*\*Location\*\*: (.*)', content)
+            if loc_match: self.user_profile.setdefault("basics", {})["location"] = loc_match.group(1).strip()
+            
+            # Simple line-by-line parsing for Projects and Interests could be added here
+            # For now, focus on the basics being editable
+            
+        except Exception as e:
+            print(f"⚠️ Failed to load memory from markdown: {e}")
 
     def add_conversation(self, role: str, content: str, metadata: Optional[Dict] = None) -> None:
         """Add a conversation turn"""

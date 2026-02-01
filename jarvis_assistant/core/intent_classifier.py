@@ -32,16 +32,9 @@ class IntentClassifier:
         "帮我", "论文"
     ]
     
-    # 简单问候/闲聊模式
-    SIMPLE_PATTERNS = [
-        "你好", "早上好", "晚上好", "晚安", "再见",
-        "几点", "星期几", "谢谢", "不客气",
-        "讲个笑话", "怎么样"  # [FIX] Removed "天气怎么样" - weather should use Agent
-    ]
-    
     def __init__(self):
         self.classification_cache = {}  # 缓存分类结果
-        logger.info(f"IntentClassifier initialized with {len(self.TOOL_KEYWORDS)} tool keywords")
+        logger.info(f"IntentClassifier initialized - Unified Architecture Mode")
     
     def classify(self, text: str) -> str:
         """
@@ -51,37 +44,10 @@ class IntentClassifier:
             text: 用户查询文本
             
         Returns:
-            "simple" - 简单对话，走 S2S
-            "complex" - 复杂查询，走 Agent
+            "complex" - 始终走 Unified Agent
         """
-        text = text.strip()
-        
-        # 检查缓存
-        if text in self.classification_cache:
-            return self.classification_cache[text]
-        
-        # 1. 检查工具关键词（优先级最高）
-        matched_tools = [kw for kw in self.TOOL_KEYWORDS if kw in text]
-        if matched_tools:
-            logger.info(f"[CLASSIFIER] '{text}' -> COMPLEX (tools: {matched_tools})")
-            self.classification_cache[text] = "complex"
-            return "complex"
-        
-        # 2. 检查简单模式
-        matched_simple = [p for p in self.SIMPLE_PATTERNS if p in text]
-        if matched_simple:
-            logger.info(f"[CLASSIFIER] '{text}' -> SIMPLE (patterns: {matched_simple})")
-            self.classification_cache[text] = "simple"
-            return "simple"
-        
-        # 3. 基于长度的默认策略
-        if len(text) < 15:
-            logger.info(f"[CLASSIFIER] '{text}' -> SIMPLE (short query, len={len(text)})")
-            self.classification_cache[text] = "simple"
-            return "simple"
-        
-        logger.info(f"[CLASSIFIER] '{text}' -> COMPLEX (default, len={len(text)})")
-        self.classification_cache[text] = "complex"
+        # Phase 7 Refactor: All traffic is complex/agent routed.
+        # Simple patterns removed.
         return "complex"
     
     def clear_cache(self):

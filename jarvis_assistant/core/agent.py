@@ -7,9 +7,11 @@ import asyncio
 import json
 import os
 from typing import List, Dict, Any, Optional
+from pathlib import Path
 from dataclasses import dataclass, field
 from enum import Enum
 from dotenv import load_dotenv
+from datetime import datetime
 
 # Load environment variables
 load_dotenv()
@@ -130,6 +132,24 @@ class JarvisAgent:
             loop.create_task(self.scheduler.start())
         except RuntimeError:
             pass 
+    
+    def _log_daily(self, event_type: str, content: str):
+        """Append to today's daily log (OpenClaw pattern)"""
+        try:
+            today = datetime.now().strftime("%Y-%m-%d")
+            log_dir = Path("logs")
+            log_dir.mkdir(exist_ok=True)
+            
+            log_path = log_dir / f"{today}.md"
+            
+            timestamp = datetime.now().strftime("%H:%M:%S")
+            entry = f"## {timestamp} - {event_type}\n{content}\n\n"
+            
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(entry)
+        except Exception as e:
+            # Silent fail - logging shouldn't break the agent
+            print(f"⚠️  Daily log write failed: {e}")
 
     async def handle_trigger(self, prompt: str):
         # ... existing code ...
@@ -140,6 +160,10 @@ class JarvisAgent:
         """
         Main agent loop with Self-Learning
         """
+        # 🔥 Refactor Phase 7: Sync memory from Markdown (Simulate "Human Edit")
+        # This allows the user to edit MEMORY.md and have Jarvis pick it up instantly.
+        self.memory.load_from_markdown()
+
         # 🎵 Auto-pause music when user speaks (to prevent overlap with Jarvis response)
         music_tool = self.tools.get("play_music")
         if music_tool and hasattr(music_tool, '_current_process') and music_tool._current_process:
@@ -153,6 +177,9 @@ class JarvisAgent:
         # Check for feedback keywords first
         if user_input in ["不对", "错了", "不是这个", "wrong", "stop"]:
              return await self.handle_user_feedback("negative", user_input)
+        
+        # 📝 Daily log: User query (OpenClaw pattern)
+        self._log_daily("User Query", f"```\n{user_input}\n```")
              
         # Store user input
         self.memory.add_conversation("user", user_input)
@@ -188,8 +215,15 @@ class JarvisAgent:
             plan.final_result = final_result
             plan.success = all(s.status == StepStatus.SUCCESS for s in plan.steps)
             
-            # Store result in memory
+            # 6. Store assistant response
             self.memory.add_conversation("assistant", final_result)
+            
+            # 📝 Daily log: Agent response & tools used (OpenClaw pattern)
+            tools_used = [step.tool_name for step in plan.steps if step.tool_name]
+            self._log_daily("Agent Response", f"```\n{final_result}\n```")
+            if tools_used:
+                self._log_daily("Tools Used", ", ".join(tools_used))
+            
             self.memory.add_task(
                 task=user_input,
                 steps=[s.description for s in plan.steps],
@@ -203,8 +237,12 @@ class JarvisAgent:
             return final_result
             
         except Exception as e:
+            # Respond with error
             error_msg = f"Agent error: {str(e)}"
             print(f"❌ {error_msg}")
+            # 📝 Daily log: Error occurred (with empty tools list)
+            self._log_daily("Agent Error", f"```\n{e}\n```")
+            
             self.memory.add_conversation("assistant", error_msg, {"error": True})
             return error_msg
     
@@ -270,7 +308,18 @@ class JarvisAgent:
             for name, tool in list(self.tools.items())[:20]
         ])
         
+        # Detect language
+        def is_chinese(text):
+            return any('\u4e00' <= char <= '\u9fff' for char in text)
+        
+        lang_req = ""
+        if is_chinese(user_input):
+            lang_req = "\n\n**CRITICAL REQUIREMENT**: User input is in Chinese (中文). You MUST respond in Chinese (中文) ONLY. Do NOT use English."
+        else:
+            lang_req = "\n\n**CRITICAL REQUIREMENT**: User input is in English. You MUST respond in English ONLY. Do NOT use Chinese."
+        
         planning_prompt = f"""You are Jarvis, a warm and intelligent assistant who truly knows the user.
+{lang_req}
 
 [USER CONTEXT] (Use this background to personalize your responses)
 {context_str}
@@ -843,14 +892,8 @@ Response (JSON only):"""
         if step.tool_name is None:
             # For conversational steps, use LLM to generate response if not already present
             if not step.result or step.result == "Conversation response (no tool needed)":
-                history = self.get_history(limit=5)
-                prompt = f"""You are Jarvis. Respond to the user's request naturally.
-[HISTORY]
-{history}
-[REQUEST]
-{step.description}
-"""
-                step.result = await self._generate_conversational_response(prompt, stream_callback)
+                # Pass step description as user query
+                step.result = await self._generate_conversational_response(step.description, stream_callback)
             step.status = StepStatus.SUCCESS
             return step.result
         
@@ -879,54 +922,49 @@ Response (JSON only):"""
             return None
 
     def _get_personalized_system_prompt(self) -> str:
-        """Build a personalized system prompt from user memory"""
-        profile = self.memory.get_all_profile()
-        basics = profile.get("basics", {})
-        focus = profile.get("current_focus", {})
-        interests = profile.get("interests", {})
+        """Build a personalized system prompt from user memory and SOUL.md"""
+        prompt = []
         
-        prompt = [
-            "You are JARVIS, a helpful and sophisticated AI assistant.",
-            "Your tone should be warm, intelligent, and natural, like a trusted friend (not overly formal).",
-            "",
-            "=== USER CONTEXT (USE THIS NATURALLY) ===",
-        ]
+        # 1. Load SOUL.md (persona definition)
+        soul_path = Path(".agent/SOUL.md")
+        if soul_path.exists():
+            try:
+                soul_content = soul_path.read_text(encoding="utf-8")
+                prompt.append("=== YOUR SOUL (Who You Are) ===")
+                prompt.append(soul_content)
+                prompt.append("")
+            except:
+                pass
         
-        if basics.get("name"):
-            prompt.append(f"- User Name: {basics['name']}")
-        if basics.get("location"):
-            prompt.append(f"- Location: {basics['location']}")
-            
-        if focus:
-            prompt.append("- Current Focus/Projects:")
-            for key, item in focus.items():
-                if isinstance(item, dict) and "value" in item:
-                    # New weighted format
-                    prompt.append(f"  * {key}: {item['value']} (Mentioned {item.get('count', 1)} times)")
-                else:
-                    prompt.append(f"  * {key}: {item}")
+        # 2. Get user context from memory
+        context = self.memory.get_context_for_response()
+        if context:
+            # Ensure context is a string (not dict)
+            if isinstance(context, dict):
+                context = str(context)
+            prompt.append("=== USER CONTEXT ===")
+            prompt.append(context)
+            prompt.append("")
         
-        if interests:
-            prompt.append("- Interests & Preferences:")
-            for key, val in interests.items():
-                prompt.append(f"  * {key}: {val}")
-                
-        prompt.extend([
-            "",
-            "=== INSTRUCTIONS ===",
-            "1. Reference the user's focus/projects NATURALLY in a conversational way if relevant.",
-            "2. Occasionally (but not every time) offer encouragement or ask about their progress.",
-            "3. If the user asks who they are or what you remember, summarize this profile.",
-            "4. Keep your responses concise and engaging for a voice interface.",
-            "5. If you cannot answer a factual question (weather, stock, etc.) without tools, admit you need a tool.",
-        ])
+        # 3. Base instructions
+        prompt.append("=== CORE INSTRUCTIONS ===")
+        prompt.append("- **LANGUAGE MATCHING**: Always reply in the SAME language the user uses")
+        prompt.append("  * User speaks Chinese (中文) → Reply in Chinese (中文)")
+        prompt.append("  * User speaks English → Reply in English")
+        prompt.append("  * Detect language from user's input and match it exactly")
+        prompt.append("- Be concise and natural in conversation")
+        prompt.append("- Use tools proactively when appropriate")
         
         return "\n".join(prompt)
-
-    async def _generate_conversational_response(self, user_query: str, stream_callback: Optional[callable] = None) -> str:
+    
+    async def _generate_conversational_response(
+        self,
+        user_query: str,
+        stream_callback: Optional[callable] = None
+    ) -> str:
         """
-        Generate personalized conversational response using Doubao Realtime API.
-        🚀 OPTIMIZED: Uses /api/v3/responses with SSE streaming for sub-1s TTFT
+        Generate a conversational response using Doubao Realtime API.
+        Falls back to local response if API unavailable.
         """
         import aiohttp
         import os
@@ -946,8 +984,31 @@ Response (JSON only):"""
         # Build input with conversation history (Responses API format)
         raw_history = self.memory.get_context(limit=6)
         
+        # Get system context from SOUL.md + Memory
+        system_prompt = self._get_personalized_system_prompt()
+        
+        # Detect query language and add explicit instruction
+        def is_chinese(text):
+            return any('\u4e00' <= char <= '\u9fff' for char in text)
+        
+        lang_instruction = ""
+        if is_chinese(user_query):
+            lang_instruction = "[IMPORTANT: Reply in Chinese (中文)] "
+        else:
+            lang_instruction = "[IMPORTANT: Reply in English] "
+        
+        # Prepend language instruction to query
+        enhanced_query = lang_instruction + user_query
+        
         # Convert to Responses API input format
         input_messages = []
+        
+        # ADD SYSTEM PROMPT AS FIRST MESSAGE (though API may ignore it)
+        input_messages.append({
+            "type": "message",
+            "role": "system",
+            "content": [{"type": "input_text", "text": system_prompt}]
+        })
         
         # Add conversation history
         role_map = {"user": "user", "assistant": "assistant", "bot": "assistant"}
@@ -967,11 +1028,11 @@ Response (JSON only):"""
             
             input_messages.append(msg)
         
-        # Add current query
+        # Add current query WITH LANGUAGE INSTRUCTION
         input_messages.append({
             "type": "message", # 🔥 REQUIRED FOR RESPONSES API
             "role": "user",
-            "content": [{"type": "input_text", "text": user_query}]
+            "content": [{"type": "input_text", "text": enhanced_query}]
         })
 
         # 🚀 Use Responses API with THINKING DISABLED for ultra-low latency
@@ -1116,10 +1177,9 @@ Response (JSON only):"""
         
         base_response = "\n".join(results) if results else "Task completed."
         
-        # 🔥 Personalization Enhancement
-        enhanced_response = self._add_personal_touch(base_response)
-        
-        return enhanced_response
+        # Return directly - let LLM naturally handle follow-ups via system prompt
+        # (removed hardcoded caring phrases per user feedback)
+        return base_response
     
     def _add_personal_touch(self, response: str) -> str:
         """
@@ -1176,7 +1236,7 @@ Response (JSON only):"""
         if caring_phrases:
             phrase = random.choice(caring_phrases)
             if phrase:  # Only add if not empty
-                return response + phrase
+                response = response + phrase
         
         return response
     
