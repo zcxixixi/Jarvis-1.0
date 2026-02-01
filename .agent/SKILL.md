@@ -1,20 +1,32 @@
 # Jarvis Development Skill Guide
-> **Last Updated**: 2026-01-31
+> **Last Updated**: 2026-02-01 (V2 Modular Architecture)
 
 This document captures verified patterns, lessons learned, and guidelines for future development.
 
 ---
 
-## 🧠 Core Architecture
+## 🧠 Core Architecture (V2)
 
 ```
-[1. Wake Word] -> [2. ASR (Doubao Realtime)] -> [3. Router] -> [4. Agent] -> [5. TTS V3] -> [6. Speaker]
+jarvis_v2/
+├── main.py              # Entry point
+├── config.py            # Centralized settings
+├── components/
+│   ├── audio_io.py     # PyAudio async wrapper
+│   ├── vad.py          # Voice Activity Detection (Silero)
+│   ├── wake_word.py    # "Hey Jarvis" detection
+│   ├── asr.py          # Speech recognition (Doubao)
+│   └── tts.py          # Text-to-Speech (Doubao V3)
+├── agent/
+│   └── jarvis_agent.py # LangGraph agent wrapper
+└── session/
+    └── session.py      # Main state machine orchestrator
 ```
 
-- **ASR**: Uses Doubao Realtime Dialog API (WebSocket, Binary Protocol)
-- **Agent**: `JarvisAgent` with streaming callback support
-- **TTS**: Doubao TTS V3 (Binary WebSocket, NOT HTTP)
-- **Router**: `QueryRouter` decides between S2S (simple) and Agent (complex) paths
+**State Machine:**
+```
+IDLE → (wake word) → LISTENING → (silence) → PROCESSING → (response) → SPEAKING → IDLE
+```
 
 ---
 
@@ -32,12 +44,18 @@ This document captures verified patterns, lessons learned, and guidelines for fu
 
 | File | Purpose |
 |------|---------|
-| `main.py` | CLI entry for quick agent tests |
-| `jarvis_assistant/core/hybrid_jarvis.py` | Main voice assistant loop |
-| `jarvis_assistant/core/agent.py` | LLM planning & tool execution |
-| `jarvis_assistant/core/query_router.py` | Intent routing (S2S vs Agent) |
+| `jarvis_v2/main.py` | New modular entry point |
+| `jarvis_v2/session/session.py` | State machine orchestrator |
+| `jarvis_v2/components/asr.py` | Speech recognition |
+| `jarvis_v2/components/tts.py` | TTS with connection pooling |
+| `jarvis_v2/config.py` | All configuration |
 | `jarvis_assistant/services/doubao/tts_v3.py` | TTS WebSocket client |
-| `test_full_voice_pipeline.py` | **E2E test** (LLM -> TTS -> Audio) |
+
+**Archived (old monolithic):**
+| File | New Location |
+|------|--------------|
+| `hybrid_jarvis.py` | `archive/old_core/` |
+| `query_router.py` | `archive/old_core/` |
 
 ---
 
@@ -76,52 +94,74 @@ When Agent speaks, music must pause and mic must mute:
 
 ---
 
-## 📂 Test Script Reference
+## 📂 Module Testing
 
-### `test_full_voice_pipeline.py`
-**Purpose**: End-to-end test from LLM text generation to audio playback.
-**Usage**: `./venv/bin/python3 test_full_voice_pipeline.py`
-**What it verifies**:
-- LLM streaming works
-- TTS can synthesize Chinese text
-- PyAudio can play the output
+### Run All Module Tests
+```bash
+cd jarvis_v2
+./run_tests.sh
+```
+
+### Test Individual Modules
+```bash
+../venv/bin/python3 tests/test_vad_simple.py
+../venv/bin/python3 tests/test_wake_word_simple.py
+```
+
+---
 
 ## 🧩 Verified Code Patterns
 
-### PyAudio Streaming Playback
-Used in `test_full_voice_pipeline.py` to play raw PCM bytes from TTS V3:
+### PyAudio Async Wrapper (V2 Pattern)
+From `jarvis_v2/components/audio_io.py`:
 ```python
-import pyaudio
-p = pyaudio.PyAudio()
-stream = p.open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)
+audio = AudioIO()
+await audio.start()
 
-# Play chunks as they arrive from WebSocket
-async for chunk in tts.synthesize(text):
-    if isinstance(chunk, bytes):
-        stream.write(chunk)
+async for chunk in audio.read_stream():
+    volume = audio.get_volume_level(chunk)
+
+await audio.write(audio_data)
 ```
 
-### Punctuation-based Text Buffering
-Used to ensure natural pauses and stop emoji-related TTS crashes:
+### VAD with Silero (V2 Pattern)
+From `jarvis_v2/components/vad.py`:
 ```python
-buffer = ""
-for token in llm_stream:
-    buffer += token
-    if any(p in token for p in "，。！？,.!?\n"):
-        cleaned = clean_text_for_tts(buffer)
-        if cleaned:
-            await tts.synthesize(cleaned)
-        buffer = ""
+vad = VoiceActivityDetector()
+
+for chunk in audio_stream:
+    is_speech, event = vad.process_stream(chunk)
+    if event == "speech_end":
+        process_utterance()
 ```
+
+### TTS with Connection Pooling (V2 Pattern)
+From `jarvis_v2/components/tts.py`:
+```python
+tts = TTSEngine()  # Singleton
+
+async for audio_chunk in tts.synthesize("你好"):
+    await audio.write(audio_chunk)
+```
+
+---
+
+## 🎯 Migration Notes (V1 → V2)
+
+| V1 (Old) | V2 (New) |
+|----------|----------|
+| `hybrid_jarvis.py` (2682 lines) | 9 modules (~1020 lines) |
+| `query_router.py` | Simplified in `session.py` |
+| STT terminology | ASR terminology |
+| Monolithic class | State machine + components |
 
 ---
 
 ## 🎯 Future Development Roadmap
 
-1. **Clawdbot-Inspired Enhancements**:
-   - `MEMORY.md` for transparent, editable long-term memory
-   - `SOUL.md`-style persona prompts
-   - "Heartbeat" proactive mechanism
+1. **Integration Completion**:
+   - Connect ASR module to real Doubao client
+   - Full end-to-end testing
 
 2. **Hardware Optimization**:
    - Profile and optimize for Raspberry Pi 4B

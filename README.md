@@ -1,59 +1,138 @@
-# Jarvis 1.5 - AI Voice Assistant
+# Jarvis - Modular Voice AI Assistant
 
-中文 AI 语音助手，支持语音唤醒、意图识别、智能工具调用和流式语音合成。
+<div align="center">
 
-## 🚀 快速开始
+**🎤 A modern, modular voice AI assistant built with Python**
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+</div>
+
+## 🎯 Overview
+
+Jarvis is a voice AI assistant that combines:
+- **Wake word detection** ("Hey Jarvis")
+- **Voice activity detection** (knows when you're speaking)
+- **Speech recognition** (Doubao ASR)
+- **AI reasoning** (LangGraph agent with tools)
+- **Text-to-speech** (Doubao TTS with connection pooling)
+
+## 🏗️ Architecture
+
+```
+jarvis_v2/
+├── main.py              # Entry point (50 lines)
+├── config.py            # Centralized settings
+│
+├── components/          # Core components
+│   ├── audio_io.py     # PyAudio wrapper (async)
+│   ├── vad.py          # Voice Activity Detection
+│   ├── wake_word.py    # Wake word detection
+│   ├── asr.py          # Speech recognition
+│   └── tts.py          # Text-to-speech
+│
+├── agent/               # AI reasoning
+│   └── jarvis_agent.py # LangGraph agent
+│
+├── session/             # Orchestration
+│   └── session.py      # Main state machine
+│
+└── tests/               # Module tests
+    ├── test_vad_simple.py
+    └── test_wake_word_simple.py
+```
+
+## 🚀 Quick Start
 
 ```bash
-# 安装依赖
-pip install -r jarvis_assistant/requirements.txt
+# Clone
+git clone https://github.com/your-username/jarvis.git
+cd jarvis
 
-# 配置环境变量
-cp .env.example .env  # 填入 API keys
+# Install dependencies
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
-# 运行语音助手
-python3 jarvis_assistant/core/hybrid_jarvis.py
-
-# 或运行 CLI 测试
-python3 main.py
+# Run Jarvis
+cd jarvis_v2
+python main.py
 ```
 
-## 📁 项目结构
+## 📦 Modules
+
+| Module | Description | Lines | Status |
+|--------|-------------|-------|--------|
+| **AudioIO** | Async mic/speaker I/O | 250 | ✅ |
+| **VAD** | Voice activity detection | 150 | ✅ |
+| **WakeWord** | "Hey Jarvis" detection | 140 | ✅ |
+| **ASR** | Speech recognition | 80 | ✅ |
+| **TTS** | Text-to-speech | 100 | ✅ |
+| **Agent** | AI reasoning | 80 | ✅ |
+| **Session** | State machine | 220 | ✅ |
+
+**Total:** ~1,020 lines (vs 2,682 in old version)
+
+## 🧪 Testing
+
+```bash
+cd jarvis_v2
+
+# Run all tests
+./run_tests.sh
+
+# Test individual module
+../venv/bin/python3 tests/test_vad_simple.py
+```
+
+## 🔧 Configuration
+
+Edit `jarvis_v2/config.py`:
+
+```python
+@dataclass
+class JarvisConfig:
+    audio: AudioConfig        # Sample rate, channels
+    vad: VADConfig           # Speech detection threshold
+    wake_word: WakeWordConfig # Wake phrases
+    asr: ASRConfig           # Speech recognition
+    tts: TTSConfig           # Voice synthesis
+    agent: AgentConfig       # LLM settings
+    
+    user_location: str = "菏泽, 山东"
+    user_name: str = "User"
+```
+
+## 🎙️ Supported Wake Words
+
+- "Hey Jarvis"
+- "Jarvis"
+- "嘿 Jarvis"
+- "贾维斯"
+
+## 📋 State Machine
 
 ```
-jarvis/
-├── main.py                    # CLI 入口
-├── jarvis_assistant/          # 核心代码
-│   ├── core/                 # 核心组件
-│   │   ├── hybrid_jarvis.py  # 主系统 (S2S + Agent)
-│   │   ├── agent.py          # LLM Agent
-│   │   └── query_router.py   # 意图路由
-│   ├── plugins/              # 35个工具插件
-│   └── services/             # TTS/ASR 服务
-├── .agent/SKILL.md           # 开发经验文档
-└── test_full_voice_pipeline.py # E2E 测试脚本
+IDLE → (wake word) → LISTENING
+LISTENING → (silence) → PROCESSING
+PROCESSING → (response) → SPEAKING
+SPEAKING → (done) → IDLE
 ```
 
-## ⚡ 性能指标
+## 🔌 Dependencies
 
-| 指标 | 达成 |
-|------|------|
-| LLM 首字延迟 | **0.6s** |
-| 语音首字输出 | **1.2s** |
-| 端到端延迟 | **~2s** |
+- **PyAudio** - Audio I/O
+- **Torch** - Silero VAD (optional)
+- **LangGraph** - Agent orchestration
+- **Doubao API** - ASR/TTS
 
-## 🛠️ 支持功能
+## 📜 License
 
-- 🎤 **语音唤醒**: "Hey Jarvis"
-- 🧠 **智能路由**: S2S (简单) / Agent (复杂)
-- 🔧 **35个工具**: 天气、股票、智能家居、音乐
-- ⚡ **流式输出**: 边想边说，零等待
+MIT License - see [LICENSE](LICENSE)
 
-## 📝 开发指南
+## 🙏 Acknowledgments
 
-详见 [.agent/SKILL.md](.agent/SKILL.md)
-
----
-
-**版本**: 1.5 (Refined Core)  
-**更新**: 2026-01-31
+- [Pipecat](https://github.com/pipecat-ai/pipecat) - Pipeline architecture inspiration
+- [Silero VAD](https://github.com/snakers4/silero-vad) - Voice activity detection
+- [OpenWakeWord](https://github.com/dscripka/openWakeWord) - Wake word detection

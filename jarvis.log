@@ -71,3 +71,2513 @@
 🧵 [READER] Reading mic data... (len=14400)
 🧵 [READER] Reading mic data... (len=14400)
 🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.26)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 9e2f68c1-0657-4644-af01-c431a7e8da62
+🔄 Rotating Session ID: 9e2f68c1... -> feb4d23e...
+⚙️ Session ID: feb4d23e-f770-4da7-990d-46272c8a82fa | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.34)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: feb4d23e-f770-4da7-990d-46272c8a82fa
+🔄 Rotating Session ID: feb4d23e... -> 1bd4906c...
+⚙️ Session ID: 1bd4906c-c44b-456d-b350-732ce19c7e0c | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.31)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 1bd4906c-c44b-456d-b350-732ce19c7e0c
+🔄 Rotating Session ID: 1bd4906c... -> fe9268c0...
+⚙️ Session ID: fe9268c0-1ccf-475c-b324-c9012bcfc8a7 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+
+🎤 Wake Word Detected! (Score: 0.35)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: fe9268c0-1ccf-475c-b324-c9012bcfc8a7
+🔄 Rotating Session ID: fe9268c0... -> ce0464c8...
+⚙️ Session ID: ce0464c8-d129-49f7-a9fb-ab622e7f7142 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.31)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: ce0464c8-d129-49f7-a9fb-ab622e7f7142
+🔄 Rotating Session ID: ce0464c8... -> d1327c4d...
+⚙️ Session ID: d1327c4d-70ee-48bb-9f34-99786d4ae0ea | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.26)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: d1327c4d-70ee-48bb-9f34-99786d4ae0ea
+🔄 Rotating Session ID: d1327c4d... -> 6a7a20e2...
+⚙️ Session ID: 6a7a20e2-f564-4aaa-a93a-0bf2b4f5fc1d | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.39)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 6a7a20e2-f564-4aaa-a93a-0bf2b4f5fc1d
+🔄 Rotating Session ID: 6a7a20e2... -> a0e41b7a...
+⚙️ Session ID: a0e41b7a-4d59-4a24-9276-b37feecdf46d | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.27)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🧵 [READER] Reading mic data... (len=14400)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: a0e41b7a-4d59-4a24-9276-b37feecdf46d
+🔄 Rotating Session ID: a0e41b7a... -> f59e92bf...
+⚙️ Session ID: f59e92bf-b2db-4d3a-9842-e466b5e93969 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.42)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: f59e92bf-b2db-4d3a-9842-e466b5e93969
+🔄 Rotating Session ID: f59e92bf... -> a704c1b5...
+⚙️ Session ID: a704c1b5-df09-45a2-b46e-a29367232258 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.35)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: a704c1b5-df09-45a2-b46e-a29367232258
+🔄 Rotating Session ID: a704c1b5... -> 0764ea5f...
+⚙️ Session ID: 0764ea5f-f5b4-47ac-beb9-ff3931d32fa6 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.46)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 0764ea5f-f5b4-47ac-beb9-ff3931d32fa6
+🔄 Rotating Session ID: 0764ea5f... -> eb6fb1aa...
+⚙️ Session ID: eb6fb1aa-a2e2-4be5-a739-7e8f7add086b | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+
+[👂 ASR PARTIAL] 千万
+
+[👂 ASR PARTIAL] 千万不要
+
+[👂 ASR PARTIAL] 千万不要
+
+[👂 ASR PARTIAL] 千万不要
+
+[👂 ASR PARTIAL] 千万不要因为
+
+[👂 ASR PARTIAL] 千万不要用玉米
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.28)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: eb6fb1aa-a2e2-4be5-a739-7e8f7add086b
+🔄 Rotating Session ID: eb6fb1aa... -> 1cb142f9...
+⚙️ Session ID: 1cb142f9-ab8d-4bfd-bff7-8eb790198825 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.40)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 1cb142f9-ab8d-4bfd-bff7-8eb790198825
+🧵 [READER] Reading mic data... (len=14400)
+🔄 Rotating Session ID: 1cb142f9... -> a454bdfe...
+⚙️ Session ID: a454bdfe-5e8c-45b1-adf2-ab39883b952f | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.93)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: a454bdfe-5e8c-45b1-adf2-ab39883b952f
+🔄 Rotating Session ID: a454bdfe... -> a6acd7dc...
+⚙️ Session ID: a6acd7dc-7c33-4085-9b61-ee8f3a7bb1ba | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.33)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: a6acd7dc-7c33-4085-9b61-ee8f3a7bb1ba
+🔄 Rotating Session ID: a6acd7dc... -> 6f6783c0...
+⚙️ Session ID: 6f6783c0-010e-415e-8596-3466eaaa080c | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+
+🎤 Wake Word Detected! (Score: 0.27)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 6f6783c0-010e-415e-8596-3466eaaa080c
+🔄 Rotating Session ID: 6f6783c0... -> 7bb41446...
+⚙️ Session ID: 7bb41446-00dd-407c-8819-b36ebca0450b | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.28)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 7bb41446-00dd-407c-8819-b36ebca0450b
+🔄 Rotating Session ID: 7bb41446... -> 69e52c46...
+⚙️ Session ID: 69e52c46-1f20-4823-85ac-67a73239cb48 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.45)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 69e52c46-1f20-4823-85ac-67a73239cb48
+🔄 Rotating Session ID: 69e52c46... -> 0f2209d7...
+⚙️ Session ID: 0f2209d7-72e3-4d43-8688-2eb987f759df | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.30)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 0f2209d7-72e3-4d43-8688-2eb987f759df
+🔄 Rotating Session ID: 0f2209d7... -> b1ebb676...
+⚙️ Session ID: b1ebb676-00fb-42ce-8e3e-560f558b6d8c | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.32)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: b1ebb676-00fb-42ce-8e3e-560f558b6d8c
+🔄 Rotating Session ID: b1ebb676... -> 82b0749a...
+⚙️ Session ID: 82b0749a-3898-4546-8dd9-7d7f40799229 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.27)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🧵 [READER] Reading mic data... (len=14400)
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 82b0749a-3898-4546-8dd9-7d7f40799229
+🔄 Rotating Session ID: 82b0749a... -> b4d95dfa...
+⚙️ Session ID: b4d95dfa-b3d6-40b3-93f4-ce19a1c93191 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+
+🎤 Wake Word Detected! (Score: 0.36)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: b4d95dfa-b3d6-40b3-93f4-ce19a1c93191
+🔄 Rotating Session ID: b4d95dfa... -> 4448a0f8...
+⚙️ Session ID: 4448a0f8-84c3-4d6b-923c-7a32eb529714 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.27)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 4448a0f8-84c3-4d6b-923c-7a32eb529714
+🔄 Rotating Session ID: 4448a0f8... -> 05335d31...
+⚙️ Session ID: 05335d31-101e-4a9f-95f9-a5f20bb640b9 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.46)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 05335d31-101e-4a9f-95f9-a5f20bb640b9
+🔄 Rotating Session ID: 05335d31... -> 753c654e...
+⚙️ Session ID: 753c654e-7383-424b-b6e3-6990879fe6bc | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.30)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🧵 [READER] Reading mic data... (len=14400)
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 753c654e-7383-424b-b6e3-6990879fe6bc
+🔄 Rotating Session ID: 753c654e... -> b005eeb6...
+⚙️ Session ID: b005eeb6-b5e6-4fe5-9634-fb8076b78bd9 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+⚡ Proactive Trigger in HybridJarvis: System Trigger: 看到先生一直在忙，主动打个招呼并播报一下当前菏泽天气情况
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: proactive_trigger
+🔇 Ducking volume: 31% -> 16%
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+🧵 [READER] Reading mic data... (len=14400)
+🗣️ Speaking Trigger Response: 抱歉，我没有找到 看到先生一直在忙，主动打个招呼并播报一下当前菏泽 的位置。
+
+[☁️ S2S TEXT] 抱歉
+
+[☁️ S2S TEXT] ，
+
+[☁️ S2S TEXT] 我
+
+[☁️ S2S TEXT] 没有
+
+[☁️ S2S TEXT] 找到
+
+[☁️ S2S TEXT]  
+[AUDIO] 🔊 Playing... (Chunk: 10)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+⚡ Proactive Trigger in HybridJarvis: System Trigger: 主动播报一条今天最重要的科技新闻摘要
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: proactive_trigger
+🔇 Ducking volume: 31% -> 16%
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_news
+🗣️ Speaking Trigger Response: 没问题，为您精选了几条最新的world新闻（来自 feeds.bbci.co.uk）：
+1. 「代孕」引爆台灣社會爭論：誰的渴望，誰的風險？。
+2. 特朗普提名的美聯儲新主席沃什能否如他所願帶來改變。
+3. 分析：以色列意在推動伊朗政權更替，並寄望於特朗普。
+
+您对哪条感兴趣吗？
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.28)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: b005eeb6-b5e6-4fe5-9634-fb8076b78bd9
+🔄 Rotating Session ID: b005eeb6... -> 9a09089e...
+⚙️ Session ID: 9a09089e-4856-4228-86a2-cf5a8e66d068 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+⚡ Proactive Trigger in HybridJarvis: System Trigger: 看到先生一直在忙，主动打个招呼并播报一下当前菏泽天气情况
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: proactive_trigger
+🔇 Ducking volume: 31% -> 16%
+📋 Plan created: 1 steps
+🔄 Step 1/1: Execute get_weather
+🗣️ Speaking Trigger Response: 抱歉，我没有找到 看到先生一直在忙，主动打个招呼并播报一下当前菏泽 的位置。
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.47)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 9a09089e-4856-4228-86a2-cf5a8e66d068
+🔄 Rotating Session ID: 9a09089e... -> 121ddfe9...
+⚙️ Session ID: 121ddfe9-ec0b-4274-baa4-f04c0051428c | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.27)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 121ddfe9-ec0b-4274-baa4-f04c0051428c
+🔄 Rotating Session ID: 121ddfe9... -> e84ba23b...
+⚙️ Session ID: e84ba23b-69a8-46c2-ac3b-ba94db46f4cd | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.41)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: e84ba23b-69a8-46c2-ac3b-ba94db46f4cd
+🔄 Rotating Session ID: e84ba23b... -> 938ab7d7...
+⚙️ Session ID: 938ab7d7-695d-4d4e-b5c2-ffdf455e91c3 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.48)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 938ab7d7-695d-4d4e-b5c2-ffdf455e91c3
+🔄 Rotating Session ID: 938ab7d7... -> 196e844c...
+⚙️ Session ID: 196e844c-5d1f-4c8f-94a0-382c6c955427 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.27)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 196e844c-5d1f-4c8f-94a0-382c6c955427
+🔄 Rotating Session ID: 196e844c... -> 97daab24...
+⚙️ Session ID: 97daab24-791e-4656-8606-1569972401f4 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.35)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 97daab24-791e-4656-8606-1569972401f4
+🧵 [READER] Reading mic data... (len=14400)
+🔄 Rotating Session ID: 97daab24... -> 267d3e13...
+⚙️ Session ID: 267d3e13-a463-408c-aa8c-a08366f8c222 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.27)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 267d3e13-a463-408c-aa8c-a08366f8c222
+🔄 Rotating Session ID: 267d3e13... -> b5ade653...
+⚙️ Session ID: b5ade653-fa17-4647-b0a6-4072371a2101 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.26)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: b5ade653-fa17-4647-b0a6-4072371a2101
+🔄 Rotating Session ID: b5ade653... -> c6ea129d...
+⚙️ Session ID: c6ea129d-90e1-4e93-afc7-818762843098 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.30)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: c6ea129d-90e1-4e93-afc7-818762843098
+🔄 Rotating Session ID: c6ea129d... -> 931e4a91...
+⚙️ Session ID: 931e4a91-298b-4cf1-ab6f-64e9f8ea8ff3 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+
+🎤 Wake Word Detected! (Score: 0.37)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 931e4a91-298b-4cf1-ab6f-64e9f8ea8ff3
+🔄 Rotating Session ID: 931e4a91... -> cab036f8...
+⚙️ Session ID: cab036f8-f978-4bf7-b680-94ab2af9b62f | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.47)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: cab036f8-f978-4bf7-b680-94ab2af9b62f
+🔄 Rotating Session ID: cab036f8... -> 354c87f9...
+⚙️ Session ID: 354c87f9-50ea-4824-aaa4-ac9e43ad36ff | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.47)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 354c87f9-50ea-4824-aaa4-ac9e43ad36ff
+🔄 Rotating Session ID: 354c87f9... -> 254a4372...
+⚙️ Session ID: 254a4372-5bb0-4d89-91a7-857f05b87148 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.44)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 254a4372-5bb0-4d89-91a7-857f05b87148
+🔄 Rotating Session ID: 254a4372... -> cff137df...
+⚙️ Session ID: cff137df-d430-41f7-b11a-b9dd9929fc92 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.30)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: cff137df-d430-41f7-b11a-b9dd9929fc92
+🔄 Rotating Session ID: cff137df... -> b4c62454...
+⚙️ Session ID: b4c62454-0d5e-4833-acef-b774dafa8ab0 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.28)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: b4c62454-0d5e-4833-acef-b774dafa8ab0
+🔄 Rotating Session ID: b4c62454... -> a80f9492...
+⚙️ Session ID: a80f9492-5111-454c-8f9d-03cd657fe73e | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.25)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: a80f9492-5111-454c-8f9d-03cd657fe73e
+🔄 Rotating Session ID: a80f9492... -> 0212a845...
+⚙️ Session ID: 0212a845-c68e-44f5-9a75-93f180410d36 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.40)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 0212a845-c68e-44f5-9a75-93f180410d36
+🔄 Rotating Session ID: 0212a845... -> 76c72aac...
+⚙️ Session ID: 76c72aac-0240-433e-8552-7250c29311e0 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.29)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 76c72aac-0240-433e-8552-7250c29311e0
+🔄 Rotating Session ID: 76c72aac... -> ddc166ec...
+⚙️ Session ID: ddc166ec-77bd-483a-89d9-a5c99478f20b | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.32)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: ddc166ec-77bd-483a-89d9-a5c99478f20b
+🔄 Rotating Session ID: ddc166ec... -> 16f9a8be...
+⚙️ Session ID: 16f9a8be-a466-4c3e-b8e1-84d6c338995f | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+
+🎤 Wake Word Detected! (Score: 0.28)
+🔊 Playing Wake Sound: wake_scifi.wav (0.12s)
+🔇 Ducking volume: 31% -> 16%
+🔊 Music stopped & Volume ducked - Jarvis is ready.
+🏁 Ending Session: 16f9a8be-a466-4c3e-b8e1-84d6c338995f
+🔄 Rotating Session ID: 16f9a8be... -> d6dd187a...
+⚙️ Session ID: d6dd187a-2167-4e30-9f27-37065c073ee3 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+✨ Cloud Hot Reset Complete
+[AEC] Reset complete
+
+🎤 Local Wake: 'JARVIS' detected! Sound length: 0.12s
+
+[STATE] 🟢 STANDBY -> ACTIVE | Reason: wake_word
+🧵 [READER] Reading mic data... (len=14400)
+
+[STATE] 🔴 ACTIVE -> STANDBY | Reason: timeout
+🔊 Restoring volume: 31%
+🧵 [READER] Reading mic data... (len=14400)
