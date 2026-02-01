@@ -36,6 +36,11 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         Called for both ASR and Keyboard text. 
         Routes to S2S (simple) or Agent (complex) based on query classification.
         """
+        # [DEBUG] Print user input
+        print(f"\n{'='*60}")
+        print(f"👤 [USER INPUT] {text}")
+        print(f"{'='*60}\n", flush=True)
+        
         # 1. Echo/Shadow check
         if getattr(self, "_last_input_source", "") == "keyboard" and text.strip() == getattr(self, "_last_user_text", "").strip():
             self._last_input_source = "" 
@@ -249,9 +254,10 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         self.tts_v1 = self.tts_singleton.client
         
         print("🔌 HybridJarvis: TTS Singleton initialized (connection pooling enabled)")
+        
+        # Note: Connection will be established on first use via _ensure_connected()
+        # No need to pre-warm here (would fail without running event loop)
 
-        # [LATENCY FIX] Warm up connection proactively
-        asyncio.create_task(self.tts_v1.connect())
         
         # [NEW] Query Router for intelligent S2S vs Agent routing
         from jarvis_assistant.core.query_router import QueryRouter
@@ -2209,6 +2215,9 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         Streaming TTS handler: buffers text and sends to TTS on punctuation.
         [OPTIMIZED] with connection pooling.
         """
+        # [DEBUG] Print incoming text chunks
+        print(f"📥 [TTS INPUT] Received chunk: '{text_chunk}' (final={is_final})", flush=True)
+        
         if not hasattr(self, "_tts_stream_buffer"):
             self._tts_stream_buffer = ""
             
@@ -2233,16 +2242,30 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 # Clean text
                 cleaned = clean_text_for_tts(text_to_speak)
                 if cleaned:
-                    print(f"🔈 Stream TTS: {cleaned}")
+                    # [DEBUG] Print what's being sent to TTS
+                    print(f"🔈 [TTS OUTPUT] Synthesizing: '{cleaned}'", flush=True)
+                    
                     try:
                         # [OPTIMIZATION] Ensure connection is reused (connection pooling)
+                        # [DEBUG] Print connection status
+                        was_connected = not self.tts_singleton.client._is_closed()
+                        print(f"🔌 [TTS POOL] Connection status before: {'OPEN ✅' if was_connected else 'CLOSED ⚠️'}", flush=True)
+                        
                         await self.tts_singleton._ensure_connected()
                         
+                        is_connected_now = not self.tts_singleton.client._is_closed()
+                        print(f"🔌 [TTS POOL] Connection status after: {'REUSED ✅' if was_connected and is_connected_now else 'NEW 🆕'}", flush=True)
+                        
                         # Synthesize using singleton's client (reuses WebSocket)
+                        chunk_count = 0
                         async for chunk in self.tts_v1.synthesize(cleaned):
+                            chunk_count += 1
                             self.speaker_queue.put_nowait(("agent", chunk))
+                        
+                        print(f"🎵 [TTS COMPLETE] Sent {chunk_count} audio chunks to speaker queue", flush=True)
+                        
                     except Exception as e:
-                        print(f"⚠️ Stream TTS failed: {e}")
+                        print(f"❌ [TTS ERROR] Stream TTS failed: {e}", flush=True)
 
     async def _speak_local(self, text: str):
     # [FIX] Re-enable local fallback as per user request to ensure audio output
@@ -2594,6 +2617,12 @@ class HybridJarvis(DoubaoRealtimeJarvis):
         if getattr(self, "skip_cloud_response", False):
             if hasattr(self, "_voice_asr_buffer") and self._voice_asr_buffer:
                 buffer_text = self._voice_asr_buffer.strip()
+                
+                # [FIX] Prevent double-triggering if router is already busy
+                if self.router.is_processing:
+                    print(f"[HANDOFF] ⚠️ Skipping S2S handoff - Router is already busy with: {buffer_text}")
+                    return
+
                 print(f"[HANDOFF] 🔄 Turn done with S2S suppressed. Triggering Agent with: {buffer_text}")
                 
                 # [FIX] Force clear any S2S audio that might have snuck in before suppression
@@ -2601,10 +2630,6 @@ class HybridJarvis(DoubaoRealtimeJarvis):
                 
                 # [FIX] Extend active timeout to give Agent time to process (30 seconds)
                 self.active_until = time.time() + 30
-                
-                # [FIX] Do NOT reset skip_cloud_response here!
-                # The router._handle_agent_path will reset it when done.
-                # self.skip_cloud_response = False  # <-- REMOVED - causes race condition
                 
                 # Execute Agent Logic
                 asyncio.create_task(self.on_text_received(buffer_text))

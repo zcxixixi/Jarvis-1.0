@@ -1,0 +1,73 @@
+🚀 [TOP-LEVEL] Hybrid Jarvis script starting...
+🚀 [TOP-LEVEL] Imports complete
+/Users/kaijimima1234/Desktop/jarvis/jarvis_assistant/core/hybrid_jarvis.py:25: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+  import audioop # For high-quality resampling ratecv
+🎸 Playing boot sequence: open_voice.mp4
+🚀 [STARTUP] Boot sound triggered, waiting 2s for audio device to stabilize...
+🚀 [STARTUP] Initializing HybridJarvis instance...
+🔧 HybridJarvis: Initializing...
+🔧 HybridJarvis: Base class initialized
+🤖 Initializing Jarvis Agent...
+📚 Memory loaded: 1000 convs, 4 profile items
+🔌 Loading all plugins...
+📦 Discovered 16 plugin modules
+  ✅ weather_tools: loaded 2 tools
+  ✅ web_tools: loaded 3 tools
+  ✅ info_tools: loaded 2 tools
+  ✅ system_tools: loaded 3 tools
+  ✅ migu_tools: loaded 1 tools
+  ✅ file_tools: loaded 3 tools
+  ✅ mi_home_tools: loaded 2 tools
+  ✅ time_tools: loaded 1 tools
+  ✅ scheduler_tools: loaded 3 tools
+  ✅ smart_home_tools: loaded 3 tools
+  ✅ netease_tools: loaded 1 tools
+  ✅ music_tools: loaded 1 tools
+  ✅ user_tools: loaded 4 tools
+  ✅ calculator_tools: loaded 2 tools
+  ✅ email_tools: loaded 2 tools
+  ✅ calendar_tools: loaded 2 tools
+✅ Loaded 35 total tools
+🔧 Loaded 35 tools via plugin manager
+⏰ Scheduler loaded 0 tasks
+🧠 HybridJarvis: Cognitive Brain Connected (Singleton)
+⏰ HybridJarvis: Proactive Scheduler Linked
+🎙️ OpenWakeWord initialized strictly with: hey_jarvis_v0.1.onnx
+🔧 HybridJarvis: Loading AEC...
+[AEC] ✅ Initialized: frame_size=160, filter_length=1024, sample_rate=16000
+[AEC] Bluetooth/System delay compensation: 200ms (Buffered 3200 silence samples)
+🔧 HybridJarvis: AEC Loaded
+🔌 HybridJarvis: TTS Singleton initialized (connection pooling enabled)
+🔀 HybridJarvis: Query Router initialized
+🚀 [STARTUP] HybridJarvis instance created
+
+🚀 Starting Jarvis (Auto-Reconnect Mode)...
+🚀 Calling jarvis.connect()...
+🤖 Connecting to Doubao...
+✅ Connected! LogID: N/A
+✅ Connected!
+   StartConnection OK
+⚙️ Session ID: 9e2f68c1-0657-4644-af01-c431a7e8da62 | Config: {"asr": {"format": "pcm_s16le", "language": "zh-CN", "need_check_punctuation": true, "need_text": tr...
+   StartSession Response: {'message_type': '9', 'event': 150, 'session_id': '9e2f68c1-0657-4644-af01-c431a7e8da62', 'payload_msg': b'{"dialog_id":"022ddb49-bc1b-40c0-ab0a-981d99fcb18a"}', 'payload_size': 52}
+[TTS 2.0] ✅ Expressive Link Active
+🎙️ Jarvis: Opening Mic (Default Device) at 48000Hz...
+✅ Jarvis: Mic opened successfully with 1 channel(s).
+🎙️ Jarvis: Opening Speaker (Default Device) at 48000Hz (Stereo)...
+✅ Jarvis: Speaker opened successfully.
+🧵 [THREAD] Speaker Worker starting...
+🎙️ Jarvis is alive. Speak or Type!
+🔈 Bidirectional TTS Player Worker started.
+🔍 Proactive Observer loop started.
+📥 Receive loop started.
+🎙️ Jarvis initialized in STANDBY mode.
+🧵 [THREAD] Mic Reader Thread starting...
+✅ Audio Reader Thread Started (Zero-Latency Mode)
+⌨️  Stdin is not a TTY. Keyboard monitoring disabled.
+🔍 Music process monitor started.
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)
+🧵 [READER] Reading mic data... (len=14400)

@@ -9,8 +9,8 @@ import os
 import time
 from typing import Optional, List
 from .intent_classifier import IntentClassifier  # Keep as fallback
-from .semantic_intent_classifier import get_semantic_classifier, SemanticIntentClassifier
-from .context_resolver import get_context_resolver
+# from .semantic_intent_classifier import get_semantic_classifier, SemanticIntentClassifier  # [FIXME] Module deleted
+# from .context_resolver import get_context_resolver  # [FIXME] Module deleted
 
 logger = logging.getLogger(__name__)
 
@@ -47,6 +47,13 @@ class QueryRouter:
         self.current_path: Optional[str] = None  # "s2s" or "agent"
         self._agent_lock = asyncio.Lock()  # 防止并发 Agent 调用
         
+        
+        # [FIX] Concurrency control
+        self._processing_lock = asyncio.Lock()
+        self.is_processing = False
+        self._last_processed_text = ""
+        self._last_processed_time = 0
+        
         logger.info(f"✅ QueryRouter initialized (semantic={'enabled' if self._use_semantic else 'disabled'}, lazy loading)")
     
     @property
@@ -82,71 +89,51 @@ class QueryRouter:
         return self._context_resolver
     
     async def route(self, transcription: str):
-        """
-        路由查询到合适的处理路径
-        Now with context resolution, multi-intent detection, and performance monitoring!
+        """路由查询到合适的处理路径"""
+        if not transcription or not transcription.strip():
+            return
         
-        Args:
-            transcription: ASR 转录文本
-        """
-        start_time = time.time()
-        print(f"🚦 [ROUTER] route() called with: {transcription}")
+        # Deduplication
+        import time
+        now = time.time()
+        if transcription == self._last_processed_text and (now - self._last_processed_time) < 2.0:
+            logger.info(f"🛑 [ROUTER] Ignoring duplicate: {transcription}")
+            return
         
-        # Step 1: Resolve context (pronouns, references)
-        t1 = time.time()
-        resolved_text = transcription
-        if self.context_resolver:
-            resolved_text = self.context_resolver.resolve(transcription)
-            if resolved_text != transcription:
-                print(f"🔄 [ROUTER] Context resolved: {transcription} → {resolved_text}")
-                logger.info(f"🔄 Context resolved: {transcription} → {resolved_text}")
-        context_time = (time.time() - t1) * 1000
+        # Concurrency lock
+        if self.is_processing:
+            logger.warning(f"🛑 [ROUTER] Busy! Dropping: {transcription}")
+            return
         
-        # Step 2: Classify intent
-        t2 = time.time()
-        intent = self.classifier.classify(resolved_text)
-        classify_time = (time.time() - t2) * 1000
-        print(f"🚦 [ROUTER] Intent classified as: {intent}")
-        
-        # Step 3: Detect multiple intents (if using semantic classifier)
-        intents = []
-        if hasattr(self.classifier, 'detect_intents'):
-            intents = self.classifier.detect_intents(resolved_text)
-            if len(intents) > 1:
-                print(f"🎯 [ROUTER] Multi-intent detected: {intents}")
-                logger.info(f"🎯 Multi-intent query: {intents}")
-        
-        # Performance monitoring
-        total_time = (time.time() - start_time) * 1000
-        logger.info(f"⏱️ [PERF] Context: {context_time:.0f}ms, Classify: {classify_time:.0f}ms, Total: {total_time:.0f}ms")
-        
-        if total_time > 200:
-            logger.warning(f"⚠️ [PERF] Slow routing: {total_time:.0f}ms")
-        
-        if total_time > 200:
-            logger.warning(f"⚠️ [PERF] Slow routing: {total_time:.0f}ms")
-        
-        # Step 4: Route based on intent
-        # 🔥 UNIFIED ARCHITECTURE REFACTOR (Phase 7)
-        # Force ALL traffic to Agent. Deprecated S2S path.
-        
-        # 复杂查询：拦截 S2S，启动 Agent
-        self.current_path = "agent"
-        print(f"➔ [ROUTER] '{resolved_text}' → AGENT (Unified Path)")
-        logger.info(f"🔀 [ROUTER] '{resolved_text}' → AGENT (Unified Path)")
-        
-        # Speak transitional phrase for better UX (only if complexity detected, otherwise silent)
-        # For unified path, we might want to skip transitions for simple "hello" to be faster
-        if intents and "conversation" not in intents:
-             await self._speak_transition(intents[0])
-        
-        # 异步处理 Agent 路径
-        asyncio.create_task(self._handle_agent_path(resolved_text, intents))
-        
-        # Step 5: Update context for next query
-        if self.context_resolver:
-            self.context_resolver.update_context(resolved_text, "agent")
+        async with self._processing_lock:
+            try:
+                self.is_processing = True
+                self._last_processed_text = transcription
+                self._last_processed_time = now
+                
+                print(f"\n🚦 [ROUTER] route() called with: {transcription}")
+                
+                # Classify intent
+                intent = self.classifier.classify(transcription)
+                print(f"🚦 [ROUTER] Intent classified as: {intent}")
+                
+                # Route to Agent (unified architecture)
+                print(f"➔ [ROUTER] '{transcription}' → AGENT (Unified Path)")
+                self.current_path = "agent"
+                
+                # Get intents list if available
+                intents = []
+                if hasattr(self.classifier, 'detect_intents'):
+                    intents = self.classifier.detect_intents(transcription)
+                
+                await self._handle_agent_path(transcription, intents)
+                    
+            except Exception as e:
+                logger.error(f"❌ [ROUTER] Error: {e}", exc_info=True)
+            finally:
+                self.is_processing = False
     
+
     async def _speak_transition(self, intent: str):
         """
         Speak transitional phrase for better UX during long operations.

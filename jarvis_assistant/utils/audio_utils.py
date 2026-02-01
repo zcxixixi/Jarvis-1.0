@@ -160,16 +160,21 @@ def play_wake_sound():
 
 def play_boot_sound():
     """Play the custom boot sound"""
-    # [FIX] 修正路径，文件实际在 jarvis_assistant/voice/
+    # [FIX] Correct path: sound/open_voice.mp4
     import os
     from jarvis_assistant.utils.audio_utils import BASE_DIR
     # BASE_DIR is jarvis_assistant/utils
-    # We want jarvis_assistant/voice
-    boot_file = os.path.join(os.path.dirname(BASE_DIR), "voice", "open_voice.mp4")
+    # We want jarvis_assistant/sound
+    boot_file = os.path.join(os.path.dirname(BASE_DIR), "sound", "open_voice.mp4")
     
     if not os.path.exists(boot_file):
         print(f"⚠️ Boot sound not found: {boot_file}")
-        return
+        # Try finding it in voice/ as fallback
+        fallback = os.path.join(os.path.dirname(BASE_DIR), "voice", "open_voice.mp4")
+        if os.path.exists(fallback):
+            boot_file = fallback
+        else:
+            return
         
     print(f"🎸 Playing boot sequence: {os.path.basename(boot_file)}")
     try:
